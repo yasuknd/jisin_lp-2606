@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { LINKS } from '../../constants/links.js';
+import logoPremium from '../../assets/images/brand/logo-premium.png';
 import heroCoverMain from '../../assets/images/hero/hero-cover-main.jpg';
 import heroCoverAccent from '../../assets/images/hero/hero-cover-accent.jpg';
 import heroCoverSub from '../../assets/images/hero/hero-cover-sub.jpg';
@@ -236,9 +237,14 @@ function Hero() {
                       <p className="hero__lead">雑誌定期購読 ＋ デジタルサービス ＋ 各種特典付き</p>
                     </div>
                     <h1 id="hero-title" className="hero__title">
-                      女性自身
-                      <br />
-                      プレミアム
+                      <img
+                        className="hero__titleLogo"
+                        src={logoPremium}
+                        alt="女性自身 プレミアム"
+                        width={447}
+                        height={195}
+                        decoding="async"
+                      />
                     </h1>
                   </div>
                 </div>
