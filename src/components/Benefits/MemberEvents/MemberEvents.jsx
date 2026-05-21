@@ -25,6 +25,11 @@ function MemberEvents({ label }) {
               loading="lazy"
               decoding="async"
             />
+            <figcaption className="memberEvents__caption">
+              女性自身報道写真展
+              <br />
+              天皇ご一家『戦後80年の祈り』
+            </figcaption>
           </figure>
           <div className="memberEvents__content">
             <ul className="memberEvents__list">

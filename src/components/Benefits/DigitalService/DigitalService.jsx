@@ -64,7 +64,7 @@ function DigitalService({ label }) {
         <header className="digitalService__intro">
           <p className="benefits__blockLabel">{label}</p>
           <h3 className="digitalService__title">デジタルサービス『女性自身Premium』</h3>
-          <p className="digitalService__description">たくさんのコンテンツがスマホでも読める！</p>
+          <p className="digitalService__description">たくさんのコンテンツがスマホでも楽しめる！</p>
         </header>
 
         <ul className="digitalService__features">

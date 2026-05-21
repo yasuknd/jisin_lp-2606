@@ -84,6 +84,7 @@
 }
 
 .memberEvents__visual {
+  position: relative;
   width: 100%;
   margin: 0;
   overflow: hidden;
@@ -96,6 +97,22 @@
     height: auto;
     object-fit: contain;
   }
+}
+
+.memberEvents__caption {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 1;
+  box-sizing: border-box;
+  max-width: calc(100% - var(--space-sm) * 2);
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-lp-black);
+  background: rgb(255 255 255 / 0.8);
 }
 
 @include mixins.media-pc {
