@@ -1,0 +1,123 @@
+.previewGate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-lg) 5vw;
+  background: linear-gradient(
+    135deg,
+    var(--color-lp-white) 0%,
+    hsl(330deg 45% 96%) 100%
+  );
+}
+
+.previewGate__panel {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--color-lp-white);
+  border: 1px solid rgb(0 0 0 / 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgb(196 58 110 / 0.12);
+}
+
+.previewGate__label {
+  display: inline-block;
+  margin: 0 0 var(--space-sm);
+  padding: 4px 10px;
+  font-size: var(--text-caption);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-lp-white);
+  letter-spacing: 0.12em;
+  background: var(--color-lp-black);
+}
+
+.previewGate__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-lp-black);
+}
+
+.previewGate__description {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  color: var(--color-lp-black);
+}
+
+.previewGate__form {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.previewGate__field {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.previewGate__fieldLabel {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--color-lp-black);
+}
+
+.previewGate__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: var(--text-body);
+  line-height: 1.4;
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+  border: 1px solid rgb(0 0 0 / 0.16);
+  border-radius: var(--radius-sm);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-lp-pink);
+    outline-offset: 2px;
+  }
+}
+
+.previewGate__error {
+  margin: 0;
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  color: #b42318;
+}
+
+.previewGate__submit {
+  min-height: 44px;
+  padding: 12px 16px;
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-lp-white);
+  cursor: pointer;
+  background: var(--color-lp-pink);
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.88;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-lp-pink-deep);
+    outline-offset: 2px;
+  }
+}
+
+.previewGate__note {
+  margin: var(--space-md) 0 0;
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  color: rgb(0 0 0 / 0.56);
+}

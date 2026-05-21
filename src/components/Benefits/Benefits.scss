@@ -1,0 +1,146 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.benefits {
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  background: var(--color-lp-white);
+}
+
+.benefits__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  padding: var(--section-pad-y-tight) 0 0;
+}
+
+.benefits__header {
+  max-width: var(--content-wide);
+  margin-inline: auto;
+  padding-inline: 20px;
+  padding-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.benefits__title {
+  font-family: var(--font-base);
+  font-size: var(--text-section);
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--color-lp-black);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.benefits__body {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-md);
+}
+
+.benefits__block {
+  position: relative;
+  padding: var(--space-lg) var(--space-md);
+  color: var(--color-lp-black);
+  isolation: isolate;
+}
+
+.benefits__body > .benefits__block:nth-child(1) {
+  z-index: 1;
+
+  @include mixins.lp-pink-wave-top;
+}
+
+.benefits__body > .benefits__block:nth-child(2) {
+  z-index: 2;
+
+  @include mixins.lp-white-wave-top;
+}
+
+.benefits__body > .benefits__block:nth-child(3) {
+  z-index: 3;
+
+  @include mixins.lp-pink-wave-top;
+}
+
+.benefits__body > .benefits__block:nth-child(4) {
+  z-index: 4;
+
+  @include mixins.lp-white-wave-top;
+}
+
+.benefits__body > .benefits__block:nth-child(5) {
+  z-index: 5;
+
+  @include mixins.lp-pink-wave-top;
+}
+
+.benefits__body > .benefits__block > * {
+  position: relative;
+  z-index: 2;
+}
+
+.benefits__block:first-child,
+.benefits__block:nth-child(2),
+.benefits__block:nth-child(3),
+.benefits__block:nth-child(4),
+.benefits__block:nth-child(5) {
+  max-width: none;
+  padding: 0;
+}
+
+.benefits__block:not(:first-child):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(5)) {
+  max-width: var(--content-wide);
+  margin-inline: auto;
+}
+
+.benefits__block + .benefits__block {
+  margin-top: 0;
+}
+
+.benefits__blockLabel {
+  display: block;
+  width: fit-content;
+  margin: 0 0 var(--space-md);
+  padding: 6px 14px;
+  font-family: var(--font-base);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-lp-white);
+  letter-spacing: 0.08em;
+  background: var(--color-lp-black);
+}
+
+.benefits h3 {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  border-bottom: 1px solid var(--color-lp-white);
+  padding-bottom: 0.15em;
+}
+
+.benefits h4 {
+  font-size: var(--text-lead);
+}
+
+@include mixins.media-pc {
+  .benefits__title {
+    font-size: 48px;
+  }
+
+  .benefits__block {
+    padding: var(--space-xl);
+  }
+
+  .benefits__block:first-child,
+  .benefits__block:nth-child(2),
+  .benefits__block:nth-child(3),
+  .benefits__block:nth-child(4),
+  .benefits__block:nth-child(5) {
+    padding: 0;
+  }
+}

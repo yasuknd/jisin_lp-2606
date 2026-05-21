@@ -1,0 +1,135 @@
+@use '../../../styles/mixins.scss' as mixins;
+
+.pointRewards {
+  width: 100%;
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+}
+
+.pointRewards__shell {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.pointRewards__intro {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1120px + 10vw);
+  margin-inline: auto;
+  padding: var(--space-lg) 5vw 0;
+  text-align: left;
+}
+
+.pointRewards .pointRewards__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-lp-black);
+  border-bottom-color: var(--color-lp-black);
+}
+
+.pointRewards__description {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--line-height-body);
+  color: inherit;
+  opacity: 0.88;
+  font-weight: 600;
+}
+
+.pointRewards__content {
+  box-sizing: border-box;
+  width: 100%;
+  margin: var(--space-xl) 0 0;
+  padding: 0;
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+}
+
+.pointRewards__list {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1120px + 10vw);
+  margin-inline: auto;
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-xl) 5vw;
+  list-style: none;
+  border: 5px solid var(--color-lp-pink);
+}
+
+.pointRewards__item {
+  display: block;
+  padding: var(--space-sm) 0;
+}
+
+.pointRewards__item + .pointRewards__item {
+  margin-top: var(--space-md);
+}
+
+.pointRewards__highlight {
+  padding: var(--space-md) 0;
+}
+
+.pointRewards__itemTitle {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-lp-pink);
+}
+
+.pointRewards__itemNote {
+  margin-top: var(--space-sm);
+}
+
+.pointRewards__itemLabel {
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 2px;
+  font-family: var(--font-base);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--line-height-body);
+  color: inherit;
+  border-bottom: 2px solid var(--color-lp-black);
+}
+
+.pointRewards__itemText {
+  margin-top: var(--space-sm);
+  @include mixins.lp-feature-text;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.pointRewards__itemNote .pointRewards__itemText {
+  margin-top: var(--space-xs);
+}
+
+.pointRewards__itemEm {
+  display: inline;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+@include mixins.media-pc {
+  .pointRewards .pointRewards__title {
+    font-size: 36px;
+  }
+
+  .pointRewards__list {
+    margin-bottom: calc(var(--space-2xl) + var(--space-lg));
+    padding-block: var(--space-2xl);
+  }
+
+  .pointRewards__item + .pointRewards__item {
+    margin-top: var(--space-lg);
+  }
+}

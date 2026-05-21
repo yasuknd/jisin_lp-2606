@@ -1,0 +1,33 @@
+@use '../../styles/mixins' as mixins;
+
+.footer {
+  --footer-pad-y: var(--space-md);
+
+  position: relative;
+  padding-top: var(--footer-pad-y);
+  padding-bottom: calc(
+    var(--footer-pad-y) + var(--bottom-cta-height) + env(safe-area-inset-bottom, 0px)
+  );
+  background-color: var(--color-lp-white);
+  border-top: 1px solid #000;
+}
+
+.lpCopyright {
+  text-align: center;
+}
+
+.lpCopyright__text {
+  margin: 0;
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-lp-black);
+  letter-spacing: 0.04em;
+}
+
+@include mixins.media-pc {
+  .footer {
+    --footer-pad-y: var(--space-lg);
+  }
+}

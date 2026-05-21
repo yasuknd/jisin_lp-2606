@@ -1,0 +1,256 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.pricing {
+  position: relative;
+  padding-bottom: var(--space-2xl);
+  background: var(--color-lp-white);
+}
+
+.pricing__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-lg);
+  margin-inline: auto;
+  padding: var(--section-pad-y) 20px 0;
+}
+
+.pricing__header {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.pricing__title {
+  font-family: var(--font-base);
+  font-size: var(--text-section);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-lp-black);
+  letter-spacing: 0.06em;
+}
+
+.pricing__intro {
+  margin-top: var(--space-md);
+  font-size: var(--text-body-lg);
+  line-height: var(--line-height-body);
+  color: var(--color-lp-gray);
+}
+
+.pricing__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.pricing__card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: var(--space-lg) var(--space-md);
+  background: var(--color-lp-white);
+  border: 2px solid var(--color-lp-black);
+  box-shadow: 10px 10px 0 var(--color-lp-pink);
+}
+
+.pricing__card--recommended {
+  background: var(--gradient-lp-pink);
+  color: var(--color-lp-white);
+  border-color: var(--color-lp-pink-deep);
+  box-shadow: 14px 14px 0 var(--color-lp-black);
+}
+
+.pricing__label {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 8px 14px;
+  font-size: var(--text-small);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-lp-white);
+  letter-spacing: 0.06em;
+  background: var(--color-lp-black);
+}
+
+.pricing__card--recommended .pricing__label {
+  background: var(--color-lp-white);
+  color: var(--color-lp-pink-deep);
+}
+
+.pricing__card:not(.pricing__card--recommended) .pricing__label {
+  background: var(--color-lp-black);
+}
+
+.pricing__course {
+  font-size: var(--text-lead);
+  font-weight: 700;
+  line-height: 1.45;
+  color: inherit;
+}
+
+.pricing__price {
+  margin-top: 4px;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.15;
+  color: inherit;
+}
+
+.pricing__priceAmount {
+  display: inline-block;
+  font-size: clamp(2.35rem, 6vw, 3.35rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.pricing__priceCurrency {
+  margin-left: 0.04em;
+  font-size: 0.42em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  vertical-align: baseline;
+}
+
+.pricing__priceUnit {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+}
+
+.pricing__priceQuantity {
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.pricing__priceTax {
+  margin-left: 0.12em;
+  font-size: max(12px, 0.68em);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  vertical-align: baseline;
+}
+
+.pricing__card:not(.pricing__card--recommended) .pricing__price {
+  color: var(--color-lp-pink-deep);
+}
+
+.pricing__description {
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  color: inherit;
+  opacity: 0.92;
+}
+
+.pricing__card:not(.pricing__card--recommended) .pricing__description {
+  color: var(--color-lp-gray);
+  opacity: 1;
+}
+
+.pricing__buttonWrap {
+  container-type: inline-size;
+  min-width: 0;
+  margin-top: auto;
+  padding: 0 4px 4px 0;
+}
+
+.pricing__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px clamp(8px, 2cqi, 16px);
+  font-size: min(var(--text-body-lg), calc((100cqw - 52px) / 18));
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-lp-black);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  background: var(--color-lp-white);
+  border: 2px solid var(--color-lp-black);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--color-lp-pink);
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    background-color 0.14s ease,
+    color 0.14s ease;
+
+  @include mixins.focus-visible;
+}
+
+.pricing__buttonWrap:hover .pricing__button,
+.pricing__buttonWrap:focus-within .pricing__button,
+.pricing__button:focus-visible {
+  transform: translate(6px, 6px);
+  color: var(--color-lp-white);
+  background: var(--color-lp-pink);
+  box-shadow: 0 0 0 var(--color-lp-white);
+}
+
+.pricing__buttonWrap:active .pricing__button,
+.pricing__button:active {
+  transform: translate(6px, 6px);
+  color: var(--color-lp-white);
+  background: var(--color-lp-pink-deep);
+  box-shadow: 0 0 0 var(--color-lp-white);
+}
+
+@include mixins.media-pc {
+  .pricing__title {
+    font-size: 48px;
+  }
+
+  .pricing__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+    align-items: stretch;
+  }
+
+  .pricing__card {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .pricing__course {
+    font-size: 28px;
+  }
+
+  .pricing__priceAmount {
+    font-size: 56px;
+  }
+
+  .pricing__priceUnit {
+    font-size: 24px;
+  }
+
+  .pricing__priceQuantity {
+    font-size: 2.1em;
+  }
+
+  .pricing__buttonWrap {
+    padding: 0 6px 6px 0;
+  }
+
+  .pricing__button {
+    min-height: 60px;
+    padding: 16px clamp(12px, 2cqi, 24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing__buttonWrap:hover .pricing__button,
+  .pricing__buttonWrap:focus-within .pricing__button,
+  .pricing__button:focus-visible,
+  .pricing__buttonWrap:active .pricing__button,
+  .pricing__button:active {
+    transform: none;
+  }
+}

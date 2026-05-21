@@ -1,0 +1,159 @@
+---
+description: 実装ワークフローと作業順
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Workflow Rules
+
+## 基本方針
+
+このプロジェクトでは、初回実装で完成度を追い切る必要はありません。
+
+まずは `design.md` の Initial Visual Output Spec に従い、画面構図を安定させてください。
+
+初回実装後に、見た目を確認しながら以下のように調整します。
+
+```txt
+大きな方向修正 = design.mdを更新
+細かな調整 = 個別指示で修正
+```
+
+SEO / OGP / head管理については `seo.md` に従い、初期実装時点で最低限の設定を入れてください。
+
+## 作業順
+
+以下の順で進めてください。
+
+1. Project setup
+2. Global SCSS
+3. Constants
+4. SEO / head設定
+5. Component skeleton
+6. Header
+7. Hero
+8. Update
+9. Pricing
+10. Benefits
+11. Benefits child components
+12. Future
+13. Notice
+14. Message
+15. Entry
+16. BottomCta
+17. Responsive
+18. QA
+
+## 初期出力で優先すること
+
+初期出力では以下を優先してください。
+
+1. Heroの第一印象が成立している
+2. Pricingの2コース比較が明快
+3. Benefitsが単調なカード羅列になっていない
+4. BottomCtaが機能している
+5. Message / Noticeが読みやすい
+6. 画像がなくても仮ビジュアルで見た目が破綻しない
+7. LP全体が古い定期購読ページに見えない
+8. SEO / OGPの最低限設定が入っている
+
+## 実装前に確認するファイル
+
+実装前に必ず以下を確認してください。
+
+- `contents.md`
+- `integrated.md`
+- `design.md`
+- `seo.md`
+- `requirements.md`
+- `component-plan.md`
+- `tasks.md`
+
+## 実装後に確認するファイル
+
+実装後は `checklist.md` に沿って確認してください。
+
+## 変更時の判断
+
+### design.mdを更新すべき変更
+
+以下は `design.md` 更新対象です。
+
+- Heroの構図を大きく変える
+- Pricingのカード設計を変える
+- Benefitsの見せ方を変える
+- CTA優先順位を変える
+- 全体トーンを変える
+- 色設計を変える
+- 幅設計を変える
+
+### seo.mdを更新すべき変更
+
+以下は `seo.md` 更新対象です。
+
+- title / description方針を変える
+- OGP方針を変える
+- robots方針を変える
+- canonical方針を変える
+- 構造化データ方針を変える
+- 本番URL / OGP画像URLが確定する
+
+### 個別指示で対応する変更
+
+以下は個別指示で対応してください。
+
+- 余白を少し詰める
+- 色を少し濃くする
+- ボタンを少し大きくする
+- SPの行間を調整する
+- 画像位置を少し変える
+- カードの角丸を調整する
+- TODOの本番URL差し替え
+
+## Do
+
+- まず動く画面を作る
+- 仮ビジュアルでもレイアウトを成立させる
+- Header / BottomCta の固定表示を確認する
+- SPを早めに確認する
+- CTAの見え方を優先する
+- 文言を変更しない
+- SEO / OGPの最低限設定を入れる
+
+## Don't
+
+- 完成度を上げようとして初期出力を遅らせない
+- 画像未確定箇所を空白にしない
+- デザイン指示を無視して独自解釈しすぎない
+- 親サイト風に寄せすぎない
+- 全セクションを同じカードで処理しない
+- 不要なライブラリを追加しない
+- SEO / OGP / canonical / robots を省略しない
+
+## Final Check
+
+実装完了前に以下を確認してください。
+
+- `contents.md` と文言が一致している
+- `design.md` の初期画面構図に沿っている
+- `seo.md` のhead要件に沿っている
+- `BottomCta` が固定表示されている
+- `Pricing` がCVセクションとして強い
+- `Benefits` が単調でない
+- SPで読みやすい
+- CTAに `data-gtm` が付いている
+- URLが定数管理されている
+- canonicalが仮URLになっていない
+- robots方針が確認されている
+
+
+## 画像素材の扱い
+
+実装前に `assets-policy.md` を確認してください。
+
+- `src/assets/images/` に用途別フォルダがあるか確認する
+- `brand/`, `hero/`, `benefits/`, `gifts/`, `events/`, `ogp/` の役割を守る
+- Cursor側で画像選定・再分類をしない
+- 画像がない箇所はCSS仮ビジュアルで進める
+- OGP画像が空でも作業を止めない

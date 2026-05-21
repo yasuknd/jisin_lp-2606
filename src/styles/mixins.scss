@@ -1,0 +1,80 @@
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@mixin media-sp {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin media-pc {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin content-inner($max-width: var(--content-lg)) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@mixin section-padding {
+  padding-block: var(--section-pad-y);
+}
+
+@mixin body-copy {
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+}
+
+@mixin body-copy-sub {
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text-sub);
+}
+
+@mixin lp-feature-text {
+  font-size: var(--text-body);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: 0.04em;
+  font-feature-settings: 'palt' 1;
+}
+
+@mixin lp-wave-top($wave-color, $height: clamp(28px, 4.5vw, 44px)) {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: $height;
+    pointer-events: none;
+    content: '';
+    background-color: $wave-color;
+    transform: translateY(calc(-100% + 1px));
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0 48V30C120 10 240 50 360 30S600 10 720 30 960 50 1080 30 1200 10 1320 30 1380 48 1440 30V48H0Z'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 48' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0 48V30C120 10 240 50 360 30S600 10 720 30 960 50 1080 30 1200 10 1320 30 1380 48 1440 30V48H0Z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+  }
+}
+
+@mixin lp-pink-wave-top($height: clamp(28px, 4.5vw, 44px)) {
+  @include lp-wave-top(var(--color-lp-pink), $height);
+}
+
+@mixin lp-white-wave-top($height: clamp(28px, 4.5vw, 44px)) {
+  @include lp-wave-top(var(--color-lp-white), $height);
+}

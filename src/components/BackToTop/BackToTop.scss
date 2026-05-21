@@ -1,0 +1,104 @@
+@use '../../styles/mixins' as mixins;
+
+.backToTop {
+  position: fixed;
+  right: 16px;
+  z-index: 101;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+
+  @include mixins.focus-visible;
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.backToTop__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backToTop__track {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 2;
+}
+
+.backToTop__progress {
+  fill: none;
+  stroke: var(--color-lp-black);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 0.12s linear;
+}
+
+.backToTop__icon {
+  position: relative;
+  z-index: 1;
+  width: 14px;
+  height: 10px;
+}
+
+.backToTop__iconShape {
+  fill: none;
+  stroke: var(--color-lp-black);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  transition: fill 0.2s ease;
+}
+
+.backToTop:hover .backToTop__iconShape,
+.backToTop:focus-visible .backToTop__iconShape {
+  fill: var(--color-lp-black);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backToTop:hover,
+  .backToTop:active {
+    transform: none;
+  }
+
+  .backToTop__progress,
+  .backToTop__iconShape {
+    transition: none;
+  }
+}
+
+@include mixins.media-pc {
+  .backToTop {
+    right: 24px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .backToTop__icon {
+    width: 16px;
+    height: 12px;
+  }
+}

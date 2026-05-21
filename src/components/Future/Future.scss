@@ -1,0 +1,139 @@
+@use '../../styles/mixins' as mixins;
+
+@keyframes future-hueCycle {
+  from {
+    filter: hue-rotate(180deg);
+  }
+
+  to {
+    filter: hue-rotate(540deg);
+  }
+}
+
+.future {
+  @include mixins.section-padding;
+  position: relative;
+  padding-block: calc(var(--section-pad-y) + 40px);
+  overflow: hidden;
+  background: hsl(330deg 68% 34%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(
+      to bottom right,
+      hsl(330deg 78% 90%) 0%,
+      hsl(330deg 72% 52%) 40%,
+      hsl(330deg 68% 16%) 100%
+    );
+    animation: future-hueCycle 40s linear infinite;
+    will-change: filter;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgb(40 8 24 / 0.12);
+    pointer-events: none;
+  }
+}
+
+.future__inner {
+  @include mixins.content-inner(var(--content-lg));
+  position: relative;
+  z-index: 2;
+  padding-inline: 16px;
+}
+
+.future__grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.future__copy {
+  width: 100%;
+  max-width: 840px;
+  margin-inline: auto;
+}
+
+.future__heading {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #fff;
+  }
+
+  &::before {
+    margin-right: 16px;
+  }
+
+  &::after {
+    margin-left: 16px;
+  }
+}
+
+.future__label {
+  flex-shrink: 0;
+  margin: 0;
+  font-family: var(--font-en);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-lp-white);
+  letter-spacing: 0.22em;
+  text-align: center;
+  text-shadow: 0 1px 8px rgb(40 8 24 / 0.28);
+}
+
+.future__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+.future__description {
+  margin: 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: 0.18em;
+  color: var(--color-lp-white);
+  text-shadow: 0 1px 10px rgb(40 8 24 / 0.32);
+}
+
+@include mixins.media-pc {
+  .future__copy {
+    max-width: 720px;
+  }
+
+  .future__label {
+    font-size: 32px;
+  }
+
+  .future__body {
+    margin-top: var(--space-xl);
+  }
+
+  .future__description {
+    font-size: var(--text-body-lg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .future::after {
+    animation: none;
+    filter: hue-rotate(180deg);
+  }
+}

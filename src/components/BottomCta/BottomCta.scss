@@ -1,0 +1,101 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.bottomCta {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.bottomCta__bar {
+  background: var(--color-lp-black);
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  box-shadow: 0 -8px 32px rgb(0 0 0 / 0.35);
+}
+
+.bottomCta__inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+  max-width: var(--content-lg);
+  margin-inline: auto;
+  padding: var(--space-sm) var(--space-sm) calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
+}
+
+.bottomCta__buttonWrap {
+  container-type: inline-size;
+  min-width: 0;
+  padding: 0 4px 4px 0;
+}
+
+.bottomCta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px clamp(8px, 2cqi, 16px);
+  font-size: min(var(--text-body-lg), calc((100cqw - 52px) / 18));
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-lp-black);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  background: var(--color-lp-white);
+  border: 2px solid var(--color-lp-black);
+  border-radius: 0;
+  box-shadow: 6px 6px 0 var(--color-lp-pink);
+  transition:
+    transform 0.14s ease,
+    box-shadow 0.14s ease,
+    background-color 0.14s ease,
+    color 0.14s ease;
+
+  @include mixins.focus-visible;
+}
+
+.bottomCta__buttonWrap:hover .bottomCta__button,
+.bottomCta__buttonWrap:focus-within .bottomCta__button,
+.bottomCta__button:focus-visible {
+  transform: translate(6px, 6px);
+  color: var(--color-lp-white);
+  background: var(--color-lp-pink);
+  box-shadow: 0 0 0 var(--color-lp-white);
+}
+
+.bottomCta__buttonWrap:active .bottomCta__button,
+.bottomCta__button:active {
+  transform: translate(6px, 6px);
+  color: var(--color-lp-white);
+  background: var(--color-lp-pink-deep);
+  box-shadow: 0 0 0 var(--color-lp-white);
+}
+
+@include mixins.media-pc {
+  .bottomCta__inner {
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg) calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .bottomCta__buttonWrap {
+    padding: 0 6px 6px 0;
+  }
+
+  .bottomCta__button {
+    min-height: 60px;
+    padding: 16px clamp(12px, 2cqi, 24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bottomCta__buttonWrap:hover .bottomCta__button,
+  .bottomCta__buttonWrap:focus-within .bottomCta__button,
+  .bottomCta__button:focus-visible,
+  .bottomCta__buttonWrap:active .bottomCta__button,
+  .bottomCta__button:active {
+    transform: none;
+  }
+}

@@ -1,0 +1,24 @@
+@use './variables.scss';
+@use './reset.scss';
+@use './mixins.scss' as mixins;
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  color: var(--color-lp-black);
+  background-color: var(--color-lp-white);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  overflow-x: clip;
+}
+
+a,
+button {
+  @include mixins.focus-visible;
+}

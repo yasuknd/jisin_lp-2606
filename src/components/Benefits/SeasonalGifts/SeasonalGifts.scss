@@ -1,0 +1,138 @@
+@use '../../../styles/mixins.scss' as mixins;
+
+.seasonalGifts {
+  width: 100%;
+  color: var(--color-lp-white);
+  background: var(--color-lp-pink);
+}
+
+.seasonalGifts__shell {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.seasonalGifts__intro {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1120px + 10vw);
+  margin-inline: auto;
+  padding: var(--space-lg) 5vw 0;
+  text-align: left;
+}
+
+.seasonalGifts__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-lp-white);
+}
+
+.seasonalGifts__description {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--line-height-body);
+  color: inherit;
+  opacity: 0.92;
+  font-weight: 600;
+}
+
+.seasonalGifts__content {
+  box-sizing: border-box;
+  width: 100%;
+  margin: var(--space-lg) 0 0;
+  padding: 0 0 var(--space-xl);
+  color: var(--color-lp-white);
+  background: var(--color-lp-pink);
+}
+
+.seasonalGifts__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1400px + 10vw);
+  margin: 0 auto;
+  padding: var(--space-md) 5vw var(--space-xl);
+  list-style: none;
+}
+
+.seasonalGifts__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+// 2枚目（皇室報道ダイジェスト 1850×1864）の表示高さを基準
+$seasonal-gifts-ref-width: 1850;
+$seasonal-gifts-ref-height: 1864;
+
+.seasonalGifts__image {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: #{$seasonal-gifts-ref-width} / #{$seasonal-gifts-ref-height};
+  margin: 0;
+  background: transparent;
+
+  img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+}
+
+.seasonalGifts__cardBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: var(--space-md);
+  text-align: left;
+}
+
+.seasonalGifts__cardTitle {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-lp-white);
+}
+
+.seasonalGifts__cardText {
+  margin: var(--space-md) 0 0;
+  @include mixins.lp-feature-text;
+  color: inherit;
+  opacity: 0.92;
+}
+
+@include mixins.media-pc {
+  .seasonalGifts__title {
+    font-size: 36px;
+  }
+
+  .seasonalGifts__content {
+    padding-bottom: var(--space-2xl);
+  }
+
+  .seasonalGifts__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    padding: var(--space-lg) 5vw var(--space-2xl);
+  }
+}

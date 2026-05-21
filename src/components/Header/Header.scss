@@ -1,0 +1,245 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgb(255 255 255 / 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgb(0 0 0 / 0.12);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: var(--content-xl);
+  margin-inline: auto;
+  min-height: var(--header-height);
+  padding: 14px 24px;
+}
+
+.header__logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 10px;
+  align-items: center;
+  line-height: 1.2;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+
+  @include mixins.focus-visible;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.header__logoImage {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: 36px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.header__logoText {
+  flex-shrink: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text);
+  letter-spacing: 0.06em;
+}
+
+.header__actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px 16px;
+}
+
+.header__group {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.header__group--points {
+  gap: 20px;
+  padding-right: 16px;
+  border-right: 1px solid var(--color-border);
+}
+
+.header__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  @include mixins.focus-visible;
+}
+
+.header__group--points .header__button--secondary {
+  min-height: auto;
+  padding: 4px 0;
+  font-weight: 500;
+  color: var(--color-lp-black);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.header__group--points .header__button--secondary:hover {
+  color: var(--color-lp-pink);
+  background: transparent;
+}
+
+.header__group--account {
+  gap: 8px;
+}
+
+.header__group--account .header__button--text {
+  min-height: 44px;
+  padding: 8px 20px;
+  font-weight: 600;
+  border: 1px solid var(--color-lp-black);
+  border-radius: 999px;
+}
+
+.header__group--account .header__button--text:first-child {
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+  border-color: var(--color-lp-black);
+}
+
+.header__group--account .header__button--text:first-child:hover {
+  color: var(--color-lp-white);
+  background: var(--color-lp-black);
+  border-color: var(--color-lp-black);
+}
+
+.header__group--account .header__button--text:last-child {
+  color: var(--color-lp-white);
+  background: var(--color-lp-black);
+  border-color: var(--color-lp-black);
+}
+
+.header__group--account .header__button--text:last-child:hover {
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+  border-color: var(--color-lp-black);
+}
+
+
+@include mixins.media-sp {
+  .header__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: stretch;
+    min-height: auto;
+    padding: 14px 16px 16px;
+  }
+
+  .header__logo {
+    justify-self: center;
+  }
+
+  .header__logoImage {
+    height: 32px;
+  }
+
+  .header__logoText {
+    font-size: 16px;
+  }
+
+  .header__actions {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .header__group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+  }
+
+  .header__group--points {
+    gap: 6px;
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header__group--points .header__button--secondary {
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 8px;
+    font-size: var(--text-caption);
+    white-space: nowrap;
+  }
+
+  .header__group--account .header__button--text {
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 8px;
+    font-size: var(--text-caption);
+    white-space: nowrap;
+  }
+}
+
+@include mixins.media-pc {
+  .header__logoImage {
+    height: 48px;
+  }
+
+  .header__logoText {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .header__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-height: auto;
+  }
+
+  .header__logo {
+    justify-content: center;
+    padding-block: var(--space-sm);
+  }
+
+  .header__logoImage {
+    height: 60px;
+  }
+
+  .header__logoText {
+    font-size: 22px;
+  }
+
+  .header__actions {
+    justify-content: center;
+  }
+}

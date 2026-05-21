@@ -1,0 +1,104 @@
+---
+description: 女性自身プレミアムLP制作における全体方針
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Global Rules
+
+このプロジェクトは、女性自身プレミアムLPの実装プロジェクトです。
+
+## Primary Goal
+
+最優先は、女性自身プレミアムの定期購読申し込みを促進するLPを作ることです。
+
+LPは以下を両立してください。
+
+- 女性自身らしい親しみやすさ
+- 雑誌ブランドとしての信頼感
+- 定期購読サービスとしての分かりやすさ
+- 広告流入でも単体で伝わるLP構成
+- リニューアルLPとしての現代的な見た目
+- 公開ページとして最低限のSEO / OGP品質
+
+## Source Priority
+
+判断に迷った場合は、以下の順で参照してください。
+
+1. `contents.md`
+2. `integrated.md`
+3. `design.md`
+4. `seo.md`
+5. `requirements.md`
+6. `component-plan.md`
+7. `tasks.md`
+8. `checklist.md`
+
+## Non-negotiable
+
+以下は変更しないでください。
+
+- セクション構成
+- component名
+- class名
+- 確定済み文言
+- CTA文言
+- 年額 / 月額の表示順
+- Header / BottomCta の固定表示方針
+- SEO / OGP / canonical / robots の基本方針
+
+## Design Role
+
+`design.md` は最終デザインを固定するものではありません。
+
+初期出力では、`design.md` に従って画面構図を安定させてください。  
+大きな方向修正は `design.md` を更新し、細かな調整は個別指示で行います。
+
+## SEO Role
+
+`seo.md` はhead管理・検索表示・SNS共有品質の基準です。
+
+SEOはこのLPの主目的ではありませんが、title / description / OGP / Twitter Card / canonical / robots / html lang は勝手に省略しないでください。
+
+本番URL・OGP画像URLが未確定の場合はTODOを残してください。  
+仮URLをcanonicalにしないでください。
+
+## Implementation Priority
+
+初期実装では、以下を優先してください。
+
+1. Heroの第一印象
+2. Pricingの年額 / 月額比較
+3. Benefitsのリズム
+4. BottomCtaの固定表示
+5. Message / Noticeの可読性
+6. 画像未確定時の仮ビジュアル
+7. SP表示
+8. SEO / OGPの最低限設定
+
+## Avoid
+
+以下は禁止です。
+
+- 文言を勝手に変更する
+- セクション順を変更する
+- component名を変更する
+- class名を変更する
+- 画像未確定を理由にビジュアル領域を消す
+- Pricingを簡素な表だけにする
+- Benefitsをただの箇条書きにする
+- BottomCtaをfooter扱いする
+- 親サイト風に寄せすぎてLP感を弱める
+- SEO / OGP / canonical / robots を勝手に省略する
+
+
+## Asset Policy
+
+画像素材は `assets-policy.md` を参照してください。
+
+- 画像は用途別フォルダに仮配置済みとして扱う
+- Cursorは画像選定を行わない
+- フォルダ用途に従って画像を使用する
+- OGP画像は空でも作業を止めない
+- 画像が不足・不一致の場合はCSS仮ビジュアルで補完する

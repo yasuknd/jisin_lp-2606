@@ -1,0 +1,174 @@
+---
+description: React / SCSS実装ルール
+globs:
+  - "src/**/*"
+  - "index.html"
+alwaysApply: true
+---
+
+# Implementation Rules
+
+## Tech Stack
+
+- Vite
+- React
+- SCSS
+- BEM
+
+Tailwindは使用しないでください。  
+CSS Modulesは使用しないでください。
+
+## Component Naming
+
+React componentはPascalCaseで命名してください。
+
+```txt
+Header
+Hero
+Pricing
+BottomCta
+```
+
+## CSS Naming
+
+SCSSはBEMで記述してください。
+
+```scss
+.block {}
+.block__element {}
+.block__element--modifier {}
+```
+
+class名は `contents.md` / `integrated.md` の指定を優先してください。
+
+## File Structure
+
+基本構成は以下です。
+
+```txt
+src/
+├── components/
+├── constants/
+├── styles/
+├── assets/
+├── App.jsx
+└── main.jsx
+```
+
+各componentは必要に応じて以下の形式にしてください。
+
+```txt
+components/
+└── Hero/
+    ├── Hero.jsx
+    └── Hero.scss
+```
+
+## Styling
+
+- 色はCSS Variablesを使用してください
+- 幅は `design.md` の Width Tokens に従ってください
+- 1280pxをLP全体の固定上限にしないでください
+- Hero / Benefits などは画面幅を広く使ってください
+- Message / Notice は可読性優先で狭くしてください
+
+## Links
+
+URLは直書きしないでください。  
+`src/constants/links.js` で管理してください。
+
+年額 / 月額は現時点で同一URLでも、必ず別定数として分けてください。
+
+## CTA
+
+CTAには必ず `data-gtm` を付与してください。
+
+対象CTAは以下です。
+
+- Pricing 年額
+- Pricing 月額
+- Entry 年額
+- Entry 月額
+- Entry 購入方法ガイド
+- BottomCta 年額
+- BottomCta 月額
+- Header 所持ポイント
+- Header ポイントを使う
+- Header ログイン
+- Header 新規会員登録
+
+## SEO / Head
+
+`seo.md` に従って、`index.html` に以下を設定してください。
+
+- `<html lang="ja">`
+- title
+- meta description
+- OGP
+- Twitter Card
+- canonical
+- robots
+- favicon
+- 必要に応じてJSON-LD WebPage
+
+本番URL・OGP画像URLが未確定の場合はTODOを残してください。  
+仮URLをcanonicalにしないでください。  
+Product / Offer構造化データは初期実装で無理に入れないでください。
+
+## Placeholder Visual
+
+画像が未確定の場合でも、CSSベースの仮ビジュアルを作ってください。
+
+特に以下は空にしないでください。
+
+- Hero
+- DigitalService
+- SeasonalGifts
+- MemberEvents
+
+## Responsive
+
+SP対応を必ず実装してください。
+
+SPでは以下を守ってください。
+
+- Heroはコピー → ビジュアル
+- Pricingは年額 → 月額
+- Entryは年額 → 月額 → ガイド
+- BottomCtaは2ボタン固定
+- Header / BottomCtaで画面を圧迫しすぎない
+
+## Accessibility
+
+- 本文は15px以上
+- 注釈は12px以上
+- CTAタップ領域は44px以上
+- focus-visibleを設定
+- 淡色背景上の文字は濃色にする
+
+## Do Not
+
+- 文言変更
+- セクション順変更
+- component名変更
+- class名変更
+- 無関係なライブラリ追加
+- 過度なアニメーション
+- ループする煽り演出
+- BottomCtaのfooter化
+- SEO / OGP / canonical / robotsの省略
+
+
+## Asset Rules
+
+画像の扱いは `docs/assets-policy.md` に従ってください。
+
+- 画像は `src/assets/images/` 配下で管理する
+- `brand/`, `hero/`, `benefits/`, `gifts/`, `events/`, `ogp/` の用途を守る
+- Cursor側で画像選定・再分類をしない
+- 用途と違うフォルダの画像を勝手に流用しない
+- 日本語ファイル名・スペース入りファイル名をそのままimportしない
+- PDFをそのまま`img`タグで使わない
+- OGPフォルダが空でも作業を止めない
+- 画像が不足する場合はCSS placeholderで補完する
+- alt属性を設定する。装飾画像は `alt=""` にする

@@ -1,0 +1,132 @@
+@use '../../../styles/mixins.scss' as mixins;
+
+.memberEvents {
+  width: 100%;
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+}
+
+.memberEvents__shell {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.memberEvents__intro {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1120px + 10vw);
+  margin-inline: auto;
+  padding: var(--space-lg) 5vw 0;
+  text-align: left;
+}
+
+.memberEvents .memberEvents__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-lead);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-lp-black);
+  border-bottom-color: var(--color-lp-black);
+}
+
+.memberEvents__description {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--line-height-body);
+  color: inherit;
+  opacity: 0.88;
+  font-weight: 600;
+}
+
+.memberEvents__panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(1120px + 10vw);
+  margin: var(--space-lg) auto 0;
+  padding: var(--space-md) 5vw var(--space-xl);
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+}
+
+.memberEvents__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.memberEvents__list {
+  display: grid;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.memberEvents__item {
+  text-align: left;
+}
+
+.memberEvents__itemText {
+  margin: 0;
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  line-height: var(--line-height-body);
+  color: var(--color-lp-black);
+  letter-spacing: 0.3em;
+}
+
+.memberEvents__visual {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #eee;
+  clip-path: polygon(25% 0, 100% 0, 100% 85%, 75% 100%, 0 100%, 0 15%);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@include mixins.media-pc {
+  .memberEvents .memberEvents__title {
+    font-size: 36px;
+  }
+
+  .memberEvents__panel {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+    gap: var(--space-xl);
+    align-items: center;
+    padding: var(--space-lg) 5vw var(--space-2xl);
+  }
+
+  .memberEvents__list {
+    gap: var(--space-sm);
+  }
+
+  .memberEvents__content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .memberEvents__visual {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+@include mixins.media-sp {
+  .memberEvents__visual {
+    order: -1;
+  }
+}

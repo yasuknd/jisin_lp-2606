@@ -1,0 +1,88 @@
+:root {
+  --color-lp-pink: #c43a6e;
+  --color-lp-pink-deep: #9c2d52;
+  --color-lp-pink-bright: #d94b7f;
+  --color-lp-pink-light: #f472a8;
+  --color-lp-black: #000;
+  --color-lp-white: #fff;
+  --color-lp-gray: #333;
+  --color-lp-surface-alt: rgb(196 58 110 / 0.06);
+  --color-lp-border: rgb(196 58 110 / 0.28);
+
+  --color-brand: var(--color-lp-pink-bright);
+  --color-brand-dark: var(--color-lp-pink-deep);
+  --color-brand-light: rgb(196 58 110 / 0.08);
+  --color-promo-pink: var(--color-lp-pink-bright);
+  --color-promo-pink-light: var(--color-lp-pink-light);
+  --color-promo-bg: var(--color-lp-white);
+  --color-promo-cream: var(--color-lp-white);
+  --color-promo-blush: var(--color-lp-white);
+  --color-promo-ink: var(--color-lp-black);
+  --color-promo-ink-soft: var(--color-lp-gray);
+  --color-promo-gold: var(--color-lp-black);
+  --color-promo-gold-light: var(--color-lp-white);
+  --color-accent-gold: var(--color-lp-black);
+  --color-accent-gold-light: rgb(0 0 0 / 0.04);
+  --color-accent-blue: var(--color-lp-pink);
+  --color-accent-blue-light: rgb(196 58 110 / 0.06);
+  --color-base: var(--color-lp-white);
+  --color-surface: var(--color-lp-white);
+  --color-surface-pink: var(--color-lp-white);
+  --color-surface-cream: var(--color-lp-white);
+  --color-surface-gray: #f5f5f5;
+  --color-text: var(--color-lp-black);
+  --color-text-sub: var(--color-lp-gray);
+  --color-border: rgb(0 0 0 / 0.12);
+  --color-danger-soft: #fff;
+
+  --gradient-lp-pink: linear-gradient(
+    92deg,
+    var(--color-lp-pink-light) 0%,
+    var(--color-lp-pink-bright) 22%,
+    var(--color-lp-pink) 55%,
+    var(--color-lp-pink-deep) 100%
+  );
+
+  --font-base: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --font-en: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+  --content-xs: 640px;
+  --content-sm: 760px;
+  --content-md: 960px;
+  --content-lg: 1120px;
+  --content-xl: 1280px;
+  --content-wide: min(100% - 48px, 1440px);
+  --content-fluid: calc(100% - 48px);
+
+  --shadow-soft: 0 8px 32px rgb(196 58 110 / 0.1);
+  --shadow-card: 0 12px 40px rgb(196 58 110 / 0.14);
+  --shadow-cta: 0 10px 28px rgb(156 45 82 / 0.28);
+  --shadow-lp-accent: 0 0 0 2px var(--color-lp-pink);
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+  --space-2xl: 96px;
+
+  --text-body: 19px;
+  --text-body-lg: 21px;
+  --text-small: 16px;
+  --text-caption: 15px;
+  --text-lead: 24px;
+  --text-section: clamp(1.875rem, 4.5vw, 2.75rem);
+  --line-height-body: 1.85;
+  --line-height-relaxed: 1.95;
+  --section-pad-y: var(--space-xl);
+  --section-pad-y-tight: var(--space-lg);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --header-height: 72px;
+  --header-height-sp: 132px;
+  --bottom-cta-height: 140px;
+}
