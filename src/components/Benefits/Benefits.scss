@@ -50,35 +50,29 @@
 
 .benefits__body > .benefits__block:nth-child(1) {
   z-index: 1;
-
-  @include mixins.lp-pink-wave-top;
 }
 
 .benefits__body > .benefits__block:nth-child(2) {
   z-index: 2;
-
-  @include mixins.lp-white-wave-top;
 }
 
 .benefits__body > .benefits__block:nth-child(3) {
   z-index: 3;
-
-  @include mixins.lp-pink-wave-top;
 }
 
 .benefits__body > .benefits__block:nth-child(4) {
   z-index: 4;
-
-  @include mixins.lp-white-wave-top;
 }
 
 .benefits__body > .benefits__block:nth-child(5) {
   z-index: 5;
-
-  @include mixins.lp-pink-wave-top;
 }
 
-.benefits__body > .benefits__block > * {
+.benefits__body > .benefits__block > .sectionWaves {
+  z-index: 3;
+}
+
+.benefits__body > .benefits__block > *:not(.sectionWaves) {
   position: relative;
   z-index: 2;
 }

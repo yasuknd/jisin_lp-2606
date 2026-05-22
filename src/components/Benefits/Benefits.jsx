@@ -3,6 +3,7 @@ import PointRewards from './PointRewards/PointRewards.jsx';
 import SeasonalGifts from './SeasonalGifts/SeasonalGifts.jsx';
 import MemberEvents from './MemberEvents/MemberEvents.jsx';
 import FreeShipping from './FreeShipping/FreeShipping.jsx';
+import SectionWaves from '../SectionWaves/SectionWaves.jsx';
 import './Benefits.scss';
 
 const benefitBlocks = [
@@ -25,8 +26,9 @@ function Benefits() {
           </h2>
         </div>
         <div className="benefits__body">
-          {benefitBlocks.map(({ label, component: BenefitComponent }) => (
+          {benefitBlocks.map(({ label, component: BenefitComponent }, index) => (
             <article key={label} className="benefits__block">
+              <SectionWaves variant={index % 2 === 0 ? 'pink' : 'white'} position="top" />
               <BenefitComponent label={label} />
             </article>
           ))}

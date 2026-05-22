@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
+import SectionWaves from '../SectionWaves/SectionWaves.jsx';
 import logoPremium from '../../assets/images/brand/logo-premium.png';
 import heroCoverMain from '../../assets/images/hero/hero-cover-main.jpg';
 import heroCoverAccent from '../../assets/images/hero/hero-cover-accent.jpg';
@@ -305,6 +306,7 @@ function Hero() {
           ) : null}
         </div>
       </div>
+      <SectionWaves variant="white" position="bottom" />
     </section>
   );
 }

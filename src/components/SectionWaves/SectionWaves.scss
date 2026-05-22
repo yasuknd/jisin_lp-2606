@@ -1,0 +1,70 @@
+@keyframes section-wavesMove {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+.sectionWaves {
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.sectionWaves--bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: clamp(52px, 18vh, 180px);
+  margin-bottom: -7px;
+}
+
+.sectionWaves--top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: clamp(40px, 7vw, 72px);
+  transform: translateY(calc(-100% + 1px));
+}
+
+.sectionWaves__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sectionWaves__parallax > use {
+  animation: section-wavesMove 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.sectionWaves__parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.sectionWaves__parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.sectionWaves__parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.sectionWaves__parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sectionWaves__parallax > use {
+    animation: none;
+  }
+}
