@@ -64,7 +64,7 @@
   }
 
   33% {
-    opacity: 0.96;
+    opacity: 0.78;
     background-position: 100% 100%;
   }
 
@@ -82,7 +82,7 @@
   }
 
   50% {
-    opacity: 0.88;
+    opacity: 0.72;
     background-position: 0% 100%;
   }
 }
@@ -95,7 +95,7 @@
   }
 
   45% {
-    opacity: 0.92;
+    opacity: 0.7;
     background-position: 0% 100%;
   }
 
@@ -181,12 +181,15 @@
   overflow: hidden;
   background: linear-gradient(
     45deg,
-    #ffe8f2 0%,
-    #f8a8c8 18%,
-    #d94b7f 38%,
-    #c43a6e 58%,
-    #ffb888 78%,
-    #ffd4e8 100%
+    #b8f4e8 0%,
+    #5fd4d4 12%,
+    #48b8e8 24%,
+    #d94b7f 36%,
+    #c43a6e 48%,
+    #b868d8 60%,
+    #ffb890 72%,
+    #ffe0c8 84%,
+    #a8f0d8 100%
   );
   background-size: 400% 400%;
   animation: hero-gradientShift 15s ease infinite;
@@ -203,11 +206,11 @@
   &::before {
     background: linear-gradient(
       to bottom right,
-      #ffb888 0%,
-      #e88850 28%,
-      #d87038 56%,
-      #b05828 82%,
-      #904018 100%
+      #d8faf4 0%,
+      #78e8d8 22%,
+      #38c8b8 48%,
+      #28a098 74%,
+      #187868 100%
     );
     animation: hero-washToneA 30s ease-in-out infinite;
   }
@@ -215,11 +218,11 @@
   &::after {
     background: linear-gradient(
       to bottom right,
-      #ffc860 0%,
-      #e8a038 28%,
-      #d08820 56%,
-      #b07018 82%,
-      #905810 100%
+      #fff0d8 0%,
+      #ffc888 26%,
+      #ff9870 52%,
+      #e86888 78%,
+      #c43a6e 100%
     );
     animation: hero-washToneC 30s ease-in-out infinite;
   }
@@ -235,11 +238,11 @@
 .hero__washLayer--green {
   background: linear-gradient(
     to bottom right,
-    #a8d4bc 0%,
-    #78b898 24%,
-    #489870 52%,
-    #287850 78%,
-    #185838 100%
+    #e8f8ff 0%,
+    #88d8f8 22%,
+    #58b8e8 46%,
+    #7898e8 70%,
+    #9878d8 100%
   );
   animation: hero-washToneGreen 30s ease-in-out infinite;
 }
@@ -247,7 +250,7 @@
 .hero__blob {
   position: absolute;
   z-index: 0;
-  background: rgb(255 255 255 / 0.07);
+  background: rgb(255 255 255 / 0.09);
   pointer-events: none;
   will-change: border-radius, transform;
   animation:
