@@ -62,7 +62,7 @@
 
 .pricing__label {
   display: inline-flex;
-  align-self: flex-start;
+  align-self: center;
   padding: 8px 14px;
   font-size: var(--text-small);
   font-weight: 700;
@@ -86,6 +86,7 @@
   font-weight: 700;
   line-height: 1.45;
   color: inherit;
+  text-align: center;
 }
 
 .pricing__price {
@@ -144,6 +145,7 @@
   line-height: var(--line-height-body);
   color: inherit;
   opacity: 0.92;
+  text-align: center;
 }
 
 .pricing__card:not(.pricing__card--recommended) .pricing__description {

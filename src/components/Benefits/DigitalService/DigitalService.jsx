@@ -35,7 +35,7 @@ const digitalServiceItems = [
   {
     title: '過去2年分の『女性自身』がすべて読み放題',
     description:
-      '見逃したニュース、振り返りたい健康記事、何度でも読み返したいレシピページなど。「ワード検索」で過去2年分がいつでも読めます！',
+      '雅子さまや愛子さまの名場面、もう一度読みたい芸能ニュース、最近気になる健康記事、旬の食材を美味しく活かすレシピなど、「ワード検索」で過去2年分がいつでも読めます！',
     images: digitalContent01Frames,
     imageAlt: '女性自身Premiumで読める過去記事のイメージ',
     galleryReverse: false,
@@ -64,7 +64,7 @@ function DigitalService({ label }) {
         <header className="digitalService__intro">
           <p className="benefits__blockLabel">{label}</p>
           <h3 className="digitalService__title">デジタルサービス『女性自身Premium』</h3>
-          <p className="digitalService__description">たくさんのコンテンツがスマホでも楽しめる！</p>
+          <p className="digitalService__description">たくさんのコンテンツがスマホやPCで読める！</p>
         </header>
 
         <ul className="digitalService__features">

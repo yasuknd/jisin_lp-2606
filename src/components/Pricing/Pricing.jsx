@@ -20,10 +20,16 @@ function PricingPrice({ amount, quantity }) {
 const pricingPlans = [
   {
     type: 'annual',
-    label: '1番お得！おすすめ',
+    label: 'おすすめ！',
     name: '年額コース',
     price: <PricingPrice amount="16,920" quantity="36冊" />,
-    description: '「雑誌1年分」通常購入よりも2,460 円安い！',
+    description: (
+      <>
+        「雑誌1年分」通常購入よりも
+        <br />
+        2,460円安い！
+      </>
+    ),
     buttonText: '年額コースに申し込む',
     url: LINKS.annual,
     recommended: true,
@@ -33,7 +39,13 @@ const pricingPlans = [
     label: 'まずはお試し！',
     name: '月額コース',
     price: <PricingPrice amount="1,500" quantity="3冊" />,
-    description: 'お試しにぴったり！気軽にスタートできるコース',
+    description: (
+      <>
+        お試しにぴったり！
+        <br />
+        気軽にスタートできるコース
+      </>
+    ),
     buttonText: '月額コースに申し込む',
     url: LINKS.monthly,
     recommended: false,
