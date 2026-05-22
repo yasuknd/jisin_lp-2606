@@ -404,10 +404,8 @@
 .hero__leadLabel {
   display: inline-block;
   margin: 0;
-  padding: 7px 14px;
-  background: rgb(255 255 255 / 0.82);
-  border: 1px solid rgb(196 58 110 / 0.32);
-  box-shadow: none;
+  padding: 0 0 6px;
+  border-bottom: 1px solid rgb(196 58 110 / 0.4);
 }
 
 .hero__leadLabelText {
@@ -955,7 +953,7 @@
   }
 
   .hero__leadLabel {
-    padding: 8px 18px;
+    padding-bottom: 8px;
   }
 
   .hero__leadLabelText {
