@@ -36,7 +36,7 @@ function SeasonalGifts({ label }) {
       <div className="seasonalGifts__shell">
         <header className="seasonalGifts__intro">
           <p className="benefits__blockLabel">{label}</p>
-          <h3 className="seasonalGifts__title">全員もらえるプレゼント企画</h3>
+          <h3 className="seasonalGifts__title">定期購読限定プレゼント</h3>
           <p className="seasonalGifts__description">
             定期購読会員限定のプレゼントをお届け！
           </p>

@@ -2,8 +2,8 @@ import './PointRewards.scss';
 
 const pointRewardItems = [
   {
-    title: '定期購読の新規・継続購入でポイントを付与',
-    description: '次回の定期購読購入にも利用できます。',
+    title: '定期購読の新規および継続お申し込みの方にポイントを付与',
+    description: '次回の定期購読継続にも利用できます。',
   },
   {
     title: 'キャンペーン期間中は購入金額の10％をポイント還元',

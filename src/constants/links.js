@@ -6,6 +6,6 @@ export const LINKS = {
   guide: 'https://kokode-digital.jp/',
   points: 'https://kokode-digital.jp/',
   usePoints: 'https://kokode-digital.jp/',
-  login: 'https://kokode-digital.jp/',
+  login: 'https://kokode-digital.jp/mypage/bookshelf',
   signup: 'https://kokode-digital.jp/',
 };

@@ -3,7 +3,7 @@ import './MemberEvents.scss';
 
 const memberEventItems = [
   'イベントやセミナーへのご招待',
-  'ここでしか体験できない特典をご用意',
+  'ムックや写真集の会員先行販売も',
 ];
 
 function MemberEvents({ label }) {
@@ -13,7 +13,7 @@ function MemberEvents({ label }) {
         <header className="memberEvents__intro">
           <p className="benefits__blockLabel">{label}</p>
           <h3 className="memberEvents__title">特別なイベントへご招待</h3>
-          <p className="memberEvents__description">会員限定イベントも続々企画中！</p>
+          <p className="memberEvents__description">会員限定イベントを続々企画中！</p>
         </header>
         <div className="memberEvents__panel">
           <figure className="memberEvents__visual">

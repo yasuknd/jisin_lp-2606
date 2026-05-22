@@ -14,7 +14,7 @@ function FreeShipping({ label }) {
             <ul className="freeShipping__list">
               <li>
                 <p className="freeShipping__description">
-                  さらに特大号の差額も光文社が負担いたします。
+                  さらに合併号特別定価との差額も光文社が負担いたします。
                 </p>
               </li>
             </ul>
