@@ -1,4 +1,4 @@
-import { LINKS } from '../../constants/links.js';
+import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import './BottomCta.scss';
 
 function BottomCta() {
@@ -10,6 +10,7 @@ function BottomCta() {
             <a
               className="bottomCta__button"
               href={LINKS.annual}
+              {...SUBSCRIPTION_LINK_PROPS}
               data-gtm="bottom_annual_click"
             >
               女性自身プレミアム［年額コース］
@@ -19,6 +20,7 @@ function BottomCta() {
             <a
               className="bottomCta__button"
               href={LINKS.monthly}
+              {...SUBSCRIPTION_LINK_PROPS}
               data-gtm="bottom_monthly_click"
             >
               女性自身プレミアム［月額コース］

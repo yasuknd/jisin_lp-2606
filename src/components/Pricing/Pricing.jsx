@@ -1,4 +1,4 @@
-import { LINKS } from '../../constants/links.js';
+import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import './Pricing.scss';
 
 function PricingPrice({ amount, quantity }) {
@@ -78,6 +78,7 @@ function Pricing() {
                 <a
                   className="pricing__button"
                   href={plan.url}
+                  {...SUBSCRIPTION_LINK_PROPS}
                   data-gtm={plan.type === 'annual' ? 'pricing_annual_click' : 'pricing_monthly_click'}
                 >
                   {plan.buttonText}

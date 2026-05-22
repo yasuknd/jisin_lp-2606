@@ -1,4 +1,4 @@
-import { LINKS } from '../../constants/links.js';
+import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import './Entry.scss';
 
 function Entry() {
@@ -14,6 +14,7 @@ function Entry() {
               <a
                 className="entry__button entry__button--annual"
                 href={LINKS.annual}
+                {...SUBSCRIPTION_LINK_PROPS}
                 data-gtm="entry_annual_click"
               >
                 年額コース
@@ -23,6 +24,7 @@ function Entry() {
               <a
                 className="entry__button entry__button--monthly"
                 href={LINKS.monthly}
+                {...SUBSCRIPTION_LINK_PROPS}
                 data-gtm="entry_monthly_click"
               >
                 月額コース

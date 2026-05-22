@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { LINKS } from '../../constants/links.js';
+import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import logoPremium from '../../assets/images/brand/logo-premium.png';
 import heroCoverMain from '../../assets/images/hero/hero-cover-main.jpg';
 import heroCoverAccent from '../../assets/images/hero/hero-cover-accent.jpg';
@@ -274,7 +274,12 @@ function Hero() {
           {SHOW_HERO_ACTIONS ? (
             <div className="hero__actions">
               <div className="hero__ctaWrap">
-                <a className="hero__cta hero__cta--annual" href={LINKS.annual} data-gtm="hero_annual_click">
+                <a
+                  className="hero__cta hero__cta--annual"
+                  href={LINKS.annual}
+                  {...SUBSCRIPTION_LINK_PROPS}
+                  data-gtm="hero_annual_click"
+                >
                   <span className="hero__ctaLabel">年額コースに申し込む</span>
                   <span className="hero__ctaChevron" aria-hidden="true">
                     ›
@@ -282,7 +287,12 @@ function Hero() {
                 </a>
               </div>
               <div className="hero__ctaWrap">
-                <a className="hero__cta hero__cta--monthly" href={LINKS.monthly} data-gtm="hero_monthly_click">
+                <a
+                  className="hero__cta hero__cta--monthly"
+                  href={LINKS.monthly}
+                  {...SUBSCRIPTION_LINK_PROPS}
+                  data-gtm="hero_monthly_click"
+                >
                   <span className="hero__ctaLabel">月額コースに申し込む</span>
                   <span className="hero__ctaChevron" aria-hidden="true">
                     ›

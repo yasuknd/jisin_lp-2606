@@ -1,11 +1,16 @@
 export const LINKS = {
   annual:
-    'https://kokode-digital.jp/products/detail/5203?utm_source=ca&utm_medium=post&utm_campaign=ca_202509_jisin',
+    'https://dev.kokode-digital.jp/products/detail/1736?utm_source=kokode&utm_medium=internal-link&utm_campaign=jisin_subsc_202606_cp',
   monthly:
-    'https://kokode-digital.jp/products/detail/5203?utm_source=ca&utm_medium=post&utm_campaign=ca_202509_jisin',
+    'https://dev.kokode-digital.jp/products/detail/2107?utm_source=kokode&utm_medium=internal-link&utm_campaign=jisin_subsc_202606_cp',
   guide: 'https://kokode-digital.jp/',
   points: 'https://kokode-digital.jp/',
   usePoints: 'https://kokode-digital.jp/',
   login: 'https://kokode-digital.jp/mypage/bookshelf',
   signup: 'https://kokode-digital.jp/',
+};
+
+export const SUBSCRIPTION_LINK_PROPS = {
+  target: '_blank',
+  rel: 'noopener noreferrer',
 };
