@@ -142,6 +142,8 @@ function Hero() {
       <div className="hero__backdrop" aria-hidden="true">
         <div className="hero__wash" />
         <div className="hero__washLayer hero__washLayer--green" />
+        <span className="hero__blob hero__blob--1" />
+        <span className="hero__blob hero__blob--2" />
         <HeroStars />
         <HeroFlowLines />
         <svg className="hero__flowSvg hero__flowSvg--mirror" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
