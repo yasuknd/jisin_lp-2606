@@ -16,6 +16,8 @@ import heroMook09 from '../../assets/images/hero/hero-mook-09.jpg';
 import heroMook10 from '../../assets/images/hero/hero-mook-10.jpg';
 import './Hero.scss';
 
+const SHOW_HERO_ACTIONS = false;
+
 const heroMookImages = [
   { id: 'mook-01', src: heroMook01, width: 2420, height: 3070 },
   { id: 'mook-02', src: heroMook02, width: 2480, height: 2480 },
@@ -28,21 +30,6 @@ const heroMookImages = [
   { id: 'mook-09', src: heroMook09, width: 2480, height: 3070 },
   { id: 'mook-10', src: heroMook10, width: 2480, height: 2480 },
 ];
-
-function HeroLeadArch() {
-  return (
-    <svg className="hero__leadArch" viewBox="0 0 540 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <path id="heroLeadTextArc" d="M 26 74 A 620 620 0 0 1 514 74" />
-      </defs>
-      <text className="hero__leadArchText">
-        <textPath href="#heroLeadTextArc" startOffset="50%" textAnchor="middle">
-          雑誌定期購読 ＋ デジタルサービス ＋ 各種特典付き
-        </textPath>
-      </text>
-    </svg>
-  );
-}
 
 function HeroStars() {
   const stars = Array.from({ length: 38 }, (_, index) => ({
@@ -233,8 +220,12 @@ function Hero() {
                 <div className="hero__headFrame">
                   <div className="hero__headCore">
                     <div className="hero__leadPill">
-                      <HeroLeadArch />
-                      <p className="hero__lead">雑誌定期購読 ＋ デジタルサービス ＋ 各種特典付き</p>
+                      <p className="hero__leadLabel">
+                        <span className="hero__leadLabelText">
+                          雑誌 <span className="hero__leadLabelSep">＋</span> デジタルサービス{' '}
+                          <span className="hero__leadLabelSep">＋</span> 各種特典付き
+                        </span>
+                      </p>
                     </div>
                     <h1 id="hero-title" className="hero__title">
                       <img
@@ -249,36 +240,57 @@ function Hero() {
                   </div>
                 </div>
                 <div className="hero__descriptionWrap">
-                  <span className="hero__descRule" aria-hidden="true" />
+                  <span className="hero__descRule hero__descRule--top" aria-hidden="true">
+                    <span className="hero__descRuleLine" />
+                    <span className="hero__descRuleMark">
+                      <span className="hero__descRuleSep">＋</span>
+                      <span className="hero__descRuleSep">＋</span>
+                      <span className="hero__descRuleSep">＋</span>
+                    </span>
+                    <span className="hero__descRuleLine" />
+                  </span>
                   <p className="hero__description">
-                    毎号<span className="hero__descriptionEm">送料無料</span>で
-                    <br />
-                    「女性自身」をご自宅・オフィスにお届け！
+                    <span className="hero__descriptionGroup hero__descriptionGroup--appeal">
+                      <span className="hero__descriptionLine">
+                        皇室・芸能ニュースから健康、マネー、グルメまで
+                      </span>
+                      <span className="hero__descriptionLine hero__descriptionLine--emphasis">
+                        驚きと発見のスクープ情報が満載！
+                      </span>
+                    </span>
+                    <span className="hero__descriptionGroup hero__descriptionGroup--benefit">
+                      <span className="hero__descriptionLine">
+                        『女性自身』を毎号
+                        <span className="hero__descriptionEm">送料無料</span>で
+                      </span>
+                      <span className="hero__descriptionLine">ご自宅・オフィスにお届けします</span>
+                    </span>
                   </p>
-                  <span className="hero__descRule" aria-hidden="true" />
                 </div>
               </header>
             </div>
           </div>
 
-          <div className="hero__actions">
-            <div className="hero__ctaWrap">
-              <a className="hero__cta hero__cta--annual" href={LINKS.annual} data-gtm="hero_annual_click">
-                <span className="hero__ctaLabel">年額コースに申し込む</span>
-                <span className="hero__ctaChevron" aria-hidden="true">
-                  ›
-                </span>
-              </a>
+          {SHOW_HERO_ACTIONS ? (
+            <div className="hero__actions">
+              <div className="hero__ctaWrap">
+                <a className="hero__cta hero__cta--annual" href={LINKS.annual} data-gtm="hero_annual_click">
+                  <span className="hero__ctaLabel">年額コースに申し込む</span>
+                  <span className="hero__ctaChevron" aria-hidden="true">
+                    ›
+                  </span>
+                </a>
+              </div>
+              <div className="hero__ctaWrap">
+                <a className="hero__cta hero__cta--monthly" href={LINKS.monthly} data-gtm="hero_monthly_click">
+                  <span className="hero__ctaLabel">月額コースに申し込む</span>
+                  <span className="hero__ctaChevron" aria-hidden="true">
+                    ›
+                  </span>
+                </a>
+              </div>
             </div>
-            <div className="hero__ctaWrap">
-              <a className="hero__cta hero__cta--monthly" href={LINKS.monthly} data-gtm="hero_monthly_click">
-                <span className="hero__ctaLabel">月額コースに申し込む</span>
-                <span className="hero__ctaChevron" aria-hidden="true">
-                  ›
-                </span>
-              </a>
-            </div>
-          </div>
+          ) : null}
         </div>
       </div>
     </section>

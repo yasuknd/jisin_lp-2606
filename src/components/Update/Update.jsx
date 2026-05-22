@@ -5,7 +5,7 @@ const updateItems = [
     id: 'points',
     node: (
       <>
-        定期購読を新規・継続購入すると
+        定期購読を新規および継続お申し込みの方に
         <span className="update__itemEm">ポイントを付与</span>
       </>
     ),
@@ -24,7 +24,7 @@ const updateItems = [
     id: 'coupon',
     node: (
       <>
-        初回特典で
+        初回特典として
         <span className="update__itemEm">2,000円分のkokodeクーポン</span>
         をプレゼント
       </>
@@ -41,7 +41,7 @@ function Update() {
           <div className="update__main">
             <p className="update__date">６月２日（火）〜</p>
             <h2 id="update-title" className="update__title">
-              女性自身定期購読「女性自身プレミアム」がアップデート！
+              『女性自身』定期購読「女性自身プレミアム」がアップデート！
             </h2>
             <ul className="update__list">
               {updateItems.map((item) => (
