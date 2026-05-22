@@ -93,12 +93,30 @@
   animation-name: digitalService-galleryFlowReverse;
 }
 
-.digitalService__featureFig--gallery .digitalService__featureImage {
+.digitalService__featureImageFrame {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 235px;
+  margin: 0;
+  padding: 2px;
+  background: linear-gradient(180deg, #fff 0%, #fffafc 100%);
+  border: 0.5px solid #fff;
+  border-radius: var(--radius-sm);
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 0.14),
+    inset 0 0.5px 0 rgb(255 255 255);
+}
+
+.digitalService__featureImageFrame .digitalService__featureImage {
   display: block;
   width: auto;
-  height: 235px;
-  flex-shrink: 0;
+  height: 100%;
   object-fit: contain;
+  border-radius: calc(var(--radius-sm) - 1px);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.05);
 }
 
 @keyframes digitalService-galleryFlow {
@@ -162,6 +180,13 @@
 
   .digitalService__featureBody {
     padding-block: var(--space-2xl);
+  }
+
+  .digitalService__featureImageFrame {
+    padding: 4px;
+    box-shadow:
+      0 10px 28px rgb(0 0 0 / 0.16),
+      inset 0 0.5px 0 rgb(255 255 255);
   }
 }
 

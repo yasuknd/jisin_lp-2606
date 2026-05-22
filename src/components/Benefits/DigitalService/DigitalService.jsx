@@ -85,16 +85,17 @@ function DigitalService({ label }) {
                     aria-hidden="true"
                   >
                     {[...item.images, ...item.images].map((src, index) => (
-                      <img
-                        key={`${src}-${index}`}
-                        className="digitalService__featureImage"
-                        src={src}
-                        alt=""
-                        width={443}
-                        height={550}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                        decoding="async"
-                      />
+                      <div key={`${src}-${index}`} className="digitalService__featureImageFrame">
+                        <img
+                          className="digitalService__featureImage"
+                          src={src}
+                          alt=""
+                          width={443}
+                          height={550}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                          decoding="async"
+                        />
+                      </div>
                     ))}
                   </div>
                 ) : (
