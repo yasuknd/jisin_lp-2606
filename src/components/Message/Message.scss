@@ -27,23 +27,58 @@
 }
 
 .message__heading {
-  margin: 0;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
   font-family: var(--font-en);
   font-size: clamp(2.25rem, 5.5vw, 3.25rem);
   font-weight: 700;
   line-height: 1.35;
   color: var(--color-lp-black);
   letter-spacing: 0.18em;
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  transform: translateX(10px);
 }
 
 .message__title {
-  margin: var(--space-sm) 0 0;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: var(--space-sm) auto 0;
   font-family: var(--font-base);
   font-size: var(--text-body);
   font-weight: 700;
   line-height: 1.6;
   color: var(--color-lp-pink);
   letter-spacing: 0.14em;
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.message__inner--inView .message__heading {
+  animation: message-reveal-rtl 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.message__inner--inView .message__title {
+  animation: message-reveal-rtl 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.68s;
+}
+
+@keyframes message-reveal-rtl {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .message__body {
@@ -65,10 +100,34 @@
   margin-top: 2em;
 }
 
+.message__paragraph--typing::after,
+.message__role--typing::after,
+.message__name--typing::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--color-lp-pink);
+  animation: message-cursor-blink 0.9s step-end infinite;
+}
+
+@keyframes message-cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
 .message__signature {
   display: flex;
   align-items: baseline;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 1.25em;
   width: 100%;
   margin: var(--space-xl) 0 0;
@@ -94,6 +153,22 @@
   letter-spacing: 0.2em;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .message__heading,
+  .message__title {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .message__paragraph--typing::after,
+  .message__role--typing::after,
+  .message__name--typing::after {
+    animation: none;
+  }
+}
+
 @include mixins.media-pc {
   .message__inner {
     padding: var(--space-xl) var(--space-lg);
@@ -105,7 +180,7 @@
   }
 
   .message__title {
-    margin-top: var(--space-md);
+    margin: var(--space-md) auto 0;
     font-size: var(--text-body-lg);
     letter-spacing: 0.16em;
   }
