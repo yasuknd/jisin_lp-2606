@@ -3,12 +3,12 @@ import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import { useSectionParallax } from '../../hooks/useSectionParallax.js';
 import './Entry.scss';
 
-const ENTRY_MOSAIC_ROWS_PC = 3;
-const ENTRY_MOSAIC_COLS_PC = 8;
-const ENTRY_MOSAIC_ROWS_SP = 6;
-const ENTRY_MOSAIC_COLS_SP = 4;
-const ENTRY_MOSAIC_IMAGE_COUNT = ENTRY_MOSAIC_COLS_PC * ENTRY_MOSAIC_ROWS_PC;
-const ENTRY_MOSAIC_ORDER_STAGGER_MS = 32;
+const ENTRY_MOSAIC_ROWS_PC = 4;
+const ENTRY_MOSAIC_COLS_PC = 12;
+const ENTRY_MOSAIC_ROWS_SP = 8;
+const ENTRY_MOSAIC_COLS_SP = 6;
+const ENTRY_MOSAIC_SLOT_COUNT = ENTRY_MOSAIC_COLS_PC * ENTRY_MOSAIC_ROWS_PC;
+const ENTRY_MOSAIC_ORDER_STAGGER_MS = 24;
 const ENTRY_MOSAIC_VARIANT_OFFSET_MS = 8;
 const ENTRY_MOSAIC_REVEAL_DURATION_MS = 300;
 
@@ -45,12 +45,19 @@ function loadEntryMosaicImages() {
     src,
   }));
 
-  return shuffleArray(allImages).slice(0, ENTRY_MOSAIC_IMAGE_COUNT);
+  const images = shuffleArray(allImages).slice(0, ENTRY_MOSAIC_SLOT_COUNT);
+  const cells = [...images];
+
+  while (cells.length < ENTRY_MOSAIC_SLOT_COUNT) {
+    cells.push(null);
+  }
+
+  return cells;
 }
 
-const entryMosaicImages = loadEntryMosaicImages();
+const entryMosaicCells = loadEntryMosaicImages();
 const entryMosaicRevealOrder = shuffleArray(
-  Array.from({ length: ENTRY_MOSAIC_IMAGE_COUNT }, (_, index) => index),
+  Array.from({ length: ENTRY_MOSAIC_SLOT_COUNT }, (_, index) => index),
 );
 
 function EntryMosaic({ isRevealed }) {
@@ -66,16 +73,16 @@ function EntryMosaic({ isRevealed }) {
         '--entry-mosaic-reveal-duration': `${ENTRY_MOSAIC_REVEAL_DURATION_MS}ms`,
       }}
     >
-      {entryMosaicImages.map((image, index) => {
+      {entryMosaicCells.map((cell, index) => {
         const { variant, delay } = getMosaicCellMotion(index, entryMosaicRevealOrder[index]);
 
         return (
           <div
-            key={image.id}
+            key={cell?.id ?? `entry-mosaic-empty-${index}`}
             className={`entry__mosaicCell entry__mosaicCell--motion${variant}`}
             style={{ '--entry-mosaic-delay': `${delay}ms` }}
           >
-            <img src={image.src} alt="" loading="lazy" decoding="async" />
+            {cell ? <img src={cell.src} alt="" loading="lazy" decoding="async" /> : null}
           </div>
         );
       })}
