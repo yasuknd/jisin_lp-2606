@@ -1,9 +1,13 @@
 import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
+import { useScrollPosition } from '../../hooks/useScrollPosition.js';
 import './BottomCta.scss';
 
 function BottomCta() {
+  const { isScrolled, isAtBottom } = useScrollPosition();
+  const isCompact = isScrolled && !isAtBottom;
+
   return (
-    <aside className="bottomCta" aria-label="お申し込み">
+    <aside className={`bottomCta${isCompact ? ' bottomCta--compact' : ''}`} aria-label="お申し込み">
       <div className="bottomCta__bar">
         <div className="bottomCta__inner">
           <div className="bottomCta__buttonWrap">

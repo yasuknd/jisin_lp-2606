@@ -1,18 +1,27 @@
 @use '../../styles/mixins' as mixins;
 
 .entry {
+  --parallax-bg-y: 0px;
+  --parallax-content-y: 0px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   width: 100%;
-  min-height: clamp(560px, 72vh, 820px);
-  padding: clamp(72px, 12vw, 128px) 0;
+  min-height: clamp(600px, 78vh, 880px);
+  padding: clamp(80px, 13vw, 140px) 0;
   overflow: hidden;
+  background: rgb(8 8 8);
 }
 
 .entry__backdrop {
   position: absolute;
-  inset: 0;
+  inset: -24% 0;
   z-index: 0;
   overflow: hidden;
+  transform: translate3d(0, var(--parallax-bg-y), 0) scale(1.08);
+  will-change: transform;
 }
 
 .entry__mosaic {
@@ -34,17 +43,7 @@
   min-height: 0;
   overflow: hidden;
   isolation: isolate;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: rgb(8 8 8 / 0.92);
-    opacity: 1;
-    transition: opacity 0.42s ease;
-    transition-delay: calc(var(--entry-mosaic-index, 0) * var(--entry-mosaic-stagger, 45ms));
-  }
+  background: rgb(8 8 8);
 
   img {
     position: absolute;
@@ -56,23 +55,34 @@
     object-fit: cover;
     object-position: center;
     opacity: 0;
-    transform: scale(1.08);
+    transform: scale(1.14);
+    transform-origin: center;
     transition:
-      opacity 0.48s ease,
-      transform 0.48s ease;
-    transition-delay: calc(var(--entry-mosaic-index, 0) * var(--entry-mosaic-stagger, 45ms));
+      opacity var(--entry-mosaic-reveal-duration, 300ms) cubic-bezier(0.22, 1, 0.36, 1),
+      transform var(--entry-mosaic-reveal-duration, 300ms) cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--entry-mosaic-delay, 0ms);
   }
 }
 
-.entry__mosaic--revealed .entry__mosaicCell {
-  &::before {
-    opacity: 0;
-  }
+.entry__mosaicCell--motion1 img {
+  transform: scale(1.12);
+  transform-origin: 0% 0%;
+}
 
-  img {
-    opacity: 1;
-    transform: scale(1);
-  }
+.entry__mosaicCell--motion2 img {
+  transform: scale(1.12);
+  transform-origin: 100% 100%;
+}
+
+.entry__mosaicCell--motion3 img {
+  transform: scale(0.92) translate3d(0, 14px, 0);
+  transform-origin: center bottom;
+}
+
+.entry__mosaic--revealed .entry__mosaicCell img {
+  opacity: 1;
+  transform: scale(1) translate3d(0, 0, 0);
+  transform-origin: center;
 }
 
 .entry__overlay {
@@ -85,6 +95,9 @@
   @include mixins.content-inner(var(--content-xl));
   position: relative;
   z-index: 1;
+  width: 100%;
+  transform: translate3d(0, var(--parallax-content-y), 0);
+  will-change: transform;
 }
 
 .entry__panel {
@@ -94,7 +107,9 @@
   text-align: center;
   color: var(--color-lp-white);
   border: 1px solid rgb(255 255 255 / 0.82);
-  background: rgb(0 0 0 / 0.14);
+  background: rgb(0 0 0 / 0.24);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .entry__title {
@@ -112,15 +127,36 @@
   font-feature-settings: 'palt' 1;
   white-space: nowrap;
   text-shadow: 0 2px 20px rgb(0 0 0 / 0.45);
+}
+
+.entry__titleBrand {
+  position: relative;
+  display: inline-block;
 
   &::after {
     content: '';
     display: block;
-    width: clamp(56px, 10vw, 88px);
+    width: 100%;
     height: 3px;
     margin-top: clamp(12px, 2vw, 16px);
-    margin-inline: auto;
     background: var(--color-lp-pink);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+}
+
+.entry__inner--inView .entry__titleBrand::after {
+  animation: entry-titleLineDraw 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.12s;
+}
+
+@keyframes entry-titleLineDraw {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
   }
 }
 
@@ -272,8 +308,8 @@ $entry-button-arrow-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
 
 @include mixins.media-pc {
   .entry {
-    min-height: clamp(640px, 78vh, 920px);
-    padding: clamp(96px, 14vw, 152px) 0;
+    min-height: clamp(680px, 84vh, 980px);
+    padding: clamp(96px, 14vw, 160px) 0;
   }
 
   .entry__inner {
@@ -301,10 +337,6 @@ $entry-button-arrow-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
     grid-area: title;
     font-size: min(2.5rem, max(1.125rem, calc(100cqw / 17)));
     letter-spacing: 0.05em;
-
-    &::after {
-      margin-inline: 0;
-    }
   }
 
   .entry__buttons {
@@ -332,16 +364,20 @@ $entry-button-arrow-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .entry__mosaicCell {
-    &::before {
-      display: none;
-    }
+  .entry__backdrop,
+  .entry__inner {
+    transform: none;
+  }
 
-    img {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
+  .entry__mosaicCell img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .entry__titleBrand::after {
+    animation: none;
+    transform: scaleX(1);
   }
 
   .entry__button,

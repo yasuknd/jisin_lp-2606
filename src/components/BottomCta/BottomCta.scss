@@ -12,6 +12,13 @@
   background: var(--color-lp-black);
   border-top: 1px solid rgb(255 255 255 / 0.12);
   box-shadow: 0 -8px 32px rgb(0 0 0 / 0.35);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.bottomCta--compact .bottomCta__bar {
+  box-shadow: 0 -4px 20px rgb(0 0 0 / 0.28);
 }
 
 .bottomCta__inner {
@@ -21,12 +28,25 @@
   max-width: var(--content-lg);
   margin-inline: auto;
   padding: var(--space-sm) var(--space-sm) calc(var(--space-sm) + env(safe-area-inset-bottom, 0px));
+  transition:
+    gap 0.25s ease,
+    padding 0.25s ease;
+}
+
+.bottomCta--compact .bottomCta__inner {
+  gap: 8px;
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
 }
 
 .bottomCta__buttonWrap {
   container-type: inline-size;
   min-width: 0;
   padding: 0 4px 4px 0;
+  transition: padding 0.25s ease;
+}
+
+.bottomCta--compact .bottomCta__buttonWrap {
+  padding: 0 2px 2px 0;
 }
 
 .bottomCta__button {
@@ -52,9 +72,19 @@
     transform 0.14s ease,
     box-shadow 0.14s ease,
     background-color 0.14s ease,
-    color 0.14s ease;
+    color 0.14s ease,
+    min-height 0.25s ease,
+    padding 0.25s ease,
+    font-size 0.25s ease;
 
   @include mixins.focus-visible;
+}
+
+.bottomCta--compact .bottomCta__button {
+  min-height: 44px;
+  padding: 10px clamp(6px, 1.5cqi, 12px);
+  font-size: min(var(--text-body), calc((100cqw - 44px) / 20));
+  box-shadow: 4px 4px 0 var(--color-lp-pink);
 }
 
 .bottomCta__buttonWrap:hover .bottomCta__button,
@@ -80,17 +110,38 @@
     padding: var(--space-md) var(--space-lg) calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
   }
 
+  .bottomCta--compact .bottomCta__inner {
+    gap: 10px;
+    padding: 8px var(--space-md) calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+
   .bottomCta__buttonWrap {
     padding: 0 6px 6px 0;
+  }
+
+  .bottomCta--compact .bottomCta__buttonWrap {
+    padding: 0 4px 4px 0;
   }
 
   .bottomCta__button {
     min-height: 60px;
     padding: 16px clamp(12px, 2cqi, 24px);
   }
+
+  .bottomCta--compact .bottomCta__button {
+    min-height: 48px;
+    padding: 12px clamp(10px, 1.8cqi, 18px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .bottomCta__bar,
+  .bottomCta__inner,
+  .bottomCta__buttonWrap,
+  .bottomCta__button {
+    transition: none;
+  }
+
   .bottomCta__buttonWrap:hover .bottomCta__button,
   .bottomCta__buttonWrap:focus-within .bottomCta__button,
   .bottomCta__button:focus-visible,

@@ -1,10 +1,13 @@
 import { LINKS } from '../../constants/links.js';
+import { useScrollPosition } from '../../hooks/useScrollPosition.js';
 import logoHeader from '../../assets/images/brand/logo-header.png';
 import './Header.scss';
 
 function Header() {
+  const { isScrolled } = useScrollPosition();
+
   return (
-    <header className="header">
+    <header className={`header${isScrolled ? ' header--compact' : ''}`}>
       <div className="header__inner">
         <a
           className="header__logo"

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
+import { useSectionParallax } from '../../hooks/useSectionParallax.js';
 import './Entry.scss';
 
 const ENTRY_MOSAIC_ROWS_PC = 3;
@@ -7,17 +8,9 @@ const ENTRY_MOSAIC_COLS_PC = 8;
 const ENTRY_MOSAIC_ROWS_SP = 6;
 const ENTRY_MOSAIC_COLS_SP = 4;
 const ENTRY_MOSAIC_IMAGE_COUNT = ENTRY_MOSAIC_COLS_PC * ENTRY_MOSAIC_ROWS_PC;
-const ENTRY_MOSAIC_STAGGER_MS = 45;
-
-function sortByNumber(paths) {
-  const pattern = /entry-mosaic-(\d+)/;
-
-  return paths.sort(([pathA], [pathB]) => {
-    const numA = Number(pathA.match(pattern)?.[1] ?? 0);
-    const numB = Number(pathB.match(pattern)?.[1] ?? 0);
-    return numA - numB;
-  });
-}
+const ENTRY_MOSAIC_ORDER_STAGGER_MS = 32;
+const ENTRY_MOSAIC_VARIANT_OFFSET_MS = 8;
+const ENTRY_MOSAIC_REVEAL_DURATION_MS = 300;
 
 function shuffleArray(values) {
   const result = [...values];
@@ -30,6 +23,13 @@ function shuffleArray(values) {
   return result;
 }
 
+function getMosaicCellMotion(index, revealRank) {
+  const variant = index % 4;
+  const delay = revealRank * ENTRY_MOSAIC_ORDER_STAGGER_MS + variant * ENTRY_MOSAIC_VARIANT_OFFSET_MS;
+
+  return { variant, delay };
+}
+
 function loadEntryMosaicImages() {
   const jpgModules = import.meta.glob('../../assets/images/entry/entry-mosaic-*.jpg', {
     eager: true,
@@ -40,12 +40,12 @@ function loadEntryMosaicImages() {
     import: 'default',
   });
 
-  return sortByNumber(Object.entries({ ...jpgModules, ...pngModules }))
-    .slice(0, ENTRY_MOSAIC_IMAGE_COUNT)
-    .map(([path, src]) => ({
-      id: path,
-      src,
-    }));
+  const allImages = Object.entries({ ...jpgModules, ...pngModules }).map(([path, src]) => ({
+    id: path,
+    src,
+  }));
+
+  return shuffleArray(allImages).slice(0, ENTRY_MOSAIC_IMAGE_COUNT);
 }
 
 const entryMosaicImages = loadEntryMosaicImages();
@@ -63,25 +63,39 @@ function EntryMosaic({ isRevealed }) {
         '--entry-mosaic-rows-sp': ENTRY_MOSAIC_ROWS_SP,
         '--entry-mosaic-cols-pc': ENTRY_MOSAIC_COLS_PC,
         '--entry-mosaic-rows-pc': ENTRY_MOSAIC_ROWS_PC,
-        '--entry-mosaic-stagger': `${ENTRY_MOSAIC_STAGGER_MS}ms`,
+        '--entry-mosaic-reveal-duration': `${ENTRY_MOSAIC_REVEAL_DURATION_MS}ms`,
       }}
     >
-      {entryMosaicImages.map((image, index) => (
-        <div
-          key={image.id}
-          className="entry__mosaicCell"
-          style={{ '--entry-mosaic-index': entryMosaicRevealOrder[index] }}
-        >
-          <img src={image.src} alt="" loading="lazy" decoding="async" />
-        </div>
-      ))}
+      {entryMosaicImages.map((image, index) => {
+        const { variant, delay } = getMosaicCellMotion(index, entryMosaicRevealOrder[index]);
+
+        return (
+          <div
+            key={image.id}
+            className={`entry__mosaicCell entry__mosaicCell--motion${variant}`}
+            style={{ '--entry-mosaic-delay': `${delay}ms` }}
+          >
+            <img src={image.src} alt="" loading="lazy" decoding="async" />
+          </div>
+        );
+      })}
     </div>
   );
 }
 
+function isElementFullyInView(node) {
+  const rect = node.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+
+  return rect.top >= 0 && rect.bottom <= viewportHeight;
+}
+
 function Entry() {
   const sectionRef = useRef(null);
+  const innerRef = useRef(null);
   const [isMosaicRevealed, setIsMosaicRevealed] = useState(false);
+
+  useSectionParallax(sectionRef, { bgSpeed: 0.18, contentSpeed: -0.06 });
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -90,23 +104,41 @@ function Entry() {
       return undefined;
     }
 
-    const node = sectionRef.current;
+    const node = innerRef.current;
     if (!node) {
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsMosaicRevealed(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -5% 0px' },
-    );
+    let frameId = 0;
 
-    observer.observe(node);
-    return () => observer.disconnect();
+    const revealIfReady = () => {
+      frameId = 0;
+
+      if (isElementFullyInView(node)) {
+        setIsMosaicRevealed(true);
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', revealIfReady);
+      }
+    };
+
+    const onScroll = () => {
+      if (!frameId) {
+        frameId = window.requestAnimationFrame(revealIfReady);
+      }
+    };
+
+    revealIfReady();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', revealIfReady);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', revealIfReady);
+
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
   }, []);
 
   return (
@@ -115,10 +147,14 @@ function Entry() {
         <EntryMosaic isRevealed={isMosaicRevealed} />
         <div className="entry__overlay" />
       </div>
-      <div className="entry__inner">
+      <div
+        ref={innerRef}
+        className={`entry__inner${isMosaicRevealed ? ' entry__inner--inView' : ''}`}
+      >
         <div className="entry__panel">
           <h2 id="entry-title" className="entry__title">
-            女性自身プレミアムに申し込む
+            <span className="entry__titleBrand">女性自身プレミアム</span>
+            に申し込む
           </h2>
           <div className="entry__buttons">
             <div className="entry__buttonWrap">

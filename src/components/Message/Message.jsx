@@ -10,11 +10,11 @@ const messageParagraphs = [
 const SIGNATURE_ROLE = '女性自身編集長';
 const SIGNATURE_NAME = '江口岳志';
 
-const BASE_CHAR_DELAY_MS = 15;
-const CHAR_JITTER_MS = 7;
-const START_DELAY_MS = 1400;
-const BLOCK_PAUSE_MS = 300;
-const SIGNATURE_PAUSE_MS = 400;
+const BASE_CHAR_DELAY_MS = 4;
+const CHAR_JITTER_MS = 2;
+const START_DELAY_MS = 600;
+const BLOCK_PAUSE_MS = 100;
+const SIGNATURE_PAUSE_MS = 140;
 
 const messageBlocks = [
   ...messageParagraphs.map((text, index) => ({
@@ -33,11 +33,11 @@ function getCharDelay(char) {
   let delay = BASE_CHAR_DELAY_MS + Math.floor(Math.random() * CHAR_JITTER_MS);
 
   if ('。！？⋯'.includes(char)) {
-    delay += 130;
+    delay += 45;
   } else if (char === '、') {
-    delay += 75;
+    delay += 25;
   } else if ('」』）】'.includes(char)) {
-    delay += 50;
+    delay += 18;
   }
 
   return delay;
