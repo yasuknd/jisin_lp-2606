@@ -178,7 +178,7 @@
   --entry-arrow-shift-x: 0px;
 }
 
-$entry-button-arrow-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 20' fill='none'%3E%3Cpath d='M1 10H18' stroke='%23000' stroke-width='2.5' stroke-linecap='square'/%3E%3Cpath d='M18 4L31 10L18 16' stroke='%23000' stroke-width='2.5' stroke-linejoin='miter' stroke-linecap='square'/%3E%3C/svg%3E");
+$entry-button-arrow-mask: url('../../assets/images/entry/entry-button-arrow.svg');
 
 .entry__button {
   position: relative;
@@ -213,7 +213,7 @@ $entry-button-arrow-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
     position: absolute;
     top: 50%;
     right: 16px;
-    width: 36px;
+    width: 30px;
     height: 20px;
     background-color: var(--entry-arrow-color);
     pointer-events: none;
@@ -362,7 +362,7 @@ $entry-button-arrow-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
 
     &::after {
       right: 18px;
-      width: 40px;
+      width: 34px;
       height: 22px;
     }
   }
