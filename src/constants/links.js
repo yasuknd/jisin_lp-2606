@@ -4,13 +4,17 @@ export const LINKS = {
   monthly:
     'https://dev.kokode-digital.jp/products/detail/2107?utm_source=kokode&utm_medium=internal-link&utm_campaign=jisin_subsc_202606_cp',
   guide: 'https://kokode-digital.jp/',
-  points: 'https://kokode-digital.jp/',
-  usePoints: 'https://kokode-digital.jp/',
-  login: 'https://kokode-digital.jp/mypage/bookshelf',
-  signup: 'https://kokode-digital.jp/',
+  points: 'https://kokode-digital.jp/mypage/bookshelf',
+  login: 'https://kokode-digital.jp/uniikey/login',
+  signup: 'https://kokode-digital.jp/uniikey/signup',
 };
 
 export const SUBSCRIPTION_LINK_PROPS = {
+  target: '_blank',
+  rel: 'noopener noreferrer',
+};
+
+export const EXTERNAL_LINK_PROPS = {
   target: '_blank',
   rel: 'noopener noreferrer',
 };
