@@ -693,13 +693,20 @@
 .hero__phone {
   position: relative;
   width: min(48vw, 260px);
-  transform: rotate(4deg);
-  filter: drop-shadow(10px 10px 0 rgb(0 0 0 / 0.45));
   pointer-events: auto;
+  overflow: visible;
+}
+
+.hero__phoneVisual {
+  position: relative;
+  transform: rotate(4deg);
 }
 
 .hero__phoneFrame {
+  position: relative;
+  overflow: visible;
   padding: 3px;
+  filter: drop-shadow(10px 10px 0 rgb(0 0 0 / 0.45));
   background: linear-gradient(155deg, #4a4a4e 0%, #1c1c1e 38%, #0a0a0c 100%);
   border-radius: 44px;
   box-shadow:
@@ -980,6 +987,9 @@
 
   .hero__phone {
     width: min(30vw, 340px);
+  }
+
+  .hero__phoneVisual {
     transform: rotate(4deg) translate(12%, -6%);
   }
 

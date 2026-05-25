@@ -183,30 +183,32 @@ function Hero() {
 
           <div className="hero__flank hero__flank--right">
             <div className="hero__phone">
-              <div className="hero__phoneFrame">
-                <div className="hero__phoneBezel">
-                  <span className="hero__phoneNotch" />
-                  <div className="hero__phoneScreen">
-                    <div className="hero__phoneStack" ref={phoneStackRef}>
-                      {heroMookImages.map((item, index) => (
-                        <div
-                          key={item.id}
-                          className="hero__phoneCard"
-                          ref={(node) => {
-                            phoneCardRefs.current[index] = node;
-                          }}
-                        >
-                          <img
-                            className="hero__phoneImg"
-                            src={item.src}
-                            alt=""
-                            width={item.width}
-                            height={item.height}
-                            loading={index < 3 ? 'eager' : 'lazy'}
-                            decoding="async"
-                          />
-                        </div>
-                      ))}
+              <div className="hero__phoneVisual">
+                <div className="hero__phoneFrame">
+                  <div className="hero__phoneBezel">
+                    <span className="hero__phoneNotch" />
+                    <div className="hero__phoneScreen">
+                      <div className="hero__phoneStack" ref={phoneStackRef}>
+                        {heroMookImages.map((item, index) => (
+                          <div
+                            key={item.id}
+                            className="hero__phoneCard"
+                            ref={(node) => {
+                              phoneCardRefs.current[index] = node;
+                            }}
+                          >
+                            <img
+                              className="hero__phoneImg"
+                              src={item.src}
+                              alt=""
+                              width={item.width}
+                              height={item.height}
+                              loading={index < 3 ? 'eager' : 'lazy'}
+                              decoding="async"
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

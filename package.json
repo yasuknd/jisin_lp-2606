@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build && npm run build:gh-pages",
     "build:gh-pages": "cp dist/index.html dist/404.html",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.5.2",
     "sass": "^1.89.2",
+    "sharp": "^0.34.2",
     "vite": "^6.3.5"
   }
 }
