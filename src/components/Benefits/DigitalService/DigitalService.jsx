@@ -54,6 +54,7 @@ const digitalServiceItems = [
     images: digitalContent03Frames,
     imageAlt: '会員限定オリジナル動画のイメージ',
     galleryReverse: false,
+    galleryCompact: true,
   },
 ];
 
@@ -73,7 +74,7 @@ function DigitalService({ label }) {
               <figure
                 className={`digitalService__featureFig${
                   item.images ? ' digitalService__featureFig--gallery' : ''
-                }`}
+                }${item.galleryCompact ? ' digitalService__featureFig--galleryCompact' : ''}`}
                 {...(item.images ? { 'aria-label': item.imageAlt } : {})}
               >
                 {item.images ? (
