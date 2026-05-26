@@ -1,3 +1,4 @@
+import { magazineCoverImages } from '../../../assets/images/magazine-covers/loadMagazineCovers.js';
 import './DigitalService.scss';
 
 function loadNumberedImages(prefix) {
@@ -21,7 +22,7 @@ function loadNumberedImages(prefix) {
     .map(([, src]) => src);
 }
 
-const digitalContent01Frames = loadNumberedImages('digital-content-01');
+const digitalContent01Frames = magazineCoverImages;
 const digitalContent02Frames = loadNumberedImages('digital-content-02');
 const digitalContent03Frames = loadNumberedImages('digital-content-03');
 

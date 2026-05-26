@@ -75,9 +75,23 @@
 
 .digitalService__featureFig--gallery {
   --digital-gallery-height: clamp(268px, 52vw, 300px);
+  --digital-gallery-divider: 2px;
+  position: relative;
+  box-sizing: border-box;
   height: var(--digital-gallery-height);
   overflow: hidden;
-  background: transparent;
+  background: var(--color-lp-white);
+  border-top: var(--digital-gallery-divider) solid var(--color-lp-white);
+  border-bottom: var(--digital-gallery-divider) solid var(--color-lp-white);
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    content: '';
+    background: rgb(0 0 0 / 0.15);
+  }
 }
 
 .digitalService__featureFig--galleryCompact {
@@ -87,9 +101,10 @@
 .digitalService__galleryTrack {
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
-  gap: 8px;
+  align-items: stretch;
+  gap: var(--digital-gallery-divider, 2px);
   width: max-content;
+  background: var(--color-lp-white);
   animation: digitalService-galleryFlow var(--gallery-duration, 120s) linear infinite;
   will-change: transform;
 }
@@ -101,27 +116,25 @@
 .digitalService__featureImageFrame {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   box-sizing: border-box;
   height: var(--digital-gallery-height, 300px);
   margin: 0;
-  padding: 2px;
-  background: linear-gradient(180deg, #fff 0%, #fffafc 100%);
-  border: 0.5px solid #fff;
-  border-radius: var(--radius-sm);
-  box-shadow:
-    0 8px 24px rgb(0 0 0 / 0.14),
-    inset 0 0.5px 0 rgb(255 255 255);
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .digitalService__featureImageFrame .digitalService__featureImage {
   display: block;
   width: auto;
   height: 100%;
-  object-fit: contain;
-  border-radius: calc(var(--radius-sm) - 1px);
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.05);
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 @keyframes digitalService-galleryFlow {
@@ -193,13 +206,6 @@
 
   .digitalService__featureFig--galleryCompact {
     --digital-gallery-height: 296px;
-  }
-
-  .digitalService__featureImageFrame {
-    padding: 4px;
-    box-shadow:
-      0 10px 28px rgb(0 0 0 / 0.16),
-      inset 0 0.5px 0 rgb(255 255 255);
   }
 }
 

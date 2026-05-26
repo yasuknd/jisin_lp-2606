@@ -21,6 +21,10 @@ const RULES = [
     rule: { maxSize: 960, jpegQuality: 80, pngQuality: 82 },
   },
   {
+    test: /magazine-covers\//,
+    rule: { maxSize: 640, jpegQuality: 72, pngQuality: 78, pngCompressionLevel: 9 },
+  },
+  {
     test: /benefits\/digital-content-\d+-/,
     rule: { maxSize: 480, jpegQuality: 76, pngQuality: 78, pngCompressionLevel: 9 },
   },

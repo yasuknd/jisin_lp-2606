@@ -4,6 +4,7 @@
 
 - brand/
 - hero/
+- magazine-covers/
 - benefits/
 - gifts/
 - events/

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { magazineCoverImages } from '../../assets/images/magazine-covers/loadMagazineCovers.js';
 import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import { useSectionParallax } from '../../hooks/useSectionParallax.js';
 import './Entry.scss';
@@ -31,17 +32,8 @@ function getMosaicCellMotion(index, revealRank) {
 }
 
 function loadEntryMosaicImages() {
-  const jpgModules = import.meta.glob('../../assets/images/entry/entry-mosaic-*.jpg', {
-    eager: true,
-    import: 'default',
-  });
-  const pngModules = import.meta.glob('../../assets/images/entry/entry-mosaic-*.png', {
-    eager: true,
-    import: 'default',
-  });
-
-  const allImages = Object.entries({ ...jpgModules, ...pngModules }).map(([path, src]) => ({
-    id: path,
+  const allImages = magazineCoverImages.map((src, index) => ({
+    id: `magazine-cover-${index + 1}`,
     src,
   }));
 
