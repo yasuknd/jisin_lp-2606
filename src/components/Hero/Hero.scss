@@ -155,8 +155,11 @@
 }
 
 .hero {
+  --hero-extra-height: 64px;
+  --hero-wave-shift: 24px;
   position: relative;
   padding-top: var(--header-height-sp);
+  padding-bottom: var(--hero-wave-shift);
   overflow: hidden;
   color: var(--color-lp-white);
 }
@@ -382,14 +385,18 @@
   animation-delay: -11s;
 }
 
+.hero .sectionWaves--bottom {
+  transform: translateY(var(--hero-wave-shift));
+}
+
 .hero__inner {
   position: relative;
   z-index: 2;
   isolation: isolate;
   max-width: min(1320px, 100%);
   margin-inline: auto;
-  padding: var(--space-sm) 16px var(--space-md);
-  min-height: calc(100svh - var(--header-height-sp) - var(--bottom-cta-height));
+  padding: var(--space-sm) 16px calc(var(--space-md) + 20px);
+  min-height: calc(100svh - var(--header-height-sp) - var(--bottom-cta-height) + var(--hero-extra-height));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -917,8 +924,8 @@
     grid-template-columns: var(--hero-side) var(--hero-center) var(--hero-side);
     align-items: center;
     justify-items: center;
-    min-height: calc(100svh - var(--header-height) - var(--bottom-cta-height));
-    padding: var(--space-md) 24px var(--space-lg);
+    min-height: calc(100svh - var(--header-height) - var(--bottom-cta-height) + var(--hero-extra-height));
+    padding: var(--space-md) 24px calc(var(--space-lg) + 24px);
     gap: 0;
   }
 
@@ -1140,7 +1147,7 @@
   .hero__inner {
     justify-content: center;
     padding-top: var(--space-xs);
-    padding-bottom: calc(var(--space-md) + 8px);
+    padding-bottom: calc(var(--space-md) + 28px);
   }
 
   .hero__center {
