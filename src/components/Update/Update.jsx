@@ -1,3 +1,4 @@
+import InView from '../InView/InView.jsx';
 import './Update.scss';
 
 const updateItems = [
@@ -36,7 +37,7 @@ function Update() {
   return (
     <section className="update" aria-labelledby="update-title">
       <div className="update__inner">
-        <div className="update__card">
+        <InView className="update__card">
           <p className="update__label">UPDATE</p>
           <div className="update__main">
             <p className="update__date">６月２日（火）〜</p>
@@ -52,7 +53,7 @@ function Update() {
               ))}
             </ul>
           </div>
-        </div>
+        </InView>
       </div>
     </section>
   );

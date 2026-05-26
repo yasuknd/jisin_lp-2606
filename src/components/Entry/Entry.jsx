@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { magazineCoverImages } from '../../assets/images/magazine-covers/loadMagazineCovers.js';
 import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import { useSectionParallax } from '../../hooks/useSectionParallax.js';
+import InView from '../InView/InView.jsx';
 import './Entry.scss';
 
 const ENTRY_MOSAIC_ROWS_PC = 4;
@@ -150,7 +151,7 @@ function Entry() {
         ref={innerRef}
         className={`entry__inner${isMosaicRevealed ? ' entry__inner--inView' : ''}`}
       >
-        <div className="entry__panel">
+        <InView className="entry__panel">
           <h2 id="entry-title" className="entry__title">
             <span className="entry__titleBrand">女性自身プレミアム</span>
             に申し込む
@@ -177,10 +178,18 @@ function Entry() {
               </a>
             </div>
           </div>
-          <a className="entry__guide" href={LINKS.guide} data-gtm="entry_guide_click">
-            定期購読のご購入方法はこちら
-          </a>
-        </div>
+          <div className="entry__aside">
+            <a className="entry__guide" href={LINKS.guide} data-gtm="entry_guide_click">
+              定期購読のご購入方法はこちら
+            </a>
+            <div className="entry__note">
+              <p>
+                女性自身の定期購読をご購入いただくには、光文社ECサイト「ココデジ」の会員登録（無料）が必要です。
+              </p>
+              <p>購入ポイントは、ココデジのマイページでご確認いただけます。</p>
+            </div>
+          </div>
+        </InView>
       </div>
     </section>
   );

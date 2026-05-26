@@ -1,4 +1,5 @@
 import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
+import InView from '../InView/InView.jsx';
 import './Pricing.scss';
 
 function PricingPrice({ amount, quantityNum, quantityUnit, quantityPeriod }) {
@@ -65,7 +66,7 @@ function Pricing() {
   return (
     <section className="pricing" aria-labelledby="pricing-title">
       <div className="pricing__inner">
-        <div className="pricing__header">
+        <InView className="pricing__header">
           <h2 id="pricing-title" className="pricing__title">
             選べる2つの定期購読コース
           </h2>
@@ -74,11 +75,12 @@ function Pricing() {
             <br />
             毎号送料無料で雑誌をご自宅・オフィスにお届けします
           </p>
-        </div>
+        </InView>
         <div className="pricing__cards">
           {pricingPlans.map((plan) => (
-            <article
+            <InView
               key={plan.type}
+              as="article"
               className={`pricing__card${plan.recommended ? ' pricing__card--recommended' : ''}`}
             >
               <p className="pricing__label">
@@ -100,10 +102,17 @@ function Pricing() {
                   {plan.buttonText}
                 </a>
               </div>
-            </article>
+            </InView>
           ))}
         </div>
+        <InView className="pricing__note">
+          <p>
+            女性自身の定期購読をご購入いただくには、光文社ECサイト「ココデジ」の会員登録（無料）が必要です。
+          </p>
+          <p>購入ポイントは、ココデジのマイページでご確認いただけます。</p>
+        </InView>
       </div>
+      <div className="pricing__wave" aria-hidden="true" />
     </section>
   );
 }

@@ -2,8 +2,8 @@
 
 .digitalService {
   width: 100%;
-  color: var(--color-lp-white);
-  background: var(--color-lp-pink);
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
 }
 
 .digitalService__shell {
@@ -24,13 +24,14 @@
   text-align: left;
 }
 
-.digitalService__title {
+.digitalService .digitalService__title {
   margin: 0;
   font-family: var(--font-serif);
   font-size: var(--text-lead);
   font-weight: 700;
   line-height: 1.35;
-  color: var(--color-lp-white);
+  color: var(--color-lp-black);
+  border-bottom-color: var(--color-lp-black);
 }
 
 .digitalService__description {
@@ -38,7 +39,7 @@
   font-size: var(--text-body-lg);
   line-height: var(--line-height-body);
   color: inherit;
-  opacity: 0.92;
+  opacity: 0.88;
   font-weight: 600;
 }
 
@@ -50,7 +51,7 @@
   margin: var(--space-xl) 0 0;
   padding: 0 0 var(--space-xl);
   list-style: none;
-  background: var(--color-lp-pink);
+  background: var(--color-lp-white);
 }
 
 .digitalService__feature {
@@ -76,13 +77,14 @@
 .digitalService__featureFig--gallery {
   --digital-gallery-height: clamp(268px, 52vw, 300px);
   --digital-gallery-divider: 2px;
+  --digital-gallery-divider-color: var(--color-lp-black);
   position: relative;
   box-sizing: border-box;
   height: var(--digital-gallery-height);
   overflow: hidden;
-  background: var(--color-lp-white);
-  border-top: var(--digital-gallery-divider) solid var(--color-lp-white);
-  border-bottom: var(--digital-gallery-divider) solid var(--color-lp-white);
+  background: var(--digital-gallery-divider-color);
+  border-top: var(--digital-gallery-divider) solid var(--digital-gallery-divider-color);
+  border-bottom: var(--digital-gallery-divider) solid var(--digital-gallery-divider-color);
 
   &::after {
     position: absolute;
@@ -104,7 +106,7 @@
   align-items: stretch;
   gap: var(--digital-gallery-divider, 2px);
   width: max-content;
-  background: var(--color-lp-white);
+  background: var(--digital-gallery-divider-color, var(--color-lp-black));
   animation: digitalService-galleryFlow var(--gallery-duration, 120s) linear infinite;
   will-change: transform;
 }
@@ -166,7 +168,7 @@
   max-width: calc(1120px + 10vw);
   margin-inline: auto;
   padding: var(--space-xl) 5vw;
-  color: var(--color-lp-white);
+  color: var(--color-lp-black);
   text-align: left;
   background: transparent;
 }
@@ -177,7 +179,7 @@
   font-size: var(--text-body-lg);
   font-weight: 700;
   line-height: 1.5;
-  color: var(--color-lp-white);
+  color: var(--color-lp-black);
 }
 
 .digitalService__featureText {
@@ -188,7 +190,7 @@
 }
 
 @include mixins.media-pc {
-  .digitalService__title {
+  .digitalService .digitalService__title {
     font-size: 36px;
   }
 

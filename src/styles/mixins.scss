@@ -78,3 +78,66 @@
 @mixin lp-white-wave-top($height: clamp(28px, 4.5vw, 44px)) {
   @include lp-wave-top(var(--color-lp-white), $height);
 }
+
+@mixin lp-curve-wave-divider($from-color, $to-color, $height: clamp(88px, 15vw, 156px)) {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 2;
+  width: 100vw;
+  height: $height;
+  margin-left: -50vw;
+  background: $from-color;
+  transform: translateY(100%);
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%;
+  }
+
+  &::before {
+    width: 55%;
+    height: 109%;
+    background-color: $to-color;
+    right: -1.5%;
+    top: 60%;
+  }
+
+  &::after {
+    width: 55%;
+    height: 100%;
+    background-color: $from-color;
+    left: -1.5%;
+    top: 40%;
+  }
+}
+
+@mixin in-view-text-hidden {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: none;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@mixin in-view-text-reveal($step: 0, $stagger: 120ms) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(#{$step} * #{$stagger});
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -42,6 +42,10 @@
   gap: 12px;
 }
 
+.header--noActions .header__inner {
+  justify-content: center;
+}
+
 .header__logo {
   display: inline-flex;
   flex-shrink: 0;

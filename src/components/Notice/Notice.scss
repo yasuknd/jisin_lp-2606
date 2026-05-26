@@ -101,3 +101,20 @@
     }
   }
 }
+
+.notice__content:not(.inView) {
+  .notice__title,
+  .notice__description {
+    @include mixins.in-view-text-hidden;
+  }
+}
+
+.notice__content.inView {
+  .notice__title {
+    @include mixins.in-view-text-reveal(0);
+  }
+
+  .notice__description {
+    @include mixins.in-view-text-reveal(1);
+  }
+}

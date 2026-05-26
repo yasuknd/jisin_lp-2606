@@ -216,3 +216,32 @@
     opacity: 0;
   }
 }
+
+.future__copy:not(.inView) {
+  .future__label,
+  .future__description {
+    @include mixins.in-view-text-hidden;
+  }
+}
+
+.future__copy.inView {
+  .future__label {
+    @include mixins.in-view-text-reveal(0);
+  }
+
+  .future__description:nth-child(1) {
+    @include mixins.in-view-text-reveal(1);
+  }
+
+  .future__description:nth-child(2) {
+    @include mixins.in-view-text-reveal(2);
+  }
+
+  .future__description:nth-child(3) {
+    @include mixins.in-view-text-reveal(3);
+  }
+
+  .future__description:nth-child(4) {
+    @include mixins.in-view-text-reveal(4);
+  }
+}

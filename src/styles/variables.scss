@@ -6,6 +6,7 @@
   --color-lp-black: #000;
   --color-lp-white: #fff;
   --color-lp-gray: #333;
+  --color-lp-navy: #2c3e50;
   --color-lp-surface-alt: rgb(196 58 110 / 0.06);
   --color-lp-border: rgb(196 58 110 / 0.28);
 
@@ -83,6 +84,7 @@
   --radius-lg: 24px;
 
   --header-height: 72px;
-  --header-height-sp: 132px;
+  // ヘッダー右上リンク非表示時の高さ（リンク復活時は 132px に戻す）
+  --header-height-sp: 72px;
   --bottom-cta-height: 140px;
 }

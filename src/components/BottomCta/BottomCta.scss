@@ -59,15 +59,15 @@
   font-size: min(var(--text-body-lg), calc((100cqw - 52px) / 18));
   font-weight: 800;
   line-height: 1.25;
-  color: var(--color-lp-black);
+  color: var(--color-lp-white);
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
   letter-spacing: -0.02em;
-  background: var(--color-lp-white);
+  background: var(--color-lp-pink);
   border: 2px solid var(--color-lp-black);
   border-radius: 0;
-  box-shadow: 6px 6px 0 var(--color-lp-pink);
+  box-shadow: 6px 6px 0 var(--color-lp-white);
   transition:
     transform 0.14s ease,
     box-shadow 0.14s ease,
@@ -84,24 +84,24 @@
   min-height: 44px;
   padding: 10px clamp(6px, 1.5cqi, 12px);
   font-size: min(var(--text-body), calc((100cqw - 44px) / 20));
-  box-shadow: 4px 4px 0 var(--color-lp-pink);
+  box-shadow: 4px 4px 0 var(--color-lp-white);
 }
 
 .bottomCta__buttonWrap:hover .bottomCta__button,
 .bottomCta__buttonWrap:focus-within .bottomCta__button,
 .bottomCta__button:focus-visible {
   transform: translate(6px, 6px);
-  color: var(--color-lp-white);
-  background: var(--color-lp-pink);
-  box-shadow: 0 0 0 var(--color-lp-white);
+  color: var(--color-lp-black);
+  background: var(--color-lp-white);
+  box-shadow: 0 0 0 var(--color-lp-pink);
 }
 
 .bottomCta__buttonWrap:active .bottomCta__button,
 .bottomCta__button:active {
   transform: translate(6px, 6px);
-  color: var(--color-lp-white);
-  background: var(--color-lp-pink-deep);
-  box-shadow: 0 0 0 var(--color-lp-white);
+  color: var(--color-lp-pink-deep);
+  background: var(--color-lp-white);
+  box-shadow: 0 0 0 var(--color-lp-pink);
 }
 
 @include mixins.media-pc {

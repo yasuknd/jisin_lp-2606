@@ -1,3 +1,4 @@
+import InView from '../InView/InView.jsx';
 import './Future.scss';
 
 const futureParagraphs = [
@@ -45,7 +46,7 @@ function Future() {
       </div>
       <div className="future__inner">
         <div className="future__grid">
-          <div className="future__copy">
+          <InView className="future__copy">
             <div className="future__heading">
               <h2 id="future-label" className="future__label">
                 and MORE...
@@ -58,7 +59,7 @@ function Future() {
                 </p>
               ))}
             </div>
-          </div>
+          </InView>
         </div>
       </div>
     </section>

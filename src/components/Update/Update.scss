@@ -1,8 +1,23 @@
 @use '../../styles/mixins' as mixins;
 
 .update {
+  position: relative;
   background: var(--color-lp-white);
-  border-bottom: 3px solid var(--color-lp-black);
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: clamp(56px, 10vw, 80px) clamp(56px, 10vw, 80px) 0 clamp(56px, 10vw, 80px);
+    border-color: var(--color-lp-white) transparent transparent transparent;
+    transform: translateX(-50%) translateY(100%);
+    pointer-events: none;
+  }
 }
 
 .update__inner {
@@ -132,5 +147,40 @@
   .update__list {
     gap: var(--space-sm);
     margin-top: var(--space-lg);
+  }
+}
+
+.update__card:not(.inView) {
+  .update__label,
+  .update__date,
+  .update__title,
+  .update__itemText {
+    @include mixins.in-view-text-hidden;
+  }
+}
+
+.update__card.inView {
+  .update__label {
+    @include mixins.in-view-text-reveal(0);
+  }
+
+  .update__date {
+    @include mixins.in-view-text-reveal(1);
+  }
+
+  .update__title {
+    @include mixins.in-view-text-reveal(2);
+  }
+
+  .update__item:nth-child(1) .update__itemText {
+    @include mixins.in-view-text-reveal(3);
+  }
+
+  .update__item:nth-child(2) .update__itemText {
+    @include mixins.in-view-text-reveal(4);
+  }
+
+  .update__item:nth-child(3) .update__itemText {
+    @include mixins.in-view-text-reveal(5);
   }
 }
