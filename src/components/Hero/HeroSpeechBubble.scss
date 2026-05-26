@@ -1,0 +1,99 @@
+@use '../../styles/mixins.scss' as mixins;
+
+.hero__speechBubble {
+  position: absolute;
+  left: clamp(-52px, -24%, -30px);
+  bottom: clamp(2px, 5%, 14px);
+  z-index: 6;
+  width: clamp(118px, 44%, 172px);
+  pointer-events: none;
+  transform: rotate(-4deg);
+}
+
+.hero__speechBubbleSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(8px 8px 0 rgb(0 0 0 / 0.85));
+}
+
+.hero__speechBubbleFrost {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(
+      125deg,
+      rgb(255 255 255 / 0.92) 0%,
+      rgb(255 255 255 / 0.38) 34%,
+      rgb(255 255 255 / 0.22) 52%
+    ),
+    linear-gradient(
+      168deg,
+      rgb(255 255 255 / 0.98) 0%,
+      rgb(255 255 255 / 0.78) 40%,
+      rgb(255 255 255 / 0.84) 72%,
+      rgb(255 255 255 / 0.94) 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 1),
+    inset 0 10px 20px rgb(255 255 255 / 0.52),
+    inset 0 -14px 24px rgb(255 255 255 / 0.22),
+    inset 1px 0 0 rgb(255 255 255 / 0.65),
+    inset -1px 0 0 rgb(255 255 255 / 0.28),
+    inset 0 -1px 0 rgb(0 0 0 / 0.045);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+}
+
+.hero__speechBubbleOutline,
+.hero__speechBubbleBorder {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  paint-order: stroke fill;
+}
+
+.hero__speechBubbleOutline {
+  stroke: rgb(255 214 74 / 0.88);
+  stroke-width: 5.5;
+}
+
+.hero__speechBubbleBorder {
+  stroke: var(--color-lp-black);
+  stroke-width: 2.5;
+}
+
+.hero__speechBubbleText {
+  font-family: var(--font-base);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  fill: var(--color-lp-black);
+  text-anchor: middle;
+  font-feature-settings: 'palt' 1;
+}
+
+@include mixins.media-pc {
+  .hero__speechBubble {
+    left: clamp(-60px, -26%, -36px);
+    bottom: clamp(6px, 7%, 20px);
+    width: clamp(136px, 54%, 198px);
+  }
+
+  .hero__speechBubbleSvg {
+    filter: drop-shadow(10px 10px 0 rgb(0 0 0 / 0.85));
+  }
+
+  .hero__speechBubbleText {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__speechBubble {
+    transform: rotate(-4deg);
+  }
+}

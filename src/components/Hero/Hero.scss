@@ -59,17 +59,17 @@
 @keyframes hero-washToneA {
   0%,
   100% {
-    opacity: 0;
+    opacity: 0.1;
     background-position: 0% 0%;
   }
 
   33% {
-    opacity: 0.78;
+    opacity: 0.72;
     background-position: 100% 100%;
   }
 
   66% {
-    opacity: 0;
+    opacity: 0.1;
     background-position: 100% 0%;
   }
 }
@@ -77,12 +77,12 @@
 @keyframes hero-washToneC {
   0%,
   100% {
-    opacity: 0;
+    opacity: 0.08;
     background-position: 50% 0%;
   }
 
   50% {
-    opacity: 0.72;
+    opacity: 0.66;
     background-position: 0% 100%;
   }
 }
@@ -90,17 +90,17 @@
 @keyframes hero-washToneGreen {
   0%,
   100% {
-    opacity: 0;
+    opacity: 0.08;
     background-position: 100% 0%;
   }
 
   45% {
-    opacity: 0.7;
+    opacity: 0.64;
     background-position: 0% 100%;
   }
 
   70% {
-    opacity: 0;
+    opacity: 0.08;
     background-position: 50% 50%;
   }
 }
@@ -133,16 +133,10 @@
 @keyframes hero-flowDraw {
   0% {
     stroke-dashoffset: 1400;
-    opacity: 0.25;
-  }
-
-  40% {
-    opacity: 0.9;
   }
 
   100% {
     stroke-dashoffset: 0;
-    opacity: 0.35;
   }
 }
 
@@ -173,26 +167,34 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .hero__wash {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: background-position;
   background: linear-gradient(
     45deg,
-    #b8f4e8 0%,
-    #5fd4d4 12%,
-    #48b8e8 24%,
-    #d94b7f 36%,
-    #c43a6e 48%,
-    #b868d8 60%,
-    #ffb890 72%,
-    #ffe0c8 84%,
-    #a8f0d8 100%
+    #2ecf9f 0%,
+    #3dd9b0 20%,
+    #48b8e8 32%,
+    #6ec8f0 42%,
+    #9878d8 52%,
+    #b878e8 60%,
+    #e84858 70%,
+    #f5e878 82%,
+    #ffe99a 92%,
+    #3dd9b0 96%,
+    #2ecf9f 100%
   );
   background-size: 400% 400%;
-  animation: hero-gradientShift 15s ease infinite;
+  animation: hero-gradientShift 15s linear infinite;
 
   &::before,
   &::after {
@@ -201,6 +203,9 @@
     inset: 0;
     background-size: 220% 220%;
     pointer-events: none;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: opacity, background-position;
   }
 
   &::before {
@@ -218,11 +223,11 @@
   &::after {
     background: linear-gradient(
       to bottom right,
-      #fff0d8 0%,
-      #ffc888 26%,
-      #ff9870 52%,
-      #e86888 78%,
-      #c43a6e 100%
+      #9878d8 0%,
+      #b878e8 24%,
+      #e84858 48%,
+      #f5e878 72%,
+      #ffe99a 100%
     );
     animation: hero-washToneC 30s ease-in-out infinite;
   }
@@ -233,15 +238,18 @@
   inset: 0;
   background-size: 220% 220%;
   pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, background-position;
 }
 
 .hero__washLayer--green {
   background: linear-gradient(
     to bottom right,
-    #e8f8ff 0%,
-    #88d8f8 22%,
-    #58b8e8 46%,
-    #7898e8 70%,
+    #d8faf4 0%,
+    #58d8b8 28%,
+    #58b8e8 52%,
+    #7898e8 76%,
     #9878d8 100%
   );
   animation: hero-washToneGreen 30s ease-in-out infinite;
@@ -252,10 +260,11 @@
   z-index: 0;
   background: rgb(255 255 255 / 0.09);
   pointer-events: none;
-  will-change: border-radius, transform;
-  animation:
-    hero-morph 15s linear infinite alternate,
-    hero-spin 20s linear infinite;
+  border-radius: 42% 58% 58% 42% / 68% 32% 68% 32%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  animation: hero-spin 20s linear infinite;
 }
 
 .hero__blob--1 {
@@ -274,9 +283,7 @@
   top: auto;
   bottom: 0;
   transform-origin: 20% 20%;
-  animation:
-    hero-morph 10s linear infinite alternate,
-    hero-spin 26s linear infinite reverse;
+  animation: hero-spin 26s linear infinite reverse;
 }
 
 .hero__stars {
@@ -323,12 +330,15 @@
   inset: -5% -8%;
   width: 116%;
   height: 110%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
   animation: hero-flowDrift 14s ease-in-out infinite;
 }
 
 .hero__flowSvg--mirror {
   opacity: 0.65;
-  transform: scaleX(-1);
+  transform: scaleX(-1) translateZ(0);
   animation-duration: 18s;
   animation-delay: -4s;
 }
@@ -339,6 +349,7 @@
   stroke-width: 1.4;
   stroke-linecap: round;
   stroke-dasharray: 1400;
+  opacity: 0.45;
   animation: hero-flowDraw 14s ease-in-out infinite;
 }
 
@@ -374,6 +385,7 @@
 .hero__inner {
   position: relative;
   z-index: 2;
+  isolation: isolate;
   max-width: min(1320px, 100%);
   margin-inline: auto;
   padding: var(--space-sm) 16px var(--space-md);
@@ -407,6 +419,8 @@
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
   @include hero-glass-frost(14px, 14px);
 
   &::after {
@@ -931,7 +945,7 @@
     right: auto;
     width: 580px;
     max-width: 580px;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
     border-radius: 0;
   }
 

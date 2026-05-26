@@ -15,6 +15,7 @@ import heroMook07 from '../../assets/images/hero/hero-mook-07.jpg';
 import heroMook08 from '../../assets/images/hero/hero-mook-08.jpg';
 import heroMook09 from '../../assets/images/hero/hero-mook-09.jpg';
 import heroMook10 from '../../assets/images/hero/hero-mook-10.jpg';
+import HeroSpeechBubble from './HeroSpeechBubble.jsx';
 import './Hero.scss';
 
 const SHOW_HERO_ACTIONS = false;
@@ -212,6 +213,7 @@ function Hero() {
                     </div>
                   </div>
                 </div>
+                <HeroSpeechBubble />
               </div>
             </div>
           </div>
