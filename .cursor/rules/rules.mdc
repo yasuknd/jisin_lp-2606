@@ -70,7 +70,7 @@ components/
 - 幅は `design.md` の Width Tokens に従ってください
 - 1280pxをLP全体の固定上限にしないでください
 - Hero / Benefits などは画面幅を広く使ってください
-- Message / Notice は可読性優先で狭くしてください
+- Notice は可読性優先で狭くしてください
 
 ## Links
 

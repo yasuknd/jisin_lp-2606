@@ -39,11 +39,10 @@ SEO / OGP / head管理については `seo.md` に従い、初期実装時点で
 11. Benefits child components
 12. Future
 13. Notice
-14. Message
-15. Entry
-16. BottomCta
-17. Responsive
-18. QA
+14. Entry
+15. BottomCta
+16. Responsive
+17. QA
 
 ## 初期出力で優先すること
 
@@ -53,7 +52,7 @@ SEO / OGP / head管理については `seo.md` に従い、初期実装時点で
 2. Pricingの2コース比較が明快
 3. Benefitsが単調なカード羅列になっていない
 4. BottomCtaが機能している
-5. Message / Noticeが読みやすい
+5. Noticeが読みやすい
 6. 画像がなくても仮ビジュアルで見た目が破綻しない
 7. LP全体が古い定期購読ページに見えない
 8. SEO / OGPの最低限設定が入っている

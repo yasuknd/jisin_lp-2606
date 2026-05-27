@@ -118,7 +118,6 @@ src/
 │   ├── Benefits/
 │   ├── Future/
 │   ├── Notice/
-│   ├── Message/
 │   ├── Entry/
 │   └── BottomCta/
 ├── constants/
@@ -150,7 +149,6 @@ src/
 | FreeShipping | `.freeShipping` | 送料無料 |
 | Future | `.future` | 今後の展望 |
 | Notice | `.notice` | 旧コース終了告知 |
-| Message | `.message` | 編集長コメント |
 | Entry | `.entry` | 最終申し込み |
 | BottomCta | `.bottomCta` | 下部固定CTA |
 
@@ -248,7 +246,7 @@ export const LINKS = {
 - Pricingの年額 / 月額比較が明快
 - Benefitsが単調なカード羅列になっていない
 - BottomCtaが固定表示されている
-- Message / Noticeが読みやすい
+- Noticeが読みやすい
 - 画像が未確定でも仮ビジュアルで成立する
 - LP全体が古い定期購読ページに見えない
 
@@ -265,7 +263,6 @@ export const LINKS = {
 | Pricing | 1120〜1280px程度 |
 | Entry | 960〜1120px程度 |
 | BottomCta | 1120〜1280px程度 |
-| Message | 720〜800px程度 |
 | Notice | 760〜960px程度 |
 
 ---
@@ -287,7 +284,7 @@ export const LINKS = {
 - Pricingは年額 → 月額
 - Entryは年額 → 月額 → ガイド
 - BottomCtaは2ボタン固定
-- Message / Noticeは1カラムで読みやすく
+- Noticeは1カラムで読みやすく
 
 ---
 
@@ -318,7 +315,7 @@ export const LINKS = {
 
 - CTAを見失わせる動き
 - BottomCtaの強いアニメーション
-- Notice / Message本文の派手なアニメーション
+- Notice本文の派手なアニメーション
 - 過度なパララックス
 - ループする煽り演出
 

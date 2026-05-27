@@ -169,7 +169,7 @@
 
 - `1280px` をLP全体の固定上限に**しない**
 - Hero・Benefitsのビジュアルは画面幅を広く使う
-- 本文・価格・Messageは可読幅で制御
+- 本文・価格は可読幅で制御
 
 ```txt
 section background = 100vw
@@ -186,7 +186,6 @@ visual collage = fluid（中央寄せ）
 | Hero | min(1220px, 100%) / ビジュアルはfluid |
 | Update / Pricing | `--content-lg` |
 | Benefits | `--content-wide` |
-| Message | `--content-sm` |
 | Entry | `--content-md` |
 | BottomCta | `--content-lg` |
 
@@ -328,10 +327,6 @@ visual collage = fluid（中央寄せ）
 
 - コンパクト角丸ボックス・控えめ
 
-## Message
-
-- 約760pxカラム・半透明白カード・ピンク見出し
-
 ## Entry
 
 - 淡ピンク大パネル・年額主役CTA
@@ -365,7 +360,6 @@ visual collage = fluid（中央寄せ）
 | FreeShipping | 横長ミニ |
 | Future | クリーム + ストリップ + 装飾 |
 | Notice | コンパクト |
-| Message | 狭カラム |
 | Entry | 中央CTAパネル |
 | BottomCta | **グラデ固定バー** |
 
@@ -415,7 +409,7 @@ visual collage = fluid（中央寄せ）
 ## Avoid
 
 - BottomCtaの強い動き
-- Notice / Message の派手な動き
+- Notice の派手な動き
 - ループ煽り
 
 ---

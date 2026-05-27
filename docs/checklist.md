@@ -22,7 +22,6 @@
 | FreeShippingがある | [ ] |
 | Futureがある | [ ] |
 | Noticeがある | [ ] |
-| Messageがある | [ ] |
 | Entryがある | [ ] |
 | BottomCtaがある | [ ] |
 | セクション順がcontents.mdと一致している | [ ] |
@@ -46,7 +45,6 @@
 | FreeShipping文言が一致している | [ ] |
 | Future文言が一致している | [ ] |
 | Notice文言が一致している | [ ] |
-| Message本文が一致している | [ ] |
 | Entry文言が一致している | [ ] |
 | BottomCta文言が一致している | [ ] |
 
@@ -78,7 +76,6 @@
 | Benefitsが単調なカード羅列になっていない | [ ] |
 | DigitalServiceにデバイス風ビジュアルがある | [ ] |
 | SeasonalGiftsが3カードになっている | [ ] |
-| Messageが読みやすい | [ ] |
 | Noticeが小さすぎない | [ ] |
 | BottomCtaが古い固定バナー風になっていない | [ ] |
 
@@ -94,7 +91,6 @@
 | Pricingが比較しやすい | [ ] | [ ] |
 | Benefitsが読みやすい | [ ] | [ ] |
 | SeasonalGiftsが崩れていない | [ ] | [ ] |
-| Messageが読みやすい | [ ] | [ ] |
 | Noticeが読みやすい | [ ] | [ ] |
 | Entry CTAが押しやすい | [ ] | [ ] |
 | BottomCtaが邪魔すぎない | [ ] | [ ] |

@@ -6,7 +6,6 @@ import Benefits from './components/Benefits/Benefits.jsx';
 import Future from './components/Future/Future.jsx';
 import Entry from './components/Entry/Entry.jsx';
 import Notice from './components/Notice/Notice.jsx';
-import Message from './components/Message/Message.jsx';
 import BottomCta from './components/BottomCta/BottomCta.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
@@ -22,7 +21,6 @@ function App() {
         <Future />
         <Entry />
         <Notice />
-        <Message />
       </main>
       <BottomCta />
       <Footer />

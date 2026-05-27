@@ -25,7 +25,6 @@ Header
   → FreeShipping
 → Future
 → Notice
-→ Message
 → Entry
 BottomCta（main外・固定）
 ```
@@ -49,7 +48,6 @@ App
 │   │   └── FreeShipping
 │   ├── Future
 │   ├── Notice
-│   ├── Message
 │   └── Entry
 └── BottomCta
 ```
@@ -88,7 +86,6 @@ function App() {
         <Benefits />
         <Future />
         <Notice />
-        <Message />
         <Entry />
       </main>
       <BottomCta />
@@ -459,30 +456,6 @@ const updateItems = [ /* contents.md 3項目 */ ];
 ### Presentation
 
 - 控えめな角丸ボックス
-
----
-
-## Message
-
-### class
-
-`.message`
-
-### Role
-
-**編集長コメント＝ブランド信頼**。
-
-### Elements
-
-- `.message__inner`
-- `.message__title`
-- `.message__body` / `.message__paragraph`
-- `.message__signature` / `.message__role` / `.message__name`
-
-### Presentation
-
-- 狭カラム・半透明白カード
-- 本文文言は配列管理可・**変更禁止**
 
 ---
 

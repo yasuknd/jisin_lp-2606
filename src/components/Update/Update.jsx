@@ -25,9 +25,9 @@ const updateItems = [
     id: 'coupon',
     node: (
       <>
-        初回特典として
-        <span className="update__itemEm">2,000円分のkokodeクーポン</span>
-        をプレゼント
+        定期購読会員限定の
+        <span className="update__itemEm">プレゼント</span>
+        をお届け
       </>
     ),
   },

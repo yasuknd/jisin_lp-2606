@@ -51,7 +51,8 @@ const digitalServiceItems = [
   },
   {
     title: '会員限定のオリジナル動画も続々アップ',
-    description: '',
+    description:
+      'なお妻さん、ガバちゃんによる「懸賞女王2人が指南！年末の豪華懸賞必勝術」や、ごぼう先生の"ごぼう体操"で季節の「なんとなく不調」を解消する動画など、本誌人気企画と連動したオリジナル動画も配信中！',
     images: digitalContent03Frames,
     imageAlt: '会員限定オリジナル動画のイメージ',
     galleryReverse: false,

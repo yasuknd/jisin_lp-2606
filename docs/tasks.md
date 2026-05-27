@@ -150,10 +150,9 @@
 - [ ] クリーム背景
 - [ ] 誌面ストリップ + 月桂SVG（文言追加なし）
 
-## 3.5 Notice / Message
+## 3.5 Notice
 
 - [ ] Notice：控えめ角丸ボックス
-- [ ] Message：狭カラム・半透明白カード・本文文言不変
 
 ## 3.6 Entry
 
@@ -180,7 +179,7 @@
 - [ ] Hero SP 読み順
 - [ ] Pricing / Entry SP CTA順
 - [ ] Benefits 縦積み可読性
-- [ ] Message 行長・行間
+- [ ] Notice 行長・行間
 
 ## 4.2 ビルド・Lint
 
