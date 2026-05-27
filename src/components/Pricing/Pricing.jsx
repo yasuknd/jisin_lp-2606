@@ -1,4 +1,4 @@
-import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
+import { LINKS, EXTERNAL_LINK_PROPS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import InView from '../InView/InView.jsx';
 import './Pricing.scss';
 
@@ -107,9 +107,19 @@ function Pricing() {
         </div>
         <InView className="pricing__note">
           <p>
-            女性自身の定期購読をご購入いただくには、光文社ECサイト「ココデジ」の会員登録（無料）が必要です。
+            女性自身の定期購読をご購入いただくには、光文社ECサイト「
+            <a href={LINKS.kokode} {...EXTERNAL_LINK_PROPS}>
+              ココデジ
+            </a>
+            」の会員登録（無料）が必要です。
           </p>
-          <p>購入ポイントは、ココデジのマイページでご確認いただけます。</p>
+          <p>
+            購入ポイントは、ココデジの
+            <a href={LINKS.points} {...EXTERNAL_LINK_PROPS}>
+              マイページ
+            </a>
+            でご確認いただけます。
+          </p>
         </InView>
       </div>
       <div className="pricing__wave" aria-hidden="true" />

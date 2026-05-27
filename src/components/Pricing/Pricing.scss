@@ -68,6 +68,24 @@
       margin-top: 0.35em;
     }
   }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgb(255 255 255 / 0.45);
+    text-underline-offset: 0.15em;
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration-color: rgb(255 255 255 / 0.85);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgb(255 255 255 / 0.85);
+      outline-offset: 2px;
+    }
+  }
 }
 
 .pricing__card {

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { magazineCoverImages } from '../../assets/images/magazine-covers/loadMagazineCovers.js';
-import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
+import { EXTERNAL_LINK_PROPS, LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import { useSectionParallax } from '../../hooks/useSectionParallax.js';
 import InView from '../InView/InView.jsx';
 import './Entry.scss';
@@ -184,9 +184,19 @@ function Entry() {
             </a>
             <div className="entry__note">
               <p>
-                女性自身の定期購読をご購入いただくには、光文社ECサイト「ココデジ」の会員登録（無料）が必要です。
+                女性自身の定期購読をご購入いただくには、光文社ECサイト「
+                <a href={LINKS.kokode} {...EXTERNAL_LINK_PROPS}>
+                  ココデジ
+                </a>
+                」の会員登録（無料）が必要です。
               </p>
-              <p>購入ポイントは、ココデジのマイページでご確認いただけます。</p>
+              <p>
+                購入ポイントは、ココデジの
+                <a href={LINKS.points} {...EXTERNAL_LINK_PROPS}>
+                  マイページ
+                </a>
+                でご確認いただけます。
+              </p>
             </div>
           </div>
         </InView>
