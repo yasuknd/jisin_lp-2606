@@ -17,7 +17,10 @@ function BottomCta() {
               {...SUBSCRIPTION_LINK_PROPS}
               data-gtm="bottom_annual_click"
             >
-              女性自身プレミアム［年額コース］
+              <span className="bottomCta__buttonLabel">
+                <span className="bottomCta__buttonBrand">女性自身プレミアム</span>
+                <span className="bottomCta__buttonCourse">［年額コース］</span>
+              </span>
             </a>
           </div>
           <div className="bottomCta__buttonWrap">
@@ -27,7 +30,10 @@ function BottomCta() {
               {...SUBSCRIPTION_LINK_PROPS}
               data-gtm="bottom_monthly_click"
             >
-              女性自身プレミアム［月額コース］
+              <span className="bottomCta__buttonLabel">
+                <span className="bottomCta__buttonBrand">女性自身プレミアム</span>
+                <span className="bottomCta__buttonCourse">［月額コース］</span>
+              </span>
             </a>
           </div>
         </div>

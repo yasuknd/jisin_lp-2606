@@ -58,14 +58,13 @@
   justify-content: center;
   width: 100%;
   min-height: 56px;
-  padding: 14px clamp(8px, 2cqi, 16px);
-  font-size: min(var(--text-body-lg), calc((100cqw - 52px) / 18));
+  padding: 8px clamp(4px, 1cqi, 8px);
   font-weight: 800;
   line-height: 1.25;
   color: var(--color-lp-black);
   text-align: center;
   text-decoration: none;
-  white-space: nowrap;
+  white-space: normal;
   letter-spacing: -0.02em;
   background: var(--bottom-cta-neon);
   border: 2px solid var(--color-lp-black);
@@ -85,13 +84,43 @@
   @include mixins.focus-visible;
 }
 
+.bottomCta__buttonLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.bottomCta__buttonBrand {
+  font-size: clamp(14px, 9cqi, 17px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.bottomCta__buttonCourse {
+  font-size: clamp(17px, 11.5cqi, 22px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
 .bottomCta--compact .bottomCta__button {
-  min-height: 44px;
-  padding: 10px clamp(6px, 1.5cqi, 12px);
-  font-size: min(var(--text-body), calc((100cqw - 44px) / 20));
+  min-height: 46px;
+  padding: 5px clamp(3px, 0.8cqi, 6px);
   box-shadow:
     4px 4px 0 var(--color-lp-white),
     0 0 10px rgb(229 255 0 / 0.24);
+}
+
+.bottomCta--compact .bottomCta__buttonBrand {
+  font-size: clamp(13px, 8cqi, 15px);
+}
+
+.bottomCta--compact .bottomCta__buttonCourse {
+  font-size: clamp(15px, 10cqi, 19px);
 }
 
 .bottomCta__buttonWrap:hover .bottomCta__button,
@@ -135,13 +164,29 @@
   }
 
   .bottomCta__button {
-    min-height: 60px;
-    padding: 16px clamp(12px, 2cqi, 24px);
+    min-height: 64px;
+    padding: 16px clamp(10px, 2cqi, 20px);
+    font-size: clamp(21px, 5.2cqi, 28px);
+    white-space: nowrap;
+  }
+
+  .bottomCta__buttonLabel {
+    display: inline;
+  }
+
+  .bottomCta__buttonBrand,
+  .bottomCta__buttonCourse {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    white-space: nowrap;
   }
 
   .bottomCta--compact .bottomCta__button {
-    min-height: 48px;
-    padding: 12px clamp(10px, 1.8cqi, 18px);
+    min-height: 52px;
+    padding: 12px clamp(8px, 1.8cqi, 16px);
+    font-size: clamp(19px, 4.8cqi, 24px);
   }
 }
 
