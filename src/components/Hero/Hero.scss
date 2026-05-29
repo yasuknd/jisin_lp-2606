@@ -76,17 +76,14 @@
 @keyframes hero-washToneA {
   0%,
   100% {
-    opacity: 0.1;
     background-position: 0% 0%;
   }
 
   33% {
-    opacity: 0.88;
     background-position: 100% 100%;
   }
 
   66% {
-    opacity: 0.1;
     background-position: 100% 0%;
   }
 }
@@ -94,12 +91,10 @@
 @keyframes hero-washToneC {
   0%,
   100% {
-    opacity: 0.08;
     background-position: 50% 0%;
   }
 
   50% {
-    opacity: 0.82;
     background-position: 0% 100%;
   }
 }
@@ -107,17 +102,14 @@
 @keyframes hero-washToneGreen {
   0%,
   100% {
-    opacity: 0.08;
     background-position: 100% 0%;
   }
 
   45% {
-    opacity: 0.8;
     background-position: 0% 100%;
   }
 
   70% {
-    opacity: 0.08;
     background-position: 50% 50%;
   }
 }
@@ -233,10 +225,11 @@
     pointer-events: none;
     transform: translateZ(0);
     backface-visibility: hidden;
-    will-change: opacity, background-position;
+    will-change: background-position;
   }
 
   &::before {
+    opacity: 0.42;
     background: linear-gradient(
       to bottom right,
       #d8faf4 0%,
@@ -249,6 +242,7 @@
   }
 
   &::after {
+    opacity: 0.36;
     background: linear-gradient(
       to bottom right,
       #9878d8 0%,
@@ -268,10 +262,11 @@
   pointer-events: none;
   transform: translateZ(0);
   backface-visibility: hidden;
-  will-change: opacity, background-position;
+  will-change: background-position;
 }
 
 .hero__washLayer--green {
+  opacity: 0.3;
   background: linear-gradient(
     to bottom right,
     #d8faf4 0%,
@@ -591,6 +586,7 @@
   letter-spacing: 0.08em;
   color: var(--color-lp-black);
   text-wrap: balance;
+  transform: translateZ(0);
   @include hero-glass-frost;
 }
 
