@@ -165,8 +165,8 @@
 
   .bottomCta__button {
     min-height: 64px;
-    padding: 16px clamp(10px, 2cqi, 20px);
-    font-size: clamp(21px, 5.2cqi, 28px);
+    padding: 12px clamp(10px, 2cqi, 20px);
+    font-size: clamp(17px, 3.8cqi, 21px);
     white-space: nowrap;
   }
 
@@ -180,13 +180,12 @@
     font-weight: inherit;
     line-height: inherit;
     letter-spacing: inherit;
-    white-space: nowrap;
   }
 
   .bottomCta--compact .bottomCta__button {
     min-height: 52px;
-    padding: 12px clamp(8px, 1.8cqi, 16px);
-    font-size: clamp(19px, 4.8cqi, 24px);
+    padding: 8px clamp(8px, 1.8cqi, 16px);
+    font-size: clamp(18px, 4.8cqi, 23px);
   }
 }
 
