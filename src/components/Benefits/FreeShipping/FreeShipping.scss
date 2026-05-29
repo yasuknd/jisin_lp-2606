@@ -37,7 +37,7 @@
   box-sizing: border-box;
   width: 100%;
   margin: var(--space-lg) 0 0;
-  padding: 0 0 var(--space-xl);
+  padding: 0;
   color: var(--color-lp-black);
   background: var(--color-lp-white);
 }
@@ -62,11 +62,12 @@
   padding: var(--space-sm) 0;
 }
 
-.freeShipping__itemTitle {
+.freeShipping .freeShipping__itemTitle {
   margin: 0;
   font-family: var(--font-base);
+  font-size: var(--text-body-lg);
+  line-height: var(--line-height-body);
   font-weight: 700;
-  line-height: 1.5;
 }
 
 .freeShipping__itemText {
@@ -83,7 +84,6 @@
 
   .freeShipping__content {
     margin-top: var(--space-xl);
-    padding-bottom: var(--space-2xl);
   }
 
   .freeShipping__panel {

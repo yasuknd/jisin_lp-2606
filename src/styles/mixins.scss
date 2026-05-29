@@ -180,3 +180,24 @@
     transform: none;
   }
 }
+
+@mixin lp-neon-marker {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: -0.12em;
+    right: -0.1em;
+    top: 50%;
+    bottom: auto;
+    height: 40%;
+    background: rgb(229 255 0 / 0.72);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}

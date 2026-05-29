@@ -129,10 +129,68 @@
 .benefits__waveBridge--fromPink + .benefits__block {
   margin-top: calc(-1 * var(--benefits-header-waves-overlap));
 
-  .seasonalGifts__intro,
-  .freeShipping__intro {
+  .seasonalGifts__intro {
     padding-top: calc(var(--space-lg) + var(--space-xs));
   }
+}
+
+.benefits__waveBridge--fromPink + .benefits__dualRow {
+  margin-top: calc(-1 * var(--benefits-header-waves-overlap));
+
+  .freeShipping__intro,
+  .pointRewards__intro {
+    padding-top: calc(var(--space-lg) + var(--space-xs));
+  }
+}
+
+.benefits__dualRow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+.benefits__dualRow .benefits__block {
+  padding: 0;
+}
+
+.benefits__dualRow .freeShipping__intro,
+.benefits__dualRow .freeShipping__panel,
+.benefits__dualRow .pointRewards__intro,
+.benefits__dualRow .pointRewards__panel {
+  max-width: none;
+}
+
+.benefits__dualRow .freeShipping__panel,
+.benefits__dualRow .pointRewards__panel {
+  padding-top: 0;
+}
+
+.benefits__dualRow .freeShipping__content,
+.benefits__dualRow .pointRewards__content {
+  margin-top: var(--space-md);
+}
+
+.benefits__dualRow .freeShipping__item:first-child,
+.benefits__dualRow .pointRewards__item:first-child {
+  padding-top: 0;
+}
+
+.benefits__dualRow .freeShipping__item {
+  padding-block: var(--space-xs);
+}
+
+.benefits__dualFooter {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--benefits-white-content-max);
+  margin-inline: auto;
+  padding-top: clamp(36px, 5vw, 64px);
+  padding-bottom: clamp(96px, 14vw, 160px);
+  padding-inline: var(--benefits-white-content-pad, 5vw);
 }
 
 .benefits__body > .benefits__block--pink:first-of-type {
@@ -159,6 +217,14 @@
 
 .benefits__body > article:nth-of-type(5) {
   z-index: 6;
+}
+
+.benefits__dualRow > article:nth-of-type(1) {
+  z-index: 1;
+}
+
+.benefits__dualRow > article:nth-of-type(2) {
+  z-index: 2;
 }
 
 .benefits__body > .benefits__block > *:not(.sparkleField) {
@@ -210,6 +276,15 @@
   }
 }
 
+.seasonalGifts .benefits__blockLabel,
+.freeShipping .benefits__blockLabel,
+.pointRewards .benefits__blockLabel {
+  background: var(--color-lp-black);
+  outline-color: var(--color-lp-black);
+  color: var(--color-lp-white);
+  box-shadow: inset 0 0 0 1px var(--color-lp-white);
+}
+
 .benefits h3 {
   display: block;
   width: fit-content;
@@ -245,9 +320,51 @@
     padding-top: calc(clamp(44px, 5vw, 56px) + var(--space-xs));
   }
 
-  .benefits__waveBridge--fromPink + .benefits__block .seasonalGifts__intro,
-  .benefits__waveBridge--fromPink + .benefits__block .freeShipping__intro {
+  .benefits__waveBridge--fromPink + .benefits__block .seasonalGifts__intro {
     padding-top: calc(clamp(44px, 5vw, 56px) + var(--space-xs));
+  }
+
+  .benefits__waveBridge--fromPink + .benefits__dualRow .freeShipping__intro,
+  .benefits__waveBridge--fromPink + .benefits__dualRow .pointRewards__intro {
+    padding-top: calc(clamp(44px, 5vw, 56px) + var(--space-xs));
+  }
+
+  .benefits__dualRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(32px, 4vw, 56px);
+    row-gap: 0;
+    box-sizing: border-box;
+    max-width: var(--benefits-white-content-max);
+    margin-inline: auto;
+    padding-inline: var(--benefits-white-content-pad);
+  }
+
+  .benefits__dualRow > article {
+    overflow: visible;
+  }
+
+  .benefits__dualRow .freeShipping__intro,
+  .benefits__dualRow .pointRewards__intro {
+    padding-inline: 0;
+    min-height: clamp(7rem, 11vw, 9rem);
+  }
+
+  .benefits__dualRow .freeShipping__content,
+  .benefits__dualRow .pointRewards__content {
+    margin-top: var(--space-md);
+  }
+
+  .benefits__dualFooter .pointRewards__footerBand {
+    padding-inline: 0;
+  }
+
+  .benefits__dualFooter .pointRewards__footerBox {
+    max-width: none;
+  }
+
+  .benefits__dualRow .freeShipping__panel,
+  .benefits__dualRow .pointRewards__panel {
+    padding-inline: 0;
   }
 
   .benefits__body > .benefits__block--pink {
@@ -310,4 +427,12 @@
   .freeShipping__itemText {
     @include mixins.in-view-text-reveal(4);
   }
+}
+
+.benefits__dualFooter:not(.inView) .pointRewards__footerText {
+  @include mixins.in-view-text-hidden;
+}
+
+.benefits__dualFooter.inView .pointRewards__footerText {
+  @include mixins.in-view-text-reveal(0);
 }

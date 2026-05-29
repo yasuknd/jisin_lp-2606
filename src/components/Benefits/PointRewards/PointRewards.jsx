@@ -44,11 +44,6 @@ function PointRewards({ label }) {
                   ) : null}
                 </li>
               ))}
-              <li className="pointRewards__item pointRewards__itemFooter">
-                <h4 className="pointRewards__itemTitle">
-                  kokodeクーポンのプレゼントや抽選プレゼントも！
-                </h4>
-              </li>
             </ul>
           </div>
         </div>

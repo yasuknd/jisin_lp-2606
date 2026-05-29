@@ -37,7 +37,7 @@
   box-sizing: border-box;
   width: 100%;
   margin: var(--space-lg) 0 0;
-  padding: 0 0 var(--space-xl);
+  padding: 0;
   color: var(--color-lp-black);
   background: var(--color-lp-white);
 }
@@ -59,27 +59,131 @@
 
 .pointRewards__item {
   display: block;
-  padding: var(--space-sm) 0;
+  padding: var(--space-xs) 0;
 }
 
 .pointRewards__item + .pointRewards__item {
-  margin-top: var(--space-md);
+  margin-top: var(--space-sm);
 }
 
 .pointRewards__highlight {
-  padding: var(--space-md) 0;
+  padding-block: var(--space-xs);
 }
 
-.pointRewards__itemFooter {
-  margin-top: var(--space-lg);
-  padding-top: var(--space-md);
+.pointRewards__footerBand {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: var(--space-md);
+  padding: calc(clamp(32px, 4vw, 40px) + var(--space-sm)) var(--benefits-white-content-pad, 5vw) 0;
 }
 
-.pointRewards__itemTitle {
+.benefits__dualFooter .pointRewards__footerBand {
+  margin-top: 0;
+  padding-top: calc(clamp(32px, 4vw, 40px) + var(--space-sm));
+}
+
+.pointRewards__footerBox {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--benefits-white-content-max, calc(1200px + 10vw));
+  margin: 0 auto;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--color-lp-white);
+  text-align: center;
+  border: 2px solid var(--color-lp-pink);
+  background: var(--color-lp-pink);
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+  }
+
+  &::before {
+    top: clamp(-32px, -4vw, -40px);
+    left: calc(50% - clamp(32px, 4vw, 40px));
+    width: clamp(64px, 8vw, 80px);
+    height: clamp(64px, 8vw, 80px);
+    border: 2px solid var(--color-lp-pink);
+    border-radius: 50%;
+    background: var(--color-lp-pink);
+  }
+
+  &::after {
+    top: 4px;
+    left: 4px;
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    border: 2px dashed var(--color-lp-white);
+    background: transparent;
+  }
+}
+
+.pointRewards__footerIcon {
+  position: absolute;
+  z-index: 2;
+  top: clamp(-32px, -4vw, -40px);
+  left: calc(50% - clamp(32px, 4vw, 40px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(64px, 8vw, 80px);
+  height: clamp(48px, 6vw, 60px);
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  line-height: 1;
+  color: var(--color-lp-white);
+  text-align: center;
+  pointer-events: none;
+}
+
+.pointRewards__footerText {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin: 0;
+  padding: clamp(2rem, 4.5vw, 3rem) clamp(1.125rem, 2.5vw, 1.5rem);
+  font-family: var(--font-base);
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  line-height: var(--line-height-body);
+  color: var(--color-lp-white);
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+  }
+
+  &::before {
+    top: clamp(-28px, -3.5vw, -34px);
+    left: calc(50% - clamp(28px, 3.4vw, 34px));
+    width: clamp(56px, 6.8vw, 68px);
+    height: clamp(32px, 4vw, 40px);
+    border: 2px dashed var(--color-lp-white);
+    border-bottom: none;
+    border-radius: 50vw 50vw 0 0;
+    background: transparent;
+  }
+
+  &::after {
+    top: 4px;
+    left: calc(50% - clamp(26px, 3.2vw, 32px));
+    width: clamp(52px, 6.4vw, 64px);
+    height: 10px;
+    background: var(--color-lp-pink);
+  }
+}
+
+.pointRewards .pointRewards__itemTitle {
   margin: 0;
   font-family: var(--font-base);
+  font-size: var(--text-body-lg);
+  line-height: var(--line-height-body);
   font-weight: 700;
-  line-height: 1.5;
 }
 
 .pointRewards__itemNote {
@@ -107,10 +211,11 @@
 
 .pointRewards__itemNote .pointRewards__itemText {
   margin-top: var(--space-xs);
+  opacity: 1;
 }
 
 .pointRewards__itemEm {
-  display: inline;
+  @include mixins.lp-neon-marker;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
@@ -122,7 +227,6 @@
 
   .pointRewards__content {
     margin-top: var(--space-xl);
-    padding-bottom: var(--space-2xl);
   }
 
   .pointRewards__panel {
@@ -130,6 +234,6 @@
   }
 
   .pointRewards__item + .pointRewards__item {
-    margin-top: var(--space-lg);
+    margin-top: var(--space-md);
   }
 }
