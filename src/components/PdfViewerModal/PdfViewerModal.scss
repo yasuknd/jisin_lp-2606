@@ -1,0 +1,186 @@
+@use '../../styles/mixins' as mixins;
+
+.pdfViewerModal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 1.5vw, 16px);
+}
+
+.pdfViewerModal__backdrop {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  background: rgb(0 0 0 / 0.72);
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.52s ease;
+}
+
+.pdfViewerModal--visible .pdfViewerModal__backdrop {
+  opacity: 1;
+}
+
+.pdfViewerModal__dialog {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(1200px, 100%);
+  height: min(96vh, 920px);
+  overflow: hidden;
+  background: var(--color-lp-white);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 24px 64px rgb(0 0 0 / 0.28);
+  opacity: 0;
+  transform: scale(0.86);
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  transition:
+    opacity 0.52s ease,
+    transform 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pdfViewerModal--visible .pdfViewerModal__dialog {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pdfViewerModal__header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pdfViewerModal__title {
+  margin: 0;
+  font-size: var(--text-caption);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-lp-black);
+}
+
+.pdfViewerModal__close {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 8px 16px;
+  font: inherit;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--color-lp-black);
+  cursor: pointer;
+  background: var(--color-lp-white);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+
+  @include mixins.focus-visible;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-lp-white);
+      background: var(--color-lp-black);
+      border-color: var(--color-lp-black);
+    }
+  }
+}
+
+.pdfViewerModal__body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  background: var(--color-surface-gray);
+}
+
+.pdfViewerModal__placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(
+      110deg,
+      rgb(245 245 245 / 0) 0%,
+      rgb(255 255 255 / 0.72) 45%,
+      rgb(245 245 245 / 0) 90%
+    ),
+    var(--color-surface-gray);
+  background-size: 220% 100%;
+  background-position: 120% 0;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  animation: pdfViewerModal-shimmer 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.pdfViewerModal--frameRevealed .pdfViewerModal__placeholder {
+  opacity: 0;
+  animation: none;
+}
+
+.pdfViewerModal__frame {
+  position: relative;
+  z-index: 1;
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pdfViewerModal--frameRevealed .pdfViewerModal__frame {
+  opacity: 1;
+}
+
+@keyframes pdfViewerModal-shimmer {
+  0% {
+    background-position: 120% 0;
+  }
+
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+@include mixins.media-pc {
+  .pdfViewerModal__dialog {
+    width: min(1280px, calc(100vw - 32px));
+    height: min(94vh, 960px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdfViewerModal__backdrop,
+  .pdfViewerModal__dialog,
+  .pdfViewerModal__frame,
+  .pdfViewerModal__placeholder {
+    transition: none;
+    animation: none;
+  }
+
+  .pdfViewerModal__backdrop,
+  .pdfViewerModal__dialog,
+  .pdfViewerModal--visible .pdfViewerModal__backdrop,
+  .pdfViewerModal--visible .pdfViewerModal__dialog,
+  .pdfViewerModal__frame,
+  .pdfViewerModal--frameRevealed .pdfViewerModal__frame,
+  .pdfViewerModal__placeholder,
+  .pdfViewerModal--frameRevealed .pdfViewerModal__placeholder {
+    opacity: 1;
+    transform: none;
+  }
+}

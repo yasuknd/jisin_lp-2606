@@ -6,7 +6,7 @@
   left: 0;
   z-index: 100;
   width: 100%;
-  background: rgb(255 255 255 / 0.8);
+  background: rgb(255 255 255 / 0.96);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgb(0 0 0 / 0.12);
   transition:
@@ -16,7 +16,7 @@
 }
 
 .header--compact {
-  background: rgb(255 255 255 / 0.58);
+  background: rgb(255 255 255 / 0.88);
   backdrop-filter: blur(12px);
   border-bottom-color: rgb(0 0 0 / 0.1);
 }
@@ -317,6 +317,51 @@
 }
 
 @include mixins.media-pc {
+  .header {
+    width: auto;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+  }
+
+  .header--compact {
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+  }
+
+  .header__inner {
+    justify-content: flex-start;
+    max-width: none;
+    min-height: auto;
+    margin-inline: 0;
+    padding: 20px 24px;
+    background: rgb(255 255 255 / 0.48);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition:
+      min-height 0.25s ease,
+      padding 0.25s ease,
+      gap 0.25s ease,
+      background-color 0.25s ease,
+      backdrop-filter 0.25s ease;
+  }
+
+  .header--compact .header__inner {
+    padding: 12px 20px;
+    background: rgb(255 255 255 / 0.36);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .header--noActions .header__inner {
+    justify-content: flex-start;
+  }
+
+  .header__logo {
+    justify-content: flex-start;
+  }
+
   .header__logoImage {
     height: 48px;
   }
@@ -335,35 +380,35 @@
 }
 
 @media (min-width: 768px) and (max-width: 1100px) {
-  .header__inner {
+  .header:not(.header--noActions) .header__inner {
     flex-direction: column;
     align-items: center;
     gap: 12px;
     min-height: auto;
   }
 
-  .header__logo {
+  .header:not(.header--noActions) .header__logo {
     justify-content: center;
     padding-block: var(--space-sm);
   }
 
-  .header__logoImage {
+  .header:not(.header--noActions) .header__logoImage {
     height: 60px;
   }
 
-  .header--compact .header__logoImage {
+  .header:not(.header--noActions).header--compact .header__logoImage {
     height: 44px;
   }
 
-  .header__logoText {
+  .header:not(.header--noActions) .header__logoText {
     font-size: 22px;
   }
 
-  .header--compact .header__logoText {
+  .header:not(.header--noActions).header--compact .header__logoText {
     font-size: 18px;
   }
 
-  .header__actions {
+  .header:not(.header--noActions) .header__actions {
     justify-content: center;
   }
 }

@@ -18,7 +18,7 @@
 .seasonalGifts__intro {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1120px + 10vw);
+  max-width: calc(1200px + 10vw);
   margin-inline: auto;
   padding: var(--space-lg) 5vw 0;
   text-align: left;
@@ -30,8 +30,7 @@
   font-size: var(--text-lead);
   font-weight: 700;
   line-height: 1.35;
-  color: var(--color-lp-black);
-  border-bottom-color: var(--color-lp-black);
+  border-bottom-color: var(--color-lp-pink);
 }
 
 .seasonalGifts__description {
@@ -55,7 +54,7 @@
 .seasonalGifts__panel {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1120px + 10vw);
+  max-width: calc(1200px + 10vw);
   margin-inline: auto;
   padding: var(--space-md) 5vw 0;
 }
@@ -124,7 +123,7 @@
   flex-direction: column;
   height: 100%;
   color: var(--color-lp-black);
-  background: transparent;
+  background: var(--color-lp-white);
 }
 
 .seasonalGifts__image {
@@ -168,10 +167,8 @@
 .seasonalGifts__cardTitle {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(1.125rem, 2.6vw, 1.375rem);
   font-weight: 700;
   line-height: 1.4;
-  color: var(--color-lp-black);
 }
 
 .seasonalGifts__cardText {
@@ -255,7 +252,6 @@
   }
 
   .seasonalGifts__cardTitle {
-    font-size: 1.375rem;
     line-height: 1.38;
   }
 

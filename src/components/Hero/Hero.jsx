@@ -1,37 +1,16 @@
-import { useEffect, useRef } from 'react';
 import { LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import SectionWaves from '../SectionWaves/SectionWaves.jsx';
-import logoPremium from '../../assets/images/brand/logo-premium.png';
+import SoftBlobs from '../SoftBlobs/SoftBlobs.jsx';
+import PhoneMock from '../PhoneMock/PhoneMock.jsx';
+import logoPremiumWhite from '../../assets/images/brand/logo-premium-white.png';
+import logoPremiumWhite2x from '../../assets/images/brand/logo-premium-white-2x.png';
+import logoPremiumWhite3x from '../../assets/images/brand/logo-premium-white-3x.png';
 import heroCoverMain from '../../assets/images/hero/hero-cover-main.jpg';
 import heroCoverAccent from '../../assets/images/hero/hero-cover-accent.jpg';
 import heroCoverSub from '../../assets/images/hero/hero-cover-sub.jpg';
-import heroMook01 from '../../assets/images/hero/hero-mook-01.jpg';
-import heroMook02 from '../../assets/images/hero/hero-mook-02.jpg';
-import heroMook03 from '../../assets/images/hero/hero-mook-03.jpg';
-import heroMook04 from '../../assets/images/hero/hero-mook-04.jpg';
-import heroMook05 from '../../assets/images/hero/hero-mook-05.jpg';
-import heroMook06 from '../../assets/images/hero/hero-mook-06.jpg';
-import heroMook07 from '../../assets/images/hero/hero-mook-07.jpg';
-import heroMook08 from '../../assets/images/hero/hero-mook-08.jpg';
-import heroMook09 from '../../assets/images/hero/hero-mook-09.jpg';
-import heroMook10 from '../../assets/images/hero/hero-mook-10.jpg';
-import HeroSpeechBubble from './HeroSpeechBubble.jsx';
 import './Hero.scss';
 
 const SHOW_HERO_ACTIONS = false;
-
-const heroMookImages = [
-  { id: 'mook-01', src: heroMook01, width: 2420, height: 3070 },
-  { id: 'mook-02', src: heroMook02, width: 2480, height: 2480 },
-  { id: 'mook-03', src: heroMook03, width: 2480, height: 3070 },
-  { id: 'mook-04', src: heroMook04, width: 2480, height: 2480 },
-  { id: 'mook-05', src: heroMook05, width: 2480, height: 3070 },
-  { id: 'mook-06', src: heroMook06, width: 2480, height: 2480 },
-  { id: 'mook-07', src: heroMook07, width: 2480, height: 3070 },
-  { id: 'mook-08', src: heroMook08, width: 2480, height: 2480 },
-  { id: 'mook-09', src: heroMook09, width: 2480, height: 3070 },
-  { id: 'mook-10', src: heroMook10, width: 2480, height: 2480 },
-];
 
 function HeroStars() {
   const stars = Array.from({ length: 38 }, (_, index) => ({
@@ -90,62 +69,12 @@ function HeroFlowLines() {
 }
 
 function Hero() {
-  const phoneStackRef = useRef(null);
-  const phoneCardRefs = useRef([]);
-
-  useEffect(() => {
-    const stack = phoneStackRef.current;
-    const centerCard = phoneCardRefs.current[1];
-
-    if (!stack || !centerCard) {
-      return undefined;
-    }
-
-    const setInitialScroll = () => {
-      const viewportHeight = stack.clientHeight;
-      const cardTop = centerCard.offsetTop;
-      const cardHeight = centerCard.offsetHeight;
-      stack.scrollTop = cardTop - (viewportHeight - cardHeight) / 2;
-    };
-
-    const images = stack.querySelectorAll('.hero__phoneImg');
-    let loadedCount = 0;
-
-    const handleReady = () => {
-      loadedCount += 1;
-      if (loadedCount >= images.length) {
-        setInitialScroll();
-      }
-    };
-
-    images.forEach((image) => {
-      if (image.complete) {
-        handleReady();
-      } else {
-        image.addEventListener('load', handleReady);
-        image.addEventListener('error', handleReady);
-      }
-    });
-
-    setInitialScroll();
-    window.addEventListener('resize', setInitialScroll);
-
-    return () => {
-      window.removeEventListener('resize', setInitialScroll);
-      images.forEach((image) => {
-        image.removeEventListener('load', handleReady);
-        image.removeEventListener('error', handleReady);
-      });
-    };
-  }, []);
-
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero__backdrop" aria-hidden="true">
         <div className="hero__wash" />
         <div className="hero__washLayer hero__washLayer--green" />
-        <span className="hero__blob hero__blob--1" />
-        <span className="hero__blob hero__blob--2" />
+        <SoftBlobs />
         <HeroStars />
         <HeroFlowLines />
         <svg className="hero__flowSvg hero__flowSvg--mirror" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -183,39 +112,7 @@ function Hero() {
           </div>
 
           <div className="hero__flank hero__flank--right">
-            <div className="hero__phone">
-              <div className="hero__phoneVisual">
-                <div className="hero__phoneFrame">
-                  <div className="hero__phoneBezel">
-                    <span className="hero__phoneNotch" />
-                    <div className="hero__phoneScreen">
-                      <div className="hero__phoneStack" ref={phoneStackRef}>
-                        {heroMookImages.map((item, index) => (
-                          <div
-                            key={item.id}
-                            className="hero__phoneCard"
-                            ref={(node) => {
-                              phoneCardRefs.current[index] = node;
-                            }}
-                          >
-                            <img
-                              className="hero__phoneImg"
-                              src={item.src}
-                              alt=""
-                              width={item.width}
-                              height={item.height}
-                              loading={index < 3 ? 'eager' : 'lazy'}
-                              decoding="async"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <HeroSpeechBubble />
-              </div>
-            </div>
+            <PhoneMock className="phoneMock--hero" showSpeechBubble />
           </div>
         </div>
 
@@ -237,10 +134,14 @@ function Hero() {
                     <h1 id="hero-title" className="hero__title">
                       <img
                         className="hero__titleLogo"
-                        src={logoPremium}
+                        src={logoPremiumWhite}
+                        srcSet={`${logoPremiumWhite} 447w, ${logoPremiumWhite2x} 894w, ${logoPremiumWhite3x} 1341w`}
+                        sizes="(min-width: 768px) 420px, 300px"
                         alt="女性自身 プレミアム"
                         width={447}
                         height={195}
+                        loading="eager"
+                        fetchPriority="high"
                         decoding="async"
                       />
                     </h1>

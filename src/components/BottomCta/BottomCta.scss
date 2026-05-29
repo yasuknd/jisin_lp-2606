@@ -6,6 +6,9 @@
   bottom: 0;
   left: 0;
   z-index: 100;
+  --bottom-cta-neon: var(--color-cta-neon);
+  --bottom-cta-neon-soft: var(--color-cta-neon-soft);
+  --bottom-cta-neon-deep: var(--color-cta-neon-deep);
 }
 
 .bottomCta__bar {
@@ -59,15 +62,17 @@
   font-size: min(var(--text-body-lg), calc((100cqw - 52px) / 18));
   font-weight: 800;
   line-height: 1.25;
-  color: var(--color-lp-white);
+  color: var(--color-lp-black);
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
   letter-spacing: -0.02em;
-  background: var(--color-lp-pink);
+  background: var(--bottom-cta-neon);
   border: 2px solid var(--color-lp-black);
   border-radius: 0;
-  box-shadow: 6px 6px 0 var(--color-lp-white);
+  box-shadow:
+    6px 6px 0 var(--color-lp-white),
+    0 0 14px rgb(229 255 0 / 0.28);
   transition:
     transform 0.14s ease,
     box-shadow 0.14s ease,
@@ -84,7 +89,9 @@
   min-height: 44px;
   padding: 10px clamp(6px, 1.5cqi, 12px);
   font-size: min(var(--text-body), calc((100cqw - 44px) / 20));
-  box-shadow: 4px 4px 0 var(--color-lp-white);
+  box-shadow:
+    4px 4px 0 var(--color-lp-white),
+    0 0 10px rgb(229 255 0 / 0.24);
 }
 
 .bottomCta__buttonWrap:hover .bottomCta__button,
@@ -92,16 +99,20 @@
 .bottomCta__button:focus-visible {
   transform: translate(6px, 6px);
   color: var(--color-lp-black);
-  background: var(--color-lp-white);
-  box-shadow: 0 0 0 var(--color-lp-pink);
+  background: var(--bottom-cta-neon-soft);
+  box-shadow:
+    0 0 0 var(--bottom-cta-neon),
+    0 0 20px rgb(229 255 0 / 0.42);
 }
 
 .bottomCta__buttonWrap:active .bottomCta__button,
 .bottomCta__button:active {
   transform: translate(6px, 6px);
-  color: var(--color-lp-pink-deep);
-  background: var(--color-lp-white);
-  box-shadow: 0 0 0 var(--color-lp-pink);
+  color: var(--color-lp-black);
+  background: var(--bottom-cta-neon-deep);
+  box-shadow:
+    0 0 0 var(--bottom-cta-neon-deep),
+    0 0 12px rgb(200 230 0 / 0.36);
 }
 
 @include mixins.media-pc {

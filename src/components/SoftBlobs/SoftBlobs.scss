@@ -1,0 +1,95 @@
+@keyframes soft-blobs-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes soft-blobs-morph {
+  0% {
+    border-radius: 42% 58% 58% 42% / 68% 32% 68% 32%;
+  }
+
+  25% {
+    border-radius: 58% 42% 48% 52% / 38% 62% 42% 58%;
+  }
+
+  50% {
+    border-radius: 48% 52% 62% 38% / 58% 42% 58% 42%;
+  }
+
+  75% {
+    border-radius: 62% 38% 42% 58% / 32% 68% 52% 48%;
+  }
+
+  100% {
+    border-radius: 42% 58% 58% 42% / 68% 32% 68% 32%;
+  }
+}
+
+.softBlobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.softBlobs__blob {
+  position: absolute;
+  z-index: 0;
+  background: rgb(255 255 255 / 0.09);
+  pointer-events: none;
+  border-radius: 42% 58% 58% 42% / 68% 32% 68% 32%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, border-radius;
+  animation:
+    soft-blobs-spin 20s linear infinite,
+    soft-blobs-morph 8s ease-in-out infinite;
+}
+
+.softBlobs__blob--1 {
+  width: 70vmax;
+  height: 70vmax;
+  left: -20vmin;
+  top: -20vmin;
+  transform-origin: 55% 55%;
+}
+
+.softBlobs__blob--2 {
+  width: 70vmin;
+  height: 70vmin;
+  left: auto;
+  right: -10vmin;
+  top: auto;
+  bottom: 0;
+  transform-origin: 20% 20%;
+  animation:
+    soft-blobs-spin 26s linear infinite reverse,
+    soft-blobs-morph 10s ease-in-out infinite;
+  animation-delay: 0s, -3s;
+}
+
+.softBlobs--contained {
+  .softBlobs__blob--1 {
+    width: clamp(320px, 52vw, 680px);
+    height: clamp(320px, 52vw, 680px);
+    left: clamp(12px, 4vw, 56px);
+    top: clamp(12px, 3vh, 40px);
+    transform-origin: center;
+  }
+
+  .softBlobs__blob--2 {
+    width: clamp(280px, 44vw, 560px);
+    height: clamp(280px, 44vw, 560px);
+    right: clamp(12px, 4vw, 56px);
+    bottom: clamp(20px, 4vh, 56px);
+    transform-origin: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .softBlobs__blob {
+    animation: none;
+  }
+}

@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { magazineCoverImages } from '../../assets/images/magazine-covers/loadMagazineCovers.js';
+import { ASSETS } from '../../constants/assets.js';
 import { EXTERNAL_LINK_PROPS, LINKS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import { useSectionParallax } from '../../hooks/useSectionParallax.js';
 import InView from '../InView/InView.jsx';
+import PdfViewerModal from '../PdfViewerModal/PdfViewerModal.jsx';
 import './Entry.scss';
 
 const ENTRY_MOSAIC_ROWS_PC = 4;
@@ -94,6 +96,7 @@ function Entry() {
   const sectionRef = useRef(null);
   const innerRef = useRef(null);
   const [isMosaicRevealed, setIsMosaicRevealed] = useState(false);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
 
   useSectionParallax(sectionRef, { bgSpeed: 0.18, contentSpeed: -0.06 });
 
@@ -179,9 +182,15 @@ function Entry() {
             </div>
           </div>
           <div className="entry__aside">
-            <a className="entry__guide" href={LINKS.guide} data-gtm="entry_guide_click">
+            <button
+              type="button"
+              className="entry__guide"
+              data-gtm="entry_guide_click"
+              onClick={() => setIsGuideOpen(true)}
+            >
               定期購読のご購入方法はこちら
-            </a>
+              <i className="entry__guideIcon fa-solid fa-up-right-from-square" aria-hidden="true" />
+            </button>
             <div className="entry__note">
               <p>
                 女性自身の定期購読をご購入いただくには、光文社ECサイト「
@@ -201,6 +210,12 @@ function Entry() {
           </div>
         </InView>
       </div>
+      <PdfViewerModal
+        isOpen={isGuideOpen}
+        onClose={() => setIsGuideOpen(false)}
+        src={ASSETS.subscriptionGuidePdf}
+        title="定期購読のご購入方法"
+      />
     </section>
   );
 }

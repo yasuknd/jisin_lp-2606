@@ -17,11 +17,11 @@
 .sectionWaves--bottom {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   z-index: 1;
-  height: clamp(52px, 18vh, 180px);
-  margin-bottom: -7px;
+  height: var(--section-waves-height);
+  margin-bottom: calc(-1 * var(--section-waves-overlap));
 }
 
 .sectionWaves--top {

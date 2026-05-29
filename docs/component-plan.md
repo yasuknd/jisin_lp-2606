@@ -19,10 +19,10 @@ Header
 → Pricing
 → Benefits
   → DigitalService
-  → PointRewards
   → SeasonalGifts
   → MemberEvents
   → FreeShipping
+  → PointRewards
 → Future
 → Notice
 → Entry
@@ -42,10 +42,10 @@ App
 │   ├── Pricing
 │   ├── Benefits
 │   │   ├── DigitalService
-│   │   ├── PointRewards
 │   │   ├── SeasonalGifts
 │   │   ├── MemberEvents
-│   │   └── FreeShipping
+│   │   ├── FreeShipping
+│   │   └── PointRewards
 │   ├── Future
 │   ├── Notice
 │   └── Entry
@@ -279,10 +279,10 @@ const updateItems = [ /* contents.md 3項目 */ ];
 ### Children（順序固定）
 
 1. DigitalService
-2. PointRewards
-3. SeasonalGifts
-4. MemberEvents
-5. FreeShipping
+2. SeasonalGifts
+3. MemberEvents
+4. FreeShipping
+5. PointRewards
 
 ---
 

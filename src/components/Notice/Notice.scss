@@ -1,8 +1,15 @@
 @use '../../styles/mixins' as mixins;
 
 .notice {
+  --notice-grid-size: 20px;
+  --notice-grid-color: rgb(0 0 0 / 0.045);
+
   padding-block: calc(var(--section-pad-y) + var(--space-sm));
   background-color: #f5f5f5;
+  background-image:
+    linear-gradient(var(--notice-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--notice-grid-color) 1px, transparent 1px);
+  background-size: var(--notice-grid-size) var(--notice-grid-size);
 }
 
 .notice__box {

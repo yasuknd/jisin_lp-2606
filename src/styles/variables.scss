@@ -7,6 +7,9 @@
   --color-lp-white: #fff;
   --color-lp-gray: #333;
   --color-lp-navy: #2c3e50;
+  --color-cta-neon: #E5FF00;
+  --color-cta-neon-soft: #F4FF66;
+  --color-cta-neon-deep: #C8E600;
   --color-lp-surface-alt: rgb(196 58 110 / 0.06);
   --color-lp-border: rgb(196 58 110 / 0.28);
 
@@ -45,7 +48,7 @@
   );
 
   --font-base: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --font-serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --font-serif: var(--font-base);
   --font-en: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
   --content-xs: 640px;
@@ -72,11 +75,15 @@
   --text-small: 16px;
   --text-caption: 15px;
   --text-lead: 24px;
+  --text-benefits-h4: clamp(1.3125rem, 2.2vw, 1.625rem);
   --text-section: clamp(1.875rem, 4.5vw, 2.75rem);
   --line-height-body: 1.85;
   --line-height-relaxed: 1.95;
   --section-pad-y: var(--space-xl);
   --section-pad-y-tight: var(--space-lg);
+  --section-seam-height: clamp(56px, 10vw, 120px);
+  --section-waves-height: clamp(40px, 8vh, 96px);
+  --section-waves-overlap: 8px;
 
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -86,4 +93,11 @@
   // ヘッダー右上リンク非表示時の高さ（リンク復活時は 132px に戻す）
   --header-height-sp: 72px;
   --bottom-cta-height: 140px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    // PC・リンク非表示：padding 20px + ロゴ 48px + padding 20px
+    --header-height: 88px;
+  }
 }

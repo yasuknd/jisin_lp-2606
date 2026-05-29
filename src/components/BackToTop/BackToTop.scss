@@ -50,7 +50,7 @@
 
 .backToTop__progress {
   fill: none;
-  stroke: var(--color-lp-black);
+  stroke: var(--color-lp-pink);
   stroke-width: 2;
   stroke-linecap: round;
   transform: rotate(-90deg);
@@ -67,7 +67,7 @@
 
 .backToTop__iconShape {
   fill: none;
-  stroke: var(--color-lp-black);
+  stroke: var(--color-lp-pink);
   stroke-width: 1.5;
   stroke-linejoin: round;
   transition: fill 0.2s ease;
@@ -75,7 +75,7 @@
 
 .backToTop:hover .backToTop__iconShape,
 .backToTop:focus-visible .backToTop__iconShape {
-  fill: var(--color-lp-black);
+  fill: var(--color-lp-pink);
 }
 
 @media (prefers-reduced-motion: reduce) {

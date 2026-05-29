@@ -1,0 +1,72 @@
+@keyframes sparkle-field-twinkle {
+  0%,
+  100% {
+    opacity: calc(var(--sparkle-opacity, 1) * 0.28);
+    transform: rotate(var(--sparkle-rotate, 0deg)) scale(0.82);
+  }
+
+  50% {
+    opacity: var(--sparkle-opacity, 1);
+    transform: rotate(var(--sparkle-rotate, 0deg)) scale(1);
+  }
+}
+
+.sparkleField {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sparkleField__sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.88);
+  box-shadow:
+    0 0 8px rgb(255 255 255 / 0.55),
+    0 0 14px rgb(255 255 255 / 0.22);
+  animation: sparkle-field-twinkle ease-in-out infinite;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgb(255 255 255 / 0.88);
+    transform: translate(-50%, -50%);
+    border-radius: 1px;
+  }
+
+  &::before {
+    width: 220%;
+    height: 2px;
+  }
+
+  &::after {
+    width: 2px;
+    height: 220%;
+  }
+}
+
+.sparkleField--pink {
+  .sparkleField__sparkle {
+    background: rgb(196 58 110 / 0.82);
+    box-shadow:
+      0 0 8px rgb(196 58 110 / 0.42),
+      0 0 14px rgb(196 58 110 / 0.18);
+
+    &::before,
+    &::after {
+      background: rgb(196 58 110 / 0.82);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkleField__sparkle {
+    animation: none;
+    opacity: 0.35;
+  }
+}

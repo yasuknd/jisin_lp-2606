@@ -18,7 +18,7 @@
 .freeShipping__intro {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1120px + 10vw);
+  max-width: calc(1200px + 10vw);
   margin-inline: auto;
   padding: var(--space-lg) 5vw 0;
   text-align: left;
@@ -30,55 +30,58 @@
   font-size: var(--text-lead);
   font-weight: 700;
   line-height: 1.35;
-  color: var(--color-lp-black);
-  border-bottom-color: var(--color-lp-black);
+  border-bottom-color: var(--color-lp-pink);
 }
 
-.freeShipping__description {
-  margin: var(--space-sm) 0 0;
-  font-size: var(--text-body-lg);
-  line-height: var(--line-height-body);
-  color: inherit;
-  opacity: 0.88;
-  font-weight: 600;
+.freeShipping__icon {
+  width: min(100%, 280px);
+  margin: var(--space-md) 0 0;
 }
 
-.freeShipping__panel .freeShipping__description {
-  margin: 0;
-  font-weight: 700;
-  color: var(--color-lp-black);
-  opacity: 1;
-  letter-spacing: 0.3em;
+.freeShipping__iconImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .freeShipping__content {
   box-sizing: border-box;
   width: 100%;
   margin: var(--space-xl) 0 0;
-  padding: 0 0 var(--space-xl);
+  padding: 0;
   color: var(--color-lp-black);
   background: var(--color-lp-white);
 }
 
-.freeShipping__panel {
+.freeShipping__list {
+  display: block;
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1120px + 10vw);
+  max-width: calc(1200px + 10vw);
   margin-inline: auto;
-  padding: var(--space-xl) 5vw;
-  border: 5px solid var(--color-lp-black);
-}
-
-.freeShipping__list {
-  display: grid;
-  gap: var(--space-sm);
-  margin: 0;
-  padding: 0;
+  margin-bottom: var(--space-2xl);
+  padding: 0 5vw var(--space-xl);
   list-style: none;
 }
 
-.freeShipping__list li {
-  text-align: left;
+.freeShipping__item {
+  display: block;
+  padding: var(--space-sm) 0;
+}
+
+.freeShipping__itemTitle {
+  margin: 0;
+  font-family: var(--font-base);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.freeShipping__itemText {
+  margin: var(--space-sm) 0 0;
+  @include mixins.lp-feature-text;
+  color: inherit;
+  opacity: 0.85;
 }
 
 @include mixins.media-pc {
@@ -86,11 +89,36 @@
     font-size: 36px;
   }
 
-  .freeShipping__content {
-    padding-bottom: var(--space-2xl);
+  .freeShipping__shell {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.58fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: calc(1200px + 10vw);
+    margin-inline: auto;
+    padding: var(--space-lg) 5vw calc(var(--space-2xl) + var(--space-lg));
   }
 
-  .freeShipping__panel {
-    padding-block: var(--space-2xl);
+  .freeShipping__intro {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .freeShipping__icon {
+    width: 100px;
+    margin-top: var(--space-lg);
+  }
+
+  .freeShipping__content {
+    margin: 0;
+  }
+
+  .freeShipping__list {
+    max-width: none;
+    margin: 0;
+    padding: 0;
   }
 }

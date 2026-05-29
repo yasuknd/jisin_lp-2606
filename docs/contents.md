@@ -401,11 +401,11 @@ Benefits
 
 ```txt
 Benefits
-├── DigitalService   … デジタルサービス
-├── PointRewards     … ポイント
-├── SeasonalGifts    … 豪華特典（季節プレゼント）
-├── MemberEvents     … イベント
-└── FreeShipping     … 毎号送料無料
+├── DigitalService   … デジタルサービス（特典1）
+├── SeasonalGifts    … 豪華特典（季節プレゼント）（特典2）
+├── MemberEvents     … イベント（特典3）
+├── FreeShipping     … 毎号送料無料（特典4）
+└── PointRewards     … ポイント（特典5）
 ```
 
 ## presentation

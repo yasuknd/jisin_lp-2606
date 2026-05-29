@@ -18,7 +18,7 @@
 .pointRewards__intro {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1120px + 10vw);
+  max-width: calc(1200px + 10vw);
   margin-inline: auto;
   padding: var(--space-lg) 5vw 0;
   text-align: left;
@@ -30,17 +30,19 @@
   font-size: var(--text-lead);
   font-weight: 700;
   line-height: 1.35;
-  color: var(--color-lp-black);
-  border-bottom-color: var(--color-lp-black);
+  border-bottom-color: var(--color-lp-pink);
 }
 
-.pointRewards__description {
-  margin: var(--space-sm) 0 0;
-  font-size: var(--text-body-lg);
-  line-height: var(--line-height-body);
-  color: inherit;
-  opacity: 0.88;
-  font-weight: 600;
+.pointRewards__icon {
+  width: min(100%, 280px);
+  margin: var(--space-md) 0 0;
+}
+
+.pointRewards__iconImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .pointRewards__content {
@@ -56,12 +58,11 @@
   display: block;
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1120px + 10vw);
+  max-width: calc(1200px + 10vw);
   margin-inline: auto;
   margin-bottom: var(--space-2xl);
-  padding: var(--space-xl) 5vw;
+  padding: 0 5vw var(--space-xl);
   list-style: none;
-  border: 5px solid var(--color-lp-pink);
 }
 
 .pointRewards__item {
@@ -77,13 +78,16 @@
   padding: var(--space-md) 0;
 }
 
+.pointRewards__itemFooter {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+}
+
 .pointRewards__itemTitle {
   margin: 0;
   font-family: var(--font-base);
-  font-size: var(--text-body-lg);
   font-weight: 700;
   line-height: 1.5;
-  color: var(--color-lp-pink);
 }
 
 .pointRewards__itemNote {
@@ -124,9 +128,37 @@
     font-size: 36px;
   }
 
+  .pointRewards__shell {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.58fr);
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: calc(1200px + 10vw);
+    margin-inline: auto;
+    padding: var(--space-lg) 5vw calc(var(--space-2xl) + var(--space-lg));
+  }
+
+  .pointRewards__intro {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pointRewards__icon {
+    width: 100px;
+    margin-top: var(--space-lg);
+  }
+
+  .pointRewards__content {
+    margin: 0;
+  }
+
   .pointRewards__list {
-    margin-bottom: calc(var(--space-2xl) + var(--space-lg));
-    padding-block: var(--space-2xl);
+    max-width: none;
+    margin: 0;
+    padding: 0;
   }
 
   .pointRewards__item + .pointRewards__item {

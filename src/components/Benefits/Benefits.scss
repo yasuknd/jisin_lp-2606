@@ -1,37 +1,48 @@
 @use '../../styles/mixins.scss' as mixins;
 
 .benefits {
-  --benefits-wave-overlap: clamp(104px, 17vw, 180px);
-
   position: relative;
+  z-index: 1;
   width: 100vw;
   max-width: 100vw;
+  margin-top: -1px;
   margin-inline: calc(50% - 50vw);
   background: var(--color-lp-white);
 }
 
 .benefits__inner {
+  --benefits-header-waves-height: var(--section-waves-height);
+  --benefits-header-waves-overlap: var(--section-waves-overlap);
+
   position: relative;
   z-index: 1;
   width: 100%;
   max-width: none;
   margin-inline: auto;
-  padding: calc(var(--section-pad-y-tight) + var(--benefits-wave-overlap)) 0 0;
+  padding: var(--section-pad-y-tight) 0 0;
 
   @include mixins.media-pc {
-    padding-top: 320px;
+    padding-top: var(--space-xl);
   }
+}
+
+.benefits__headerArea {
+  position: relative;
+  z-index: 2;
 }
 
 .benefits__header {
   max-width: var(--content-wide);
   margin-inline: auto;
   padding-inline: 20px;
-  padding-bottom: var(--space-lg);
+  padding-bottom: calc(var(--space-lg) + var(--space-sm) + var(--benefits-header-waves-height));
   text-align: center;
 }
 
 .benefits__title {
+  position: relative;
+  display: inline-block;
+  padding-inline: clamp(32px, 5vw, 56px);
   font-family: var(--font-base);
   font-size: var(--text-section);
   font-weight: 700;
@@ -39,12 +50,36 @@
   color: var(--color-lp-black);
   letter-spacing: 0.06em;
   text-align: center;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 3px;
+    height: 2.6em;
+    background: var(--color-lp-pink);
+    border-radius: 1.5px;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: clamp(8px, 1.5vw, 16px);
+    transform: translateY(-50%) rotate(-30deg);
+  }
+
+  &::after {
+    right: clamp(8px, 1.5vw, 16px);
+    transform: translateY(-50%) rotate(30deg);
+  }
 }
 
 .benefits__body {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  margin-top: var(--space-md);
+  margin-top: calc(-1 * var(--benefits-header-waves-overlap));
 }
 
 .benefits__block {
@@ -54,38 +89,72 @@
   isolation: isolate;
 }
 
-.benefits__body > .benefits__block:nth-child(1) {
+.benefits__waveBridge {
+  position: relative;
+  z-index: 3;
+  height: var(--benefits-header-waves-height);
+  overflow: visible;
+  background: var(--color-lp-white);
+}
+
+.benefits__body > .benefits__block--pink {
+  --digital-feature-chamfer: clamp(56px, 9.5vw, 96px);
+  --benefits-pink-content-max: calc(1120px + 10vw);
+  --benefits-pink-content-pad: clamp(24px, 5.2vw, 52px);
+  --benefits-pink-features-gap-top: clamp(12px, 2vw, 24px);
+  --benefits-pink-panel-pad-block: clamp(28px, 4vw, 40px);
+
+  width: 100vw;
+  max-width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
+  color: var(--color-lp-white);
+  background: var(--color-lp-pink);
+}
+
+.benefits__waveBridge + .benefits__block--pink {
+  margin-top: calc(-1 * var(--benefits-header-waves-overlap));
+
+  .memberEvents__intro {
+    padding-top: calc(var(--space-lg) + var(--space-xs));
+  }
+}
+
+.benefits__body > .benefits__block--pink:first-of-type {
+  .digitalService__intro {
+    padding-top: calc(var(--space-lg) + var(--space-xs));
+  }
+}
+
+.benefits__body > article:nth-of-type(1) {
   z-index: 1;
 }
 
-.benefits__body > .benefits__block:nth-child(2) {
+.benefits__body > article:nth-of-type(2) {
   z-index: 2;
 }
 
-.benefits__body > .benefits__block:nth-child(3) {
-  z-index: 3;
-}
-
-.benefits__body > .benefits__block:nth-child(4) {
+.benefits__body > article:nth-of-type(3) {
   z-index: 4;
 }
 
-.benefits__body > .benefits__block:nth-child(5) {
+.benefits__body > article:nth-of-type(4) {
   z-index: 5;
 }
 
-.benefits__body > .benefits__block > * {
+.benefits__body > article:nth-of-type(5) {
+  z-index: 6;
+}
+
+.benefits__body > .benefits__block > *:not(.sparkleField) {
   position: relative;
   z-index: 2;
 }
 
-.benefits__block:first-child,
-.benefits__block:nth-child(2),
-.benefits__block:nth-child(3),
-.benefits__block:nth-child(4),
-.benefits__block:nth-child(5) {
+.benefits__body > article {
   max-width: none;
   padding: 0;
+  overflow: hidden;
 }
 
 .benefits__block:not(:first-child):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(5)) {
@@ -98,29 +167,51 @@
 }
 
 .benefits__blockLabel {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
   display: block;
+  box-sizing: border-box;
   width: fit-content;
-  margin: 0 0 var(--space-md);
-  padding: 6px 14px;
+  max-width: 500px;
+  margin: 0 13px calc(var(--space-md) + 6px) 0;
+  padding: 10px 22px;
+  outline: 2px solid var(--color-lp-white);
   font-family: var(--font-base);
-  font-size: var(--text-caption);
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--color-lp-white);
-  letter-spacing: 0.08em;
-  background: var(--color-lp-black);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.14em;
+  color: var(--color-lp-black);
+  text-align: center;
+  background: var(--color-lp-white);
+  box-shadow: inset 0 0 0 1px var(--color-lp-black);
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-right: 2px solid var(--color-lp-black);
+    border-bottom: 2px solid var(--color-lp-black);
+  }
 }
 
 .benefits h3 {
   display: block;
   width: fit-content;
   max-width: 100%;
-  border-bottom: 1px solid var(--color-lp-black);
   padding-bottom: 0.15em;
+  color: var(--color-lp-pink);
+  border-bottom: 1px solid var(--color-lp-pink);
 }
 
 .benefits h4 {
-  font-size: var(--text-lead);
+  font-size: var(--text-benefits-h4);
+  color: var(--color-lp-black);
 }
 
 @include mixins.media-pc {
@@ -132,12 +223,21 @@
     padding: var(--space-xl);
   }
 
-  .benefits__block:first-child,
-  .benefits__block:nth-child(2),
-  .benefits__block:nth-child(3),
-  .benefits__block:nth-child(4),
-  .benefits__block:nth-child(5) {
+  .benefits__body > article {
     padding: 0;
+  }
+
+  .benefits__body > .benefits__block--pink:first-of-type .digitalService__intro {
+    padding-top: calc(clamp(44px, 5vw, 56px) + var(--space-xs));
+  }
+
+  .benefits__waveBridge + .benefits__block--pink .memberEvents__intro {
+    padding-top: calc(clamp(44px, 5vw, 56px) + var(--space-xs));
+  }
+
+  .benefits__body > .benefits__block--pink {
+    --benefits-pink-features-gap-top: clamp(16px, 2.5vw, 28px);
+    --benefits-pink-panel-pad-block: clamp(36px, 4.5vw, 56px);
   }
 }
 
@@ -162,7 +262,7 @@
   .seasonalGifts__cardText,
   .memberEvents__caption,
   .memberEvents__itemText,
-  .freeShipping__panel p {
+  .freeShipping__itemText {
     @include mixins.in-view-text-hidden;
   }
 }
@@ -192,7 +292,7 @@
   .seasonalGifts__cardText,
   .memberEvents__caption,
   .memberEvents__itemText,
-  .freeShipping__panel p {
+  .freeShipping__itemText {
     @include mixins.in-view-text-reveal(4);
   }
 }

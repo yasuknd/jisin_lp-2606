@@ -1,13 +1,15 @@
 @use '../../styles/mixins.scss' as mixins;
 
 .pricing {
-  --pricing-section-pad-y: clamp(96px, 14vw, 144px);
-  --pricing-section-pad-bottom: clamp(72px, 11vw, 120px);
-  --pricing-wave-height: clamp(88px, 15vw, 156px);
+  --pricing-section-pad-y: clamp(80px, 12vw, 128px);
+  --pricing-section-pad-bottom: 240px;
 
   position: relative;
+  z-index: 2;
+  margin-top: -1px;
   overflow-x: clip;
-  background: var(--color-lp-navy);
+
+  @include mixins.pricing-section-pattern;
 }
 
 .pricing__inner {
@@ -29,7 +31,7 @@
   font-size: var(--text-section);
   font-weight: 700;
   line-height: 1.35;
-  color: var(--color-lp-white);
+  color: var(--color-lp-black);
   letter-spacing: 0.06em;
   font-feature-settings: 'palt' 1;
 }
@@ -38,51 +40,55 @@
   margin-top: var(--space-md);
   font-size: var(--text-body-lg);
   line-height: var(--line-height-body);
-  color: rgb(255 255 255 / 0.92);
+  color: var(--color-text-sub);
   letter-spacing: 0.04em;
   font-feature-settings: 'palt' 1;
 }
 
 .pricing__cards {
+  --pricing-cards-max: min(100%, 900px);
+  --pricing-cards-gap: var(--space-xl);
+
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--pricing-cards-gap);
+  max-width: var(--pricing-cards-max);
   margin-top: var(--space-xl);
+  margin-inline: auto;
   padding-top: 18px;
 }
 
 .pricing__note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
   max-width: 760px;
-  margin: var(--space-lg) auto 0;
+  margin: clamp(56px, 7vw, 80px) auto 0;
   text-align: center;
 
   p {
     margin: 0;
     font-size: var(--text-caption);
     line-height: var(--line-height-body);
-    color: rgb(255 255 255 / 0.78);
+    color: rgb(0 0 0 / 0.62);
     letter-spacing: 0.04em;
     font-feature-settings: 'palt' 1;
-
-    & + p {
-      margin-top: 0.35em;
-    }
   }
 
   a {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: rgb(255 255 255 / 0.45);
+    text-decoration-color: rgb(0 0 0 / 0.35);
     text-underline-offset: 0.15em;
 
     @media (hover: hover) {
       &:hover {
-        text-decoration-color: rgb(255 255 255 / 0.85);
+        text-decoration-color: rgb(0 0 0 / 0.72);
       }
     }
 
     &:focus-visible {
-      outline: 2px solid rgb(255 255 255 / 0.85);
+      outline: 2px solid var(--color-lp-pink-bright);
       outline-offset: 2px;
     }
   }
@@ -95,6 +101,11 @@
   --pricing-accent-soft: color-mix(in srgb, var(--pricing-accent) 10%, var(--color-lp-white));
   --pricing-accent-border: color-mix(in srgb, var(--pricing-accent-deep) 60%, var(--color-lp-white));
   --pricing-accent-shadow: rgb(31 122 82 / 0.24);
+  --pricing-frame-ring: color-mix(in srgb, var(--pricing-accent-bright) 34%, var(--color-lp-white));
+  --pricing-corner-offset: -14px;
+  --pricing-corner-arm: 40px;
+  --pricing-corner-stroke: 5px;
+  --pricing-corner-color: var(--pricing-accent-deep);
   --pricing-heading-bg: var(--color-lp-white);
   --pricing-label-bg: var(--pricing-accent);
   --pricing-label-wing: var(--pricing-accent-bright);
@@ -109,8 +120,36 @@
   border: 3px solid var(--pricing-accent-deep);
   box-shadow:
     0 0 0 2px var(--color-lp-white),
-    0 10px 28px rgb(0 0 0 / 0.22),
+    0 0 0 5px var(--pricing-frame-ring),
+    0 12px 32px var(--pricing-accent-shadow),
     inset 0 0 0 1px rgb(255 255 255 / 0.7);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    z-index: 1;
+    pointer-events: none;
+    border: 1px solid color-mix(in srgb, var(--pricing-accent-deep) 18%, transparent);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: var(--pricing-corner-offset);
+    z-index: 3;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.22));
+    background:
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) left 0 top 0 / var(--pricing-corner-arm) var(--pricing-corner-stroke) no-repeat,
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) left 0 top 0 / var(--pricing-corner-stroke) var(--pricing-corner-arm) no-repeat,
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) right 0 top 0 / var(--pricing-corner-arm) var(--pricing-corner-stroke) no-repeat,
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) right 0 top 0 / var(--pricing-corner-stroke) var(--pricing-corner-arm) no-repeat,
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) left 0 bottom 0 / var(--pricing-corner-arm) var(--pricing-corner-stroke) no-repeat,
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) left 0 bottom 0 / var(--pricing-corner-stroke) var(--pricing-corner-arm) no-repeat,
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) right 0 bottom 0 / var(--pricing-corner-arm) var(--pricing-corner-stroke) no-repeat,
+      linear-gradient(var(--pricing-corner-color), var(--pricing-corner-color)) right 0 bottom 0 / var(--pricing-corner-stroke) var(--pricing-corner-arm) no-repeat;
+  }
 }
 
 .pricing__card--recommended {
@@ -411,9 +450,12 @@
   }
 
   .pricing__cards {
+    --pricing-cards-max: min(100%, 920px);
+    --pricing-cards-gap: clamp(48px, 5.5vw, 72px);
+
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-lg);
+    gap: var(--pricing-cards-gap);
     align-items: stretch;
     padding-top: 22px;
   }
@@ -468,14 +510,6 @@
     padding: 16px clamp(16px, 2cqi, 24px);
     letter-spacing: 0.08em;
   }
-}
-
-.pricing__wave {
-  @include mixins.lp-curve-wave-divider(
-    var(--color-lp-navy),
-    var(--color-lp-white),
-    var(--pricing-wave-height)
-  );
 }
 
 @media (prefers-reduced-motion: reduce) {

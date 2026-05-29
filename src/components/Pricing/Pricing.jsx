@@ -1,5 +1,6 @@
 import { LINKS, EXTERNAL_LINK_PROPS, SUBSCRIPTION_LINK_PROPS } from '../../constants/links.js';
 import InView from '../InView/InView.jsx';
+import SectionWaves from '../SectionWaves/SectionWaves.jsx';
 import './Pricing.scss';
 
 function PricingPrice({ amount, quantityNum, quantityUnit, quantityPeriod }) {
@@ -122,7 +123,7 @@ function Pricing() {
           </p>
         </InView>
       </div>
-      <div className="pricing__wave" aria-hidden="true" />
+      <SectionWaves variant="white" position="bottom" />
     </section>
   );
 }

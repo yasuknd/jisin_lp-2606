@@ -1,3 +1,4 @@
+import pointRewardsIcon from '../../../assets/images/benefits/point-rewards-icon.png';
 import './PointRewards.scss';
 
 const pointRewardItems = [
@@ -20,9 +21,17 @@ function PointRewards({ label }) {
         <header className="pointRewards__intro">
           <p className="benefits__blockLabel">{label}</p>
           <h3 className="pointRewards__title">ポイントが貯まる</h3>
-          <p className="pointRewards__description">
-            kokodeクーポンのプレゼントや抽選プレゼントも！
-          </p>
+          <figure className="pointRewards__icon">
+            <img
+              className="pointRewards__iconImage"
+              src={pointRewardsIcon}
+              alt=""
+              width={320}
+              height={240}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         </header>
         <div className="pointRewards__content">
           <ul className="pointRewards__list">
@@ -46,6 +55,11 @@ function PointRewards({ label }) {
                 ) : null}
               </li>
             ))}
+            <li className="pointRewards__item pointRewards__itemFooter">
+              <h4 className="pointRewards__itemTitle">
+                kokodeクーポンのプレゼントや抽選プレゼントも！
+              </h4>
+            </li>
           </ul>
         </div>
       </div>
