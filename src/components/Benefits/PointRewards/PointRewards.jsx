@@ -1,4 +1,3 @@
-import pointRewardsIcon from '../../../assets/images/benefits/point-rewards-icon.png';
 import './PointRewards.scss';
 
 const pointRewardItems = [
@@ -21,46 +20,37 @@ function PointRewards({ label }) {
         <header className="pointRewards__intro">
           <p className="benefits__blockLabel">{label}</p>
           <h3 className="pointRewards__title">ポイントが貯まる</h3>
-          <figure className="pointRewards__icon">
-            <img
-              className="pointRewards__iconImage"
-              src={pointRewardsIcon}
-              alt=""
-              width={320}
-              height={240}
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
         </header>
         <div className="pointRewards__content">
-          <ul className="pointRewards__list">
-            {pointRewardItems.map((item) => (
-              <li
-                key={item.title}
-                className={`pointRewards__item${item.highlight ? ' pointRewards__highlight' : ''}`}
-              >
-                <h4 className="pointRewards__itemTitle">{item.title}</h4>
-                {item.descriptionLabel ? (
-                  <div className="pointRewards__itemNote">
-                    <p className="pointRewards__itemLabel">{item.descriptionLabel}</p>
-                    {item.description ? (
-                      <p className="pointRewards__itemText">
-                        <span className="pointRewards__itemEm">{item.description}</span>
-                      </p>
-                    ) : null}
-                  </div>
-                ) : item.description ? (
-                  <p className="pointRewards__itemText">{item.description}</p>
-                ) : null}
+          <div className="pointRewards__panel">
+            <ul className="pointRewards__list">
+              {pointRewardItems.map((item) => (
+                <li
+                  key={item.title}
+                  className={`pointRewards__item${item.highlight ? ' pointRewards__highlight' : ''}`}
+                >
+                  <h4 className="pointRewards__itemTitle">{item.title}</h4>
+                  {item.descriptionLabel ? (
+                    <div className="pointRewards__itemNote">
+                      <p className="pointRewards__itemLabel">{item.descriptionLabel}</p>
+                      {item.description ? (
+                        <p className="pointRewards__itemText">
+                          <span className="pointRewards__itemEm">{item.description}</span>
+                        </p>
+                      ) : null}
+                    </div>
+                  ) : item.description ? (
+                    <p className="pointRewards__itemText">{item.description}</p>
+                  ) : null}
+                </li>
+              ))}
+              <li className="pointRewards__item pointRewards__itemFooter">
+                <h4 className="pointRewards__itemTitle">
+                  kokodeクーポンのプレゼントや抽選プレゼントも！
+                </h4>
               </li>
-            ))}
-            <li className="pointRewards__item pointRewards__itemFooter">
-              <h4 className="pointRewards__itemTitle">
-                kokodeクーポンのプレゼントや抽選プレゼントも！
-              </h4>
-            </li>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

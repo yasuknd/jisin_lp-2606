@@ -18,9 +18,9 @@
 .pointRewards__intro {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1200px + 10vw);
+  max-width: var(--benefits-white-content-max, calc(1200px + 10vw));
   margin-inline: auto;
-  padding: var(--space-lg) 5vw 0;
+  padding: var(--space-lg) var(--benefits-white-content-pad, 5vw) 0;
   text-align: left;
 }
 
@@ -33,35 +33,27 @@
   border-bottom-color: var(--color-lp-pink);
 }
 
-.pointRewards__icon {
-  width: min(100%, 280px);
-  margin: var(--space-md) 0 0;
-}
-
-.pointRewards__iconImage {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
 .pointRewards__content {
   box-sizing: border-box;
   width: 100%;
-  margin: var(--space-xl) 0 0;
-  padding: 0;
+  margin: var(--space-lg) 0 0;
+  padding: 0 0 var(--space-xl);
   color: var(--color-lp-black);
   background: var(--color-lp-white);
 }
 
-.pointRewards__list {
-  display: block;
+.pointRewards__panel {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1200px + 10vw);
+  max-width: var(--benefits-white-content-max, calc(1200px + 10vw));
   margin-inline: auto;
-  margin-bottom: var(--space-2xl);
-  padding: 0 5vw var(--space-xl);
+  padding: var(--space-md) var(--benefits-white-content-pad, 5vw) 0;
+}
+
+.pointRewards__list {
+  display: block;
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 
@@ -128,37 +120,13 @@
     font-size: 36px;
   }
 
-  .pointRewards__shell {
-    display: grid;
-    grid-template-columns: minmax(280px, 0.42fr) minmax(0, 0.58fr);
-    gap: clamp(32px, 5vw, 64px);
-    align-items: start;
-    box-sizing: border-box;
-    width: 100%;
-    max-width: calc(1200px + 10vw);
-    margin-inline: auto;
-    padding: var(--space-lg) 5vw calc(var(--space-2xl) + var(--space-lg));
-  }
-
-  .pointRewards__intro {
-    max-width: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .pointRewards__icon {
-    width: 100px;
-    margin-top: var(--space-lg);
-  }
-
   .pointRewards__content {
-    margin: 0;
+    margin-top: var(--space-xl);
+    padding-bottom: var(--space-2xl);
   }
 
-  .pointRewards__list {
-    max-width: none;
-    margin: 0;
-    padding: 0;
+  .pointRewards__panel {
+    padding: var(--space-lg) var(--benefits-white-content-pad, 5vw) 0;
   }
 
   .pointRewards__item + .pointRewards__item {

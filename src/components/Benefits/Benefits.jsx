@@ -13,7 +13,7 @@ const benefitBlocks = [
   { id: 'digitalService', label: '特典1', component: DigitalService, pinkBand: true },
   { id: 'seasonalGifts', label: '特典2', component: SeasonalGifts, waveBefore: true, waveVariant: 'white', waveBridgeTone: 'pink' },
   { id: 'memberEvents', label: '特典3', component: MemberEvents, pinkBand: true, waveBefore: true, waveVariant: 'pink', waveBridgeTone: 'white' },
-  { id: 'freeShipping', label: '特典4', component: FreeShipping },
+  { id: 'freeShipping', label: '特典4', component: FreeShipping, waveBefore: true, waveVariant: 'white', waveBridgeTone: 'pink' },
   { id: 'pointRewards', label: '特典5', component: PointRewards },
 ];
 

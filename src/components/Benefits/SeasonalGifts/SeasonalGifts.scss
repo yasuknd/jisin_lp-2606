@@ -18,9 +18,9 @@
 .seasonalGifts__intro {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1200px + 10vw);
+  max-width: var(--benefits-white-content-max, calc(1200px + 10vw));
   margin-inline: auto;
-  padding: var(--space-lg) 5vw 0;
+  padding: var(--space-lg) var(--benefits-white-content-pad, 5vw) 0;
   text-align: left;
 }
 
@@ -54,9 +54,9 @@
 .seasonalGifts__panel {
   box-sizing: border-box;
   width: 100%;
-  max-width: calc(1200px + 10vw);
+  max-width: var(--benefits-white-content-max, calc(1200px + 10vw));
   margin-inline: auto;
-  padding: var(--space-md) 5vw 0;
+  padding: var(--space-md) var(--benefits-white-content-pad, 5vw) 0;
 }
 
 .seasonalGifts__cards {
@@ -224,7 +224,7 @@
   }
 
   .seasonalGifts__panel {
-    padding: var(--space-lg) 5vw 0;
+    padding: var(--space-lg) var(--benefits-white-content-pad, 5vw) 0;
   }
 
   .seasonalGifts__gallery {
