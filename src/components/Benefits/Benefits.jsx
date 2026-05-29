@@ -11,8 +11,8 @@ import './Benefits.scss';
 
 const benefitBlocks = [
   { id: 'digitalService', label: '特典1', component: DigitalService, pinkBand: true },
-  { id: 'seasonalGifts', label: '特典2', component: SeasonalGifts },
-  { id: 'memberEvents', label: '特典3', component: MemberEvents, pinkBand: true, waveBefore: true },
+  { id: 'seasonalGifts', label: '特典2', component: SeasonalGifts, waveBefore: true, waveVariant: 'white', waveBridgeTone: 'pink' },
+  { id: 'memberEvents', label: '特典3', component: MemberEvents, pinkBand: true, waveBefore: true, waveVariant: 'pink', waveBridgeTone: 'white' },
   { id: 'freeShipping', label: '特典4', component: FreeShipping },
   { id: 'pointRewards', label: '特典5', component: PointRewards },
 ];
@@ -32,11 +32,17 @@ function Benefits() {
           <SectionWaves variant="pink" position="bottom" />
         </div>
         <div className="benefits__body">
-          {benefitBlocks.map(({ id, label, component: BenefitComponent, pinkBand, waveBefore }, index) => (
+          {benefitBlocks.map(({ id, label, component: BenefitComponent, pinkBand, waveBefore, waveVariant, waveBridgeTone }, index) => (
             <Fragment key={id}>
               {waveBefore ? (
-                <div className="benefits__waveBridge" aria-hidden="true">
-                  <SectionWaves variant="pink" position="bottom" />
+                <div
+                  className={[
+                    'benefits__waveBridge',
+                    waveBridgeTone === 'pink' ? 'benefits__waveBridge--fromPink' : '',
+                  ].filter(Boolean).join(' ')}
+                  aria-hidden="true"
+                >
+                  <SectionWaves variant={waveVariant ?? 'pink'} position="bottom" />
                 </div>
               ) : null}
               <InView

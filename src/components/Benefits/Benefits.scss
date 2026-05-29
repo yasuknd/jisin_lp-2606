@@ -97,6 +97,10 @@
   background: var(--color-lp-white);
 }
 
+.benefits__waveBridge--fromPink {
+  background: var(--color-lp-pink);
+}
+
 .benefits__body > .benefits__block--pink {
   --digital-feature-chamfer: clamp(56px, 9.5vw, 96px);
   --benefits-pink-content-max: calc(1120px + 10vw);
@@ -116,6 +120,14 @@
   margin-top: calc(-1 * var(--benefits-header-waves-overlap));
 
   .memberEvents__intro {
+    padding-top: calc(var(--space-lg) + var(--space-xs));
+  }
+}
+
+.benefits__waveBridge--fromPink + .benefits__block {
+  margin-top: calc(-1 * var(--benefits-header-waves-overlap));
+
+  .seasonalGifts__intro {
     padding-top: calc(var(--space-lg) + var(--space-xs));
   }
 }
@@ -232,6 +244,10 @@
   }
 
   .benefits__waveBridge + .benefits__block--pink .memberEvents__intro {
+    padding-top: calc(clamp(44px, 5vw, 56px) + var(--space-xs));
+  }
+
+  .benefits__waveBridge--fromPink + .benefits__block .seasonalGifts__intro {
     padding-top: calc(clamp(44px, 5vw, 56px) + var(--space-xs));
   }
 
